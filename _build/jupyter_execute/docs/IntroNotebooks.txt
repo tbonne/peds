@@ -1,0 +1,11 @@
+#add code here (a hashtag in the code creates a comment)
+#let's create a variable i, make it equal to 1, and then print it
+i = 1
+print(i)
+
+#you can run this code by clicking the play button (or pressing ctr-enter)
+#you will see the output of the print command just below
+
+#let's add 1 to i and print it again
+i = i + 1
+print(i)

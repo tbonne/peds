@@ -1,0 +1,47 @@
+#Load in pandas
+import pandas as pd
+
+#load in the nyc flight data
+df_flights = pd.read_csv('/content/nyc_flight_data.csv') 
+
+#mount your google drive
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+##load in the nyc flight data 
+df_flights = pd.read_csv('/content/gdrive/MyDrive/Colab Notebooks/DataScience/dataDSI/nyc_flight_data.csv') 
+
+df_flights.shape
+
+df_flights.head(5)
+
+%load_ext google.colab.data_table
+
+df_flights.head(5)
+
+#find the data types
+df_flights.dtypes
+
+df_flights.describe()
+
+#keep only the a subset of columns
+df_flights_sub = df_flights.loc[? ,?  ]  #Warning: the column names will be case sensitive!
+
+#take a look at the new dataframe
+?
+
+#keep only the rows with arr_delay of greater than 60 minutes
+df_flights_delayed60 = df_flights[?]
+
+#What is the shape of this new dataframe
+?
+
+#keep only the rows with arr_delay less than 0 minutes (i.e., negative delay!)
+
+#what is the shape of this new dataframe
+
+#percentage of flights delayed more than 60mins, i.e., number delayed rows / number total rows
+
+
+#percentage of flights arriving before scheduled time, i.e., number early rows / number total rows
+
