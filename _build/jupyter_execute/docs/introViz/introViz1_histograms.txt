@@ -1,0 +1,104 @@
+#Import python packages
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+import pandas as pd
+import numpy as np
+
+
+#load in the nyc data 
+df_flights = pd.read_csv('?')
+
+#take a look
+?
+
+?
+
+#get the mean
+delay_mean = df_flights['arr_delay'].mean()
+
+#geth the mode
+delay_mode = df_flights['arr_delay'].mode()
+
+#get the median
+delay_median = df_flights['arr_delay'].median()
+
+#get the variance
+delay_std = df_flights['arr_delay'].std()
+
+print("the mean arrival delay is: ", delay_mean)
+print("the most common arrival delay is: ", delay_mode)
+print("the middle most arrival delay is: ", delay_median)
+print("the standard deviation of arrival delays is: ", delay_std)
+
+sns.displot(df_flights, x='arr_delay')
+
+sns.displot(df_flights, x='arr_delay', binwidth=?) #E.g., 100
+
+sns.displot(df_flights,x='arr_delay', binwidth=10)
+plt.axvline(delay_mean, color="red")
+plt.axvline(delay_mode[0], color="purple")
+plt.axvline(delay_median, color="pink")
+
+
+sns.displot(df_flights,x='arr_delay', binwidth=10)
+plt.xlim(-100,100)
+plt.axvline(delay_mean, color="red")
+plt.axvline(delay_mode[0], color="purple")
+plt.axvline(delay_median, color="pink")
+
+
+#get the mean
+dep_mean = df_flights['dep_time'].?()
+
+#geth the mode
+dep_mode = df_flights['?'].?()
+
+#get the median
+dep_median = df_flights?
+
+#get the standard deviation
+dep_std = ?
+
+
+
+sns.displot(df_flights['dep_time'], binwidth=?)
+plt.axvline(?, color="?")
+plt.axvline(dep_mode[0], color="?")
+plt.axvline(?, color="?")
+
+#get standard deviation for arrival delay
+delay_sd = df_flights['?'].std()
+
+#get standard deviation for departure times
+dep_sd = df_flights?
+
+print("standard deviation of arrival delays = ", delay_sd)
+print("standard deviation of departure times = ", dep_sd)
+
+
+#get the min and max of delay times
+delay_min = df_flights['arr_delay'].min()
+delay_max = df_flights['arr_delay'].max()
+
+#get the min and max of departure times
+time_min = ?
+time_max = ?
+
+#print out the values
+print("min arrival delays = ", delay_min)
+print("max arrival delays = ", delay_max)
+print("min arrival delays = ", time_min)
+print("min arrival delays = ", time_max)
+
+
+#estimate and sort standard deviation of all the columns
+?
+
+?
+
+?
+
+?
+
+?

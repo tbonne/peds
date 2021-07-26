@@ -4,7 +4,7 @@
 format: jb-book
 root: intro.md
 parts:
-  - caption: A quick introduction to colab and python
+  - caption: Intro to colab and python
     chapters:
     - file: docs/IntroNotebooks.ipynb
     - file: docs/IntroPython.ipynb
@@ -16,3 +16,9 @@ parts:
     - file: docs/introData/IntroData3_MissingData.ipynb
     - file: docs/introData/IntroData4_groupby.ipynb
     - file: docs/introData/IntroData5_CombineData.ipynb
+    - caption: Exploration and visualization
+    chapters:
+    - file: docs/introViz/IntroViz1_histograms.ipynb
+    - file: docs/introViz/IntroViz2_densityPlots.ipynb
+    - file: docs/introViz/IntroViz3_scatterplots.ipynb
+    - file: docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb
