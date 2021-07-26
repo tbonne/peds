@@ -16,7 +16,7 @@ parts:
     - file: docs/introData/IntroData3_MissingData.ipynb
     - file: docs/introData/IntroData4_groupby.ipynb
     - file: docs/introData/IntroData5_CombineData.ipynb
-    - caption: Exploration and visualization
+  - caption: Exploration and visualization
     chapters:
     - file: docs/introViz/introViz1_histograms.ipynb
     - file: docs/introViz/introViz2_densityPlots.ipynb
