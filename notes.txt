@@ -1,2 +1,16 @@
 This is just to keep notes about the commands for building and publishing this book
 
+1. Make changes
+
+3. build book
+
+2. Git
+stage and commit within the peds folder
+git add ./*
+git commit -m "adding my first book!"
+git push
+
+4. publish the book on github pages (from peds folder)
+
+ghp-import -n -p -f _build/html
+
