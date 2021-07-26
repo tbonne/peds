@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: root
+root: intro.md
 parts:
   - caption: A quick introduction to colab and python
     chapters:
@@ -10,7 +10,7 @@ parts:
     - file: docs/IntroPython.ipynb
     - file: docs/IntroNumpy.ipynb
   - caption: Dataframes in python
-    chapter:
+    chapters:
     - file: docs/introData/IntroData1_DataFrames.ipynb
     - file: docs/introData/IntroData2_LoadingData.ipynb
     - file: docs/introData/IntroData3_MissingData.ipynb

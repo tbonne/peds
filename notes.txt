@@ -2,7 +2,9 @@ This is just to keep notes about the commands for building and publishing this b
 
 1. Make changes
 
-3. build book
+3. build book (from one dir above peds)
+
+jupyter-book build mybookname/
 
 2. Git
 stage and commit within the peds folder
