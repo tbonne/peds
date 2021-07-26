@@ -1,6 +1,9 @@
 This is just to keep notes about the commands for building and publishing this book
 
-1. Make changes
+1. Make changes on colab
+
+then clone the github pages to get all the new docs (in the colabDocs folder)
+git clone https://github.com/tbonne/IntroDataScience.git
 
 3. build book (from one dir above peds)
 

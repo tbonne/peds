@@ -18,7 +18,7 @@ parts:
     - file: docs/introData/IntroData5_CombineData.ipynb
     - caption: Exploration and visualization
     chapters:
-    - file: docs/introViz/IntroViz1_histograms.ipynb
-    - file: docs/introViz/IntroViz2_densityPlots.ipynb
+    - file: docs/introViz/introViz1_histograms.ipynb
+    - file: docs/introViz/introViz2_densityPlots.ipynb
     - file: docs/introViz/IntroViz3_scatterplots.ipynb
     - file: docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb
