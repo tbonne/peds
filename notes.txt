@@ -25,4 +25,10 @@ ghp-import -n -p -f _build/html
 
 5. View final book version
 
-https://tbonne.github.io/peds/intro.html
+https://tbonne.github.io/peds #/intro.html
+
+Next steps:
+-need to add in the projects and the data challenges
+-need to go over content 
+-need to add in the full notebook link at the end of each section
+-need to start to build the second version of this book (deep leanring in python)
