@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>40. Data preprocessing (binary variables) &#8212; Introduction to data science with python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="47. Decision trees" href="IntroModeling3_decisionTrees.html" />
+    <link rel="prev" title="31. Load the data" href="IntroModeling1_LinearReg.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to data science with python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Practical exercises in data science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1 - Coding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroColab.html">
+   1. Introduction to coding in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroNotebooks.html">
+   2.
+   <font color="darkorange">
+    Introduction to colaboratory notebooks!
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroPython.html">
+   3.
+   <font color="darkorange">
+    Short introduction to Python
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroNumpy.html">
+   4.
+   <font color="darkorange">
+    Introduction to Numpy
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2 - Data organization
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
+   5.
+   <font color="lightblue">
+    Introduction to DataFrames
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
+   8.
+   <font color="lightblue">
+    Using existing data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
+   10.
+   <font color="lightblue">
+    Missing Data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData4_groupby.html">
+   15.
+   <font color="lightblue">
+    Grouping data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
+   17.
+   <font color="lightblue">
+    Combining data
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 3 - Data visualization
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/introViz1_histograms.html">
+   18.
+   <font color="lightblue">
+    Summary statistics and histograms
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
+   21.
+   <font color="lightblue">
+    Density plots and normal distributions
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
+   24.
+   <font color="lightblue">
+    Scatter plots
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
+   30.
+   <font color="lightblue">
+    Exploritory Data Analysis
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 4 - Building models
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroModeling1_LinearReg.html">
+   31.
+   <font color="lightblue">
+    Load the data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   40. Data preprocessing (binary variables)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroModeling3_decisionTrees.html">
+   47.
+   <font color="lightblue">
+    Decision trees
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro_RandomForest.html">
+   48.
+   <font color="lightblue">
+    Random forests
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 5 - Interpreting and communicating models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
+   49.
+   <font color="lightblue">
+    Explainability vs Causality
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introComm/A_B_Testing.html">
+   50.
+   <font color="lightblue">
+    A/B Testing
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/introModeling/IntroModelling_LogisticReg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introModeling/IntroModelling_LogisticReg.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/introModeling/IntroModelling_LogisticReg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   40. Data preprocessing (binary variables)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing-categorical-variables">
+   41. Data preprocessing (categorical variables)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#split-our-dataframe-into-training-and-testing-datasets">
+   42. Split our dataframe into training and testing datasets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-pre-processing-numeric">
+   43. Data pre-processing (numeric)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-a-model">
+   44. Fit a model
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-and-explore-the-model-predictions">
+     44.1. Visualize and explore the model predictions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-a-more-complex-model">
+   45. Fit a more complex model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#titanic-survivors">
+   46. Titanic survivors
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-understanding">
+     46.1. Data understanding
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exploration-and-visualization">
+       46.1.1. Exploration and visualization
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-preprocessing">
+       46.1.2. Data Preprocessing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-building">
+     46.2. Model building
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#model-predictions">
+       46.2.1. Model predictions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroModelling_LogisticReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src='http://drive.google.com/uc?export=view&id=1bZKsW45WU9qy7y13X5QF5IYgJ58OTYm0'><p>#<font color='darkorange'>Logistic regression</font></p>
+<blockquote>
+<div><p>In previous classes we have used exploritory approaches to visualize and quantify relationships between variables. We used linear regression to make predictions about numeric values (e.g., boston house prices), now we will use logistic regression models for a classification problem. Here we will try and distinguish tissue samples as positive/negative for breast cancer.</p>
+</div></blockquote>
+<p>Let’s load in our growing list of python packages that we are getting used to using.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">sk</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then let’s load in the breast cancer dataset, and get it into a format we can use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># The tissue sample dataset
+df_cancer = ?
+
+#take a look
+?
+</pre></div>
+</div>
+</div>
+</div>
+<p>##<font color='darkorange'>Understand the data </font></p>
+<p>What kinds of data is the cancer data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are there missing values anywhere?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>##<font color='darkorange'>Visualize and Explore </font></p>
+<p>Histogram of the target variable</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the target variable (benign) on the y-axis with another variable on the x-axis. Try out a few different variables on the x-axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a heat map to help you explore</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>##<font color='darkorange'>Data wrangeling </font></p>
+<div class="section" id="data-preprocessing-binary-variables">
+<h1><span class="section-number">40. </span>Data preprocessing (binary variables)<a class="headerlink" href="#data-preprocessing-binary-variables" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+
+<span class="c1">#get the columns names of features you&#39;d like to turn into 0/1</span>
+<span class="n">bin_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;benign&#39;</span><span class="p">]</span>
+
+<span class="c1">#create a dataframe of those features</span>
+<span class="n">bin_features</span> <span class="o">=</span> <span class="n">df_cancer</span><span class="p">[</span><span class="n">bin_names</span><span class="p">]</span>
+
+<span class="c1">#fit the scaler to those data</span>
+<span class="n">bin_scaler</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">bin_features</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1">#use the scaler to transform your data</span>
+<span class="n">bin_features</span> <span class="o">=</span> <span class="n">bin_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">bin_features</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1">#put these scaled features back into your transformed features dataframe</span>
+<span class="n">df_cancer</span><span class="p">[</span><span class="n">bin_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_features</span>
+
+<span class="c1">#take a look</span>
+<span class="n">df_cancer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bin_scaler</span><span class="o">.</span><span class="n">categories_</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-preprocessing-categorical-variables">
+<h1><span class="section-number">41. </span>Data preprocessing (categorical variables)<a class="headerlink" href="#data-preprocessing-categorical-variables" title="Permalink to this headline">¶</a></h1>
+<p>Technician ID number is a categorical value, but it is being treated as a number (int64). Let’s convert it to a category.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cancer</span><span class="p">[</span><span class="s1">&#39;technician&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_cancer</span><span class="o">.</span><span class="n">technician</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1">#categorical variables</span>
+<span class="n">cat_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;technician&#39;</span><span class="p">]</span>
+
+<span class="c1">#create dummy variables</span>
+<span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_cancer</span><span class="p">[</span><span class="n">cat_names</span><span class="p">])</span>
+
+<span class="c1">#add them back to the original dataframe</span>
+<span class="n">df_cancer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_cancer</span><span class="p">,</span><span class="n">df_cat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#remove the old columns</span>
+<span class="n">df_cancer</span> <span class="o">=</span> <span class="n">df_cancer</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cat_names</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#take a look</span>
+<span class="n">df_cancer</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="split-our-dataframe-into-training-and-testing-datasets">
+<h1><span class="section-number">42. </span>Split our dataframe into training and testing datasets<a class="headerlink" href="#split-our-dataframe-into-training-and-testing-datasets" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#split the data into training and testing (80/20 split)</span>
+<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">df_cancer</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look training dataset</span>
+<span class="n">df_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look</span>
+<span class="n">df_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-pre-processing-numeric">
+<h1><span class="section-number">43. </span>Data pre-processing (numeric)<a class="headerlink" href="#data-pre-processing-numeric" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Feature Scaling (after spliting the data!)</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span> 
+
+<span class="c1">#numeric variables</span>
+<span class="n">numb_names</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;benign&#39;</span><span class="p">,</span><span class="s1">&#39;technician_1&#39;</span><span class="p">,</span><span class="s1">&#39;technician_2&#39;</span><span class="p">,</span><span class="s1">&#39;technician_3&#39;</span><span class="p">,</span><span class="s1">&#39;technician_4&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1">#create the standard scaler object</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1">#use this object to fit (i.e., to calculate the mean and sd of each variable in the training data) and then to transform the training data</span>
+<span class="n">df_train</span><span class="p">[</span><span class="n">numb_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="n">numb_names</span><span class="p">])</span>
+
+<span class="c1">#use the fit from the training data to transform the test data</span>
+<span class="n">df_test</span><span class="p">[</span><span class="n">numb_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="n">numb_names</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##<font color='darkorange'>Modeling and Prediction</font></p>
+<blockquote>
+<div><p>Let’s look building our second kind of model – logistic regression! How well can we predict the benign cases? This is similar to clustering analysis except we have the labels! Can we train a model to make the right predictions?
+<br>
+We will follow a general approach when building models. We will divide the dataset into <em>training</em> and <em>testing</em> datasets.
+<br>
+This lets us fit the model to one part of the data and then use the withheld data to test the predictions of the model. This helps us avoid <em>overfitting</em> our model!</p>
+</div></blockquote>
+</div>
+<div class="section" id="fit-a-model">
+<h1><span class="section-number">44. </span>Fit a model<a class="headerlink" href="#fit-a-model" title="Permalink to this headline">¶</a></h1>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Below choose a variable to predict if the tissue sample is benign or not.</p>
+<p>In general when using sklearn to fit a model we will follow these steps:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#define model parameters</span>
+<span class="n">log_reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="s1">&#39;benign ~ ?&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
+
+<span class="c1">#fit the model to the training data</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">log_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1">#Get a summary of the model parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-and-explore-the-model-predictions">
+<h2><span class="section-number">44.1. </span>Visualize and explore the model predictions<a class="headerlink" href="#visualize-and-explore-the-model-predictions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at where the model to a good/bad job of classifying images into benign or not!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s first predict values in the testing dataset</span>
+<span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_prob&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_prob&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#here we&#39;ve used 0.5 as the threshold of benign or not!</span>
+
+<span class="n">df_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the predicted and observed points!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_symmetry&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;benign&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_symmetry&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;benign&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_symmetry&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'><p>How good is the model at classifying?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#confusion table</span>
+<span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#more visual approach</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted label&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True label&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Measuring classification success:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;precision: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;recal: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;benign_pred&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p><strong>Accuracy</strong> is the overall ability of the model to correctly identify positive and negative samples.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Precision</strong> is intuitively the ability of the classifier to not label a sample as positive if it is negative.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Recall</strong> is intuitively the ability of the classifier to find all the positive samples.</p>
+</div></blockquote>
+<p>Compare that accuracy if we just predicted the most common type (i.e., let’s compute a baseline!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cancer</span><span class="o">.</span><span class="n">benign</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">357</span><span class="o">/</span><span class="p">(</span><span class="mi">212</span><span class="o">+</span><span class="mi">357</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Is all that variation noise? Or maybe there are other variables that might explain why the predictions are off.</p>
+<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
+</div>
+<div class="section" id="fit-a-more-complex-model">
+<h1><span class="section-number">45. </span>Fit a more complex model<a class="headerlink" href="#fit-a-more-complex-model" title="Permalink to this headline">¶</a></h1>
+<p>This time we will try logistic regression with many predictors. How high can you get the accuracy?</p>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#define model parameters</span>
+<span class="n">log_reg2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="s1">&#39;benign ~ ?&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
+
+<span class="c1">#fit the model to the training data</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">log_reg2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;bfgs&#39;</span><span class="p">)</span>
+
+<span class="c1">#Get a summary of the model parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize and explore these predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#let&#39;s first predict values in the testing dataset
+df_test[&#39;benign_prob_multi&#39;] = ?.predict(?).round(2)
+
+df_test[&#39;benign_pred_multi&#39;] = (?&gt;0.5).astype(int) #here we&#39;ve used 0.5 as the threshold of benign or not!
+
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+<p>First let’s look at how the model fit to the training data. Now that we have two predictors we’ll have to look at one at a time.
+</br>
+Let’s look at RM first:</p>
+<p>How good is the model at predicting?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#confusion table
+confusion_matrix2 = sk.metrics.confusion_matrix(?, ?)
+print(?)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#more visual approach
+sns.heatmap(?, annot=True)
+plt.xlabel(&#39;Predicted label&#39;)
+plt.ylabel(&#39;True label&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Measuring classification success:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>print(&#39;Accuracy: {:.2f}&#39;.format(sk.metrics.accuracy_score(?, ?)))
+print(&#39;Precision: {:.2f}&#39;.format(sk.metrics.precision_score(?, ?)))
+print(&#39;Recall: {:.2f}&#39;.format(sk.metrics.recall_score(?, ?)))
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p><strong>Accuracy</strong> is the fraction of predictions our model got right.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Precision</strong> is intuitively the ability of the classifier to not label a sample as positive if it is negative.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Recall</strong> is intuitively the ability of the classifier to find all the positive samples.</p>
+</div></blockquote>
+<p>#<font color='darkorange'>Bonus </font></p>
+</div>
+<div class="section" id="titanic-survivors">
+<h1><span class="section-number">46. </span>Titanic survivors<a class="headerlink" href="#titanic-survivors" title="Permalink to this headline">¶</a></h1>
+<p>Let’s see if we can use what we learnt today to predict who survived the titanic sinking, and what features help us to make these predictions.</p>
+<blockquote>
+<div><p>I’ve taken a random 20% sample from the titanic data. Try and build a model on the data you have (titanic_subsample.csv - in the shared data folder) that can best predict who will survive.</p>
+</div></blockquote>
+<blockquote>
+<div><p>when you think you’ve got a good model, let me know on slack and i’ll give you the with-held sample. You can then estimate your models performance!</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;titanic_subset.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df_titanic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-understanding">
+<h2><span class="section-number">46.1. </span>Data understanding<a class="headerlink" href="#data-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exploration-and-visualization">
+<h3><span class="section-number">46.1.1. </span>Exploration and visualization<a class="headerlink" href="#exploration-and-visualization" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="data-preprocessing">
+<h3><span class="section-number">46.1.2. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Feel free here to work with a subset of features that you think will help make predictions in the with-held dataset! I.e., what relationships will generalize well?</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="model-building">
+<h2><span class="section-number">46.2. </span>Model building<a class="headerlink" href="#model-building" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="model-predictions">
+<h3><span class="section-number">46.2.1. </span>Model predictions<a class="headerlink" href="#model-predictions" title="Permalink to this headline">¶</a></h3>
+<p>When you’ve got a good model and you are ready to test it out let me know and i’ll send you the withheld data! When you measure the performance of the model does it differ in accuracy, precision, and recall?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/introModeling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="IntroModeling1_LinearReg.html" title="previous page"><span class="section-number">31. </span><font color='lightblue'>Load the data</font></a>
+    <a class='right-next' id="next-link" href="IntroModeling3_decisionTrees.html" title="next page"><span class="section-number">47. </span><font color='lightblue'>Decision trees</font></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tyler R. Bonnell<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
