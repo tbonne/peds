@@ -51,7 +51,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Using existing data" href="IntroData2_LoadingData.html" />
+    <link rel="next" title="6. Using existing data" href="IntroData2_LoadingData.html" />
     <link rel="prev" title="4. Introduction to Numpy" href="../IntroNumpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,14 +97,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroColab.html">
-   1. Introduction to coding in Python
+   1.
+   <font color="darkorange">
+    Introduction to coding
+   </font>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroNotebooks.html">
    2.
    <font color="darkorange">
-    Introduction to colaboratory notebooks!
+    Colaboratory notebooks!
    </font>
   </a>
  </li>
@@ -134,14 +137,14 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    5.
-   <font color="lightblue">
+   <font color="darkorange">
     Introduction to DataFrames
    </font>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroData2_LoadingData.html">
-   8.
+   6.
    <font color="lightblue">
     Using existing data
    </font>
@@ -149,7 +152,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroData3_MissingData.html">
-   10.
+   8.
    <font color="lightblue">
     Missing Data
    </font>
@@ -157,7 +160,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroData4_groupby.html">
-   15.
+   13.
    <font color="lightblue">
     Grouping data
    </font>
@@ -165,7 +168,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroData5_CombineData.html">
-   17.
+   15.
    <font color="lightblue">
     Combining data
    </font>
@@ -180,7 +183,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../introViz/introViz1_histograms.html">
-   18.
+   16.
    <font color="lightblue">
     Summary statistics and histograms
    </font>
@@ -188,7 +191,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
-   21.
+   19.
    <font color="lightblue">
     Density plots and normal distributions
    </font>
@@ -196,7 +199,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
-   24.
+   22.
    <font color="lightblue">
     Scatter plots
    </font>
@@ -204,7 +207,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
-   30.
+   28.
    <font color="lightblue">
     Exploritory Data Analysis
    </font>
@@ -219,7 +222,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
-   31.
+   29.
    <font color="lightblue">
     Load the data
    </font>
@@ -227,12 +230,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
-   40. Data preprocessing (binary variables)
+   38. Data preprocessing (binary variables)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
-   47.
+   45.
    <font color="lightblue">
     Decision trees
    </font>
@@ -240,7 +243,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
-   48.
+   46.
    <font color="lightblue">
     Random forests
    </font>
@@ -255,7 +258,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   49.
+   47.
    <font color="lightblue">
     Explainability vs Causality
    </font>
@@ -263,7 +266,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/A_B_Testing.html">
-   50.
+   48.
    <font color="lightblue">
     A/B Testing
    </font>
@@ -373,68 +376,58 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   5.
-   <font color="lightblue">
-    Introduction to DataFrames
-   </font>
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-lightblue-creating-dataframes-font">
-   6.
+   5.1.
    <font color="lightblue">
     Creating DataFrames
    </font>
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-lightblue-selecting-from-a-dataframe-font">
-     6.1.
-     <font color="lightblue">
-      Selecting from a Dataframe
-     </font>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-lightblue-selecting-from-a-dataframe-using-positions-font">
-     6.2.
-     <font color="lightblue">
-      Selecting from a Dataframe: using positions
-     </font>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-lightblue-creating-new-variables-font">
-     6.3.
-     <font color="lightblue">
-      Creating new variables
-     </font>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-lightblue-filtering-dataframes-font">
-     6.4.
-     <font color="lightblue">
-      Filtering DataFrames
-     </font>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-lightblue-dataframe-functions-font">
-     6.5.
-     <font color="lightblue">
-      Dataframe functions
-     </font>
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-further-reading-font">
-   7.
-   <font color="lightblue">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-selecting-from-a-dataframe-font">
+   5.2.
+   <font color="darkorange">
+    Selecting from a Dataframe
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-selecting-from-a-dataframe-using-positions-font">
+   5.3.
+   <font color="darkorange">
+    Selecting from a Dataframe: using positions
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-creating-new-variables-font">
+   5.4.
+   <font color="darkorange">
+    Creating new variables
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-filtering-dataframes-font">
+   5.5.
+   <font color="darkorange">
+    Filtering DataFrames
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-dataframe-functions-font">
+   5.6.
+   <font color="darkorange">
+    Dataframe functions
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
+   5.7.
+   <font color="darkorange">
     Further reading
    </font>
   </a>
@@ -450,8 +443,8 @@
         
               <div>
                 
-  <img src='http://drive.google.com/uc?export=view&id=1RkQNovXbpa5a43mEAIpdWlL_ungUN-8j' width="300" align = 'left'>  <div class="section" id="font-color-lightblue-introduction-to-dataframes-font">
-<h1><span class="section-number">5. </span><font color='lightblue'>Introduction to DataFrames</font><a class="headerlink" href="#font-color-lightblue-introduction-to-dataframes-font" title="Permalink to this headline">¶</a></h1>
+  <img src='http://drive.google.com/uc?export=view&id=1RkQNovXbpa5a43mEAIpdWlL_ungUN-8j' width="300" align = 'left'>  <div class="section" id="font-color-darkorange-introduction-to-dataframes-font">
+<h1><span class="section-number">5. </span><font color='darkorange'>Introduction to DataFrames</font><a class="headerlink" href="#font-color-darkorange-introduction-to-dataframes-font" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise we will introduce <strong>dataframes</strong> which are objects in python that we will work a lot with in this class. These <strong>dataframes</strong> will be how we work with data, and get the data ready for visualizing and modeling.</p>
 <p>Outline:</p>
 <ul class="simple">
@@ -462,9 +455,8 @@
 <li><p>DataFrame functions</p></li>
 </ul>
 <p>We’ll be using the <strong>Pandas</strong> library to do most of this work. Let’s take a look at how to create and modify dataframes using <strong>Pandas</strong>!</p>
-</div>
 <div class="section" id="font-color-lightblue-creating-dataframes-font">
-<h1><span class="section-number">6. </span><font color='lightblue'>Creating DataFrames</font><a class="headerlink" href="#font-color-lightblue-creating-dataframes-font" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.1. </span><font color='lightblue'>Creating DataFrames</font><a class="headerlink" href="#font-color-lightblue-creating-dataframes-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import python libraries that we will use</span>
@@ -522,8 +514,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-selecting-from-a-dataframe-font">
-<h2><span class="section-number">6.1. </span><font color='lightblue'>Selecting from a Dataframe</font><a class="headerlink" href="#font-color-lightblue-selecting-from-a-dataframe-font" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="font-color-darkorange-selecting-from-a-dataframe-font">
+<h2><span class="section-number">5.2. </span><font color='darkorange'>Selecting from a Dataframe</font><a class="headerlink" href="#font-color-darkorange-selecting-from-a-dataframe-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look at the full dataframe</span>
@@ -583,8 +576,8 @@ df_test.loc[?, ?]
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-selecting-from-a-dataframe-using-positions-font">
-<h2><span class="section-number">6.2. </span><font color='lightblue'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#font-color-lightblue-selecting-from-a-dataframe-using-positions-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-selecting-from-a-dataframe-using-positions-font">
+<h2><span class="section-number">5.3. </span><font color='darkorange'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#font-color-darkorange-selecting-from-a-dataframe-using-positions-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#full dataframe</span>
@@ -622,8 +615,8 @@ df_test.iloc[?, ?]
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-creating-new-variables-font">
-<h2><span class="section-number">6.3. </span><font color='lightblue'>Creating new variables</font><a class="headerlink" href="#font-color-lightblue-creating-new-variables-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-creating-new-variables-font">
+<h2><span class="section-number">5.4. </span><font color='darkorange'>Creating new variables</font><a class="headerlink" href="#font-color-darkorange-creating-new-variables-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
@@ -640,8 +633,8 @@ df_test.iloc[?, ?]
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-filtering-dataframes-font">
-<h2><span class="section-number">6.4. </span><font color='lightblue'>Filtering DataFrames</font><a class="headerlink" href="#font-color-lightblue-filtering-dataframes-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-filtering-dataframes-font">
+<h2><span class="section-number">5.5. </span><font color='darkorange'>Filtering DataFrames</font><a class="headerlink" href="#font-color-darkorange-filtering-dataframes-font" title="Permalink to this headline">¶</a></h2>
 <p>Keep only the rows/columns that you’d like</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,8 +669,8 @@ df_test_100
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-dataframe-functions-font">
-<h2><span class="section-number">6.5. </span><font color='lightblue'>Dataframe functions</font><a class="headerlink" href="#font-color-lightblue-dataframe-functions-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-dataframe-functions-font">
+<h2><span class="section-number">5.6. </span><font color='darkorange'>Dataframe functions</font><a class="headerlink" href="#font-color-darkorange-dataframe-functions-font" title="Permalink to this headline">¶</a></h2>
 <p>When we create a dataframe we are creating an object, and this dataframe object has functions built in. Let’s take a look at a few now, and we will see more as we go along in this course.</p>
 <p>Try just typing df_test.</p>
 <p>After typing the “.” you should see the list of functions available to you once you’ve created a dataframe object.</p>
@@ -716,14 +709,14 @@ df_test_100
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-lightblue-further-reading-font">
-<h1><span class="section-number">7. </span><font color='lightblue'>Further reading</font><a class="headerlink" href="#font-color-lightblue-further-reading-font" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="font-color-darkorange-further-reading-font">
+<h2><span class="section-number">5.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
 <p>Pandas quick intro:
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html</a>
 </br>
 Pandas longer intro:
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html</a></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -752,7 +745,7 @@ Pandas longer intro:
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../IntroNumpy.html" title="previous page"><span class="section-number">4. </span><font color='darkorange'>Introduction to Numpy</font></a>
-    <a class='right-next' id="next-link" href="IntroData2_LoadingData.html" title="next page"><span class="section-number">8. </span><font color='lightblue'>Using existing data</font></a>
+    <a class='right-next' id="next-link" href="IntroData2_LoadingData.html" title="next page"><span class="section-number">6. </span><font color='lightblue'>Using existing data</font></a>
 
         </div>
         
