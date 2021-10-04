@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>31. Load the data &#8212; Introduction to data science with python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="40. Data preprocessing (binary variables)" href="IntroModelling_LogisticReg.html" />
+    <link rel="prev" title="30. Exploritory Data Analysis" href="../introViz/IntroViz4_exploritoryDataAnalysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to data science with python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Practical exercises in data science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1 - Coding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroColab.html">
+   1. Introduction to coding in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroNotebooks.html">
+   2.
+   <font color="darkorange">
+    Introduction to colaboratory notebooks!
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroPython.html">
+   3.
+   <font color="darkorange">
+    Short introduction to Python
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroNumpy.html">
+   4.
+   <font color="darkorange">
+    Introduction to Numpy
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2 - Data organization
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
+   5.
+   <font color="lightblue">
+    Introduction to DataFrames
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
+   8.
+   <font color="lightblue">
+    Using existing data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
+   10.
+   <font color="lightblue">
+    Missing Data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData4_groupby.html">
+   15.
+   <font color="lightblue">
+    Grouping data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
+   17.
+   <font color="lightblue">
+    Combining data
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 3 - Data visualization
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/introViz1_histograms.html">
+   18.
+   <font color="lightblue">
+    Summary statistics and histograms
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
+   21.
+   <font color="lightblue">
+    Density plots and normal distributions
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
+   24.
+   <font color="lightblue">
+    Scatter plots
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
+   30.
+   <font color="lightblue">
+    Exploritory Data Analysis
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 4 - Building models
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   31.
+   <font color="lightblue">
+    Load the data
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroModelling_LogisticReg.html">
+   40. Data preprocessing (binary variables)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="IntroModeling3_decisionTrees.html">
+   47.
+   <font color="lightblue">
+    Decision trees
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro_RandomForest.html">
+   48.
+   <font color="lightblue">
+    Random forests
+   </font>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 5 - Interpreting and communicating models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
+   49.
+   <font color="lightblue">
+    Explainability vs Causality
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introComm/A_B_Testing.html">
+   50.
+   <font color="lightblue">
+    A/B Testing
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/introModeling/IntroModeling1_LinearReg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introModeling/IntroModeling1_LinearReg.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/introModeling/IntroModeling1_LinearReg.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   31.
+   <font color="lightblue">
+    Load the data
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-visualize-and-explore-font">
+   32.
+   <font color="lightblue">
+    Visualize and Explore
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-build-and-train-a-model-font">
+   33.
+   <font color="lightblue">
+    Build and train a model
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-training-testing-split-font">
+   34.
+   <font color="lightblue">
+    Training / Testing Split
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-fit-a-model-font">
+   35.
+   <font color="lightblue">
+    Fit a model
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-fit-a-more-complex-model-font">
+   36.
+   <font color="lightblue">
+    Fit a more complex model
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-try-adding-more-variables-font">
+   37.
+   <font color="lightblue">
+    Try adding more variables!
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-explaining-how-the-model-is-making-predictions-font">
+   38.
+   <font color="lightblue">
+    Explaining how the model is making predictions
+   </font>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-further-reading-font">
+   39.
+   <font color="lightblue">
+    Further reading
+   </font>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroModeling1_LinearReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src='http://drive.google.com/uc?export=view&id=1L4qAFCwXR9S6RHVzdOc7PhL7-B3yW-Jb' width="300" align = 'left'>  <p>#<font color='lightblue'>Linear regression</font></p>
+<p>In previous classes we have used exploritory approaches to visualize and quantify relationships between variables. Now we will use linear regression to start to build models that can make predictions based on these relationships.</p>
+<p>Import the needed libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">sk</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span> <span class="c1">#for running regression!</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-lightblue-load-the-data-font">
+<h1><span class="section-number">31. </span><font color='lightblue'>Load the data</font><a class="headerlink" href="#font-color-lightblue-load-the-data-font" title="Permalink to this headline">¶</a></h1>
+<p>Download the ‘bostonHouses.csv’ from the class’s <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">shared data folder</a> and load it into a dataframe.</p>
+<blockquote>
+<div><p>Note: one way to get the data in, is just to drag and drop the csv file into the files tab on the left. However, using this method means that when we leave our session the data will be removed (i.e., it isn’t on your gdrive).</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_boston</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/bostonHouses.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Q: What kinds of data do you have?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q: Are there missing values anywhere?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-lightblue-visualize-and-explore-font">
+<h1><span class="section-number">32. </span><font color='lightblue'>Visualize and Explore</font><a class="headerlink" href="#font-color-lightblue-visualize-and-explore-font" title="Permalink to this headline">¶</a></h1>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Plot the house prices on the y-axis, with some other variables on the x-axis.</p>
+<blockquote>
+<div><p>Generally the value we are trying to predict is called the response variable, while the values we are using to make those predictions are the predictor variables.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_boston</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a heat map to help you identify potentially interesting relationships.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>df_boston_corr = df_boston.?()
+sns.heatmap(data=?)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-lightblue-build-and-train-a-model-font">
+<h1><span class="section-number">33. </span><font color='lightblue'>Build and train a model </font><a class="headerlink" href="#font-color-lightblue-build-and-train-a-model-font" title="Permalink to this headline">¶</a></h1>
+<p>Let’s look at building our first model – linear regression!</p>
+<blockquote>
+<div><p>Can how well can we predict the price of a house based on the proportion of large lots in the area (i.e., the ZN value)?</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Build the model</span>
+<span class="n">linear_reg_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;price ~ RM&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_boston</span><span class="p">)</span>
+
+<span class="c1">#Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
+<span class="n">linear_reg_results</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1">#make predictions using the model</span>
+<span class="n">df_boston</span><span class="p">[</span><span class="s1">&#39;price_pred&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">linear_reg_results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_boston</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at the predictions!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_boston</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_boston</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;RM&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_boston</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;RM&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price_pred&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that all the predicted points fall along a line. This is y = a + b*rooms.</p>
+<p>Let’s take a look at what values for a (intercept) and b (slope RM) the model estimated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">linear_reg_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before moving on let’s drop the predictions we have made so far.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_boston</span> <span class="o">=</span> <span class="n">df_boston</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price_pred&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
+<div class="section" id="font-color-lightblue-training-testing-split-font">
+<h1><span class="section-number">34. </span><font color='lightblue'>Training / Testing Split </font><a class="headerlink" href="#font-color-lightblue-training-testing-split-font" title="Permalink to this headline">¶</a></h1>
+</br>
+</br>
+We will follow a general approach when building models. We will divide the dataset into *training* and *testing* datasets. 
+</br>
+This lets us fit the model to one part of the data and then use the withheld data to test the predictions of the model. This helps us avoid *overfitting* our model!<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#load libraries to do the training and testing split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1">#Split the dataframe into 80% training and 20% testing datasets</span>
+<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_boston</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look at the shape of the training dataset</span>
+<span class="n">df_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look at the shape of the testing dataset</span>
+<span class="n">df_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-lightblue-fit-a-model-font">
+<h1><span class="section-number">35. </span><font color='lightblue'>Fit a model </font><a class="headerlink" href="#font-color-lightblue-fit-a-model-font" title="Permalink to this headline">¶</a></h1>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>In general when using sklearn to fit a model we will follow these steps:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#define model parameters
+linear_reg_split_model = smf.ols(formula=&#39;?&#39;, data=df_train) #note: using training data
+
+#fit the model to the training data
+linear_reg_split_results = linear_reg_split_model.?
+
+#predict values in the training and testing dataset
+df_train[&#39;price_pred&#39;] = ?(df_train) #note: using train data
+df_test[&#39;price_pred&#39;] = ?(df_test) #note: using test data
+
+#Get a summary of the model parameters
+print(linear_reg_split_results.summary())
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize predictions on the training dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?(data=df_train,x=&quot;RM&quot;,y=&quot;price&quot;) # observed price
+?(data=df_train,x=&quot;RM&quot;,y=&quot;price_pred&quot;) #predicted price
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize predictions on the testing dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?(data=df_test,x=&quot;RM&quot;,y=&quot;price&quot;) # observed price
+?(data=df_test,x=&quot;RM&quot;,y=&quot;price_pred&quot;) # predicted price
+</pre></div>
+</div>
+</div>
+</div>
+<p>How good is the model at predicting?</p>
+<blockquote>
+<div><p>Making predictions in the training dataset</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean squared error</span>
+<span class="n">mse_train</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;price_pred&#39;</span><span class="p">])</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Mean squared error = &quot;</span><span class="p">,</span> <span class="n">mse_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Making predictions in the testing dataset (not used to fit the model)</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean squared error</span>
+<span class="n">mse_test</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;price_pred&#39;</span><span class="p">])</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Mean squared error = &quot;</span><span class="p">,</span> <span class="n">mse_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q: Which prediction error is higher?</p>
+<p>Q: Is all that error just noise? Or could there be other variables that might explain why the predictions are off?</p>
+<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
+<div class="section" id="font-color-lightblue-fit-a-more-complex-model-font">
+<h1><span class="section-number">36. </span><font color='lightblue'>Fit a more complex model</font><a class="headerlink" href="#font-color-lightblue-fit-a-more-complex-model-font" title="Permalink to this headline">¶</a></h1>
+<p>This time we will try multiple linear regression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define model parameters, and the training data to be used</span>
+<span class="n">multi_linear_reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;price ~ RM + ZN&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span> <span class="c1">#use training data</span>
+
+<span class="c1">#fit the model to the training data</span>
+<span class="n">results_RN_ZN</span> <span class="o">=</span> <span class="n">multi_linear_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> 
+
+<span class="c1">#Predict values in the testing dataset</span>
+<span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;price_pred_RM_ZN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results_RN_ZN</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span> <span class="c1">#predict on testing data</span>
+
+<span class="c1">#Get a summary of the model parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results_RN_ZN</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize and explore these predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First let’s look at how the model predicts the price of houses in the testing dataset. Now that we have two predictors we’ll have to look at one at a time.
+</br>
+Let’s look at the number of rooms (RM) first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;RM&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;RM&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price_pred_RM_ZN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then at lot size (ZN):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ZN&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_test</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ZN&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price_pred_RM_ZN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How good is the model at predicting?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean squared error</span>
+<span class="n">mse_multi</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;price_pred_RM_ZN&#39;</span><span class="p">])</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Mean squared error = &quot;</span><span class="p">,</span> <span class="n">mse_multi</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q: how does that compare to our simple model?</p>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  </div>
+<div class="section" id="font-color-lightblue-try-adding-more-variables-font">
+<h1><span class="section-number">37. </span><font color='lightblue'>Try adding more variables!</font><a class="headerlink" href="#font-color-lightblue-try-adding-more-variables-font" title="Permalink to this headline">¶</a></h1>
+<p>Run a linear regression model to predict house prices. Try and beat the RMSE of the previous models! Feel free to post to slack your results and RMSE scores! Does RMSE always decrease as you add more variables?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#define model parameters
+large_linear_reg = ?
+
+#fit the model to the training data
+large_linear_reg_res = ?
+
+#predit with the full model
+df_test[&#39;price_pred_full&#39;] = ?
+
+#Get a summary of the model parameters
+print(?) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>How well does it do on the test data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#mean squared error
+mse_full = ?
+
+print(&quot; Mean squared error = &quot;, ?)
+</pre></div>
+</div>
+</div>
+</div>
+<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
+<div class="section" id="font-color-lightblue-explaining-how-the-model-is-making-predictions-font">
+<h1><span class="section-number">38. </span><font color='lightblue'>Explaining how the model is making predictions</font><a class="headerlink" href="#font-color-lightblue-explaining-how-the-model-is-making-predictions-font" title="Permalink to this headline">¶</a></h1>
+<p>With linear regression we can look to see what features are important when making predictions. We can also see the direction and magnitude of the effect of these features.</p>
+<blockquote>
+<div><p>E.g., more rooms in a house are positively associated with house price</p>
+</div></blockquote>
+<p>Let’s take a look at how to make it easier to see which features are important when making predictions.</p>
+<blockquote>
+<div><p>To do this we’ll ensure that all numeric features are on the same scale (e.g., mean of 0, and standard deviation of 1).</p>
+</div></blockquote>
+<p>Data wrangling: preprocessing the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data preprocessing should be done after the training testing split</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Split the dataframe into 80% training and 20% testing datasets</span>
+<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_boston</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the preprocessing step can be quite time consuming, We’ll use a function called DataFrameMapper to help make it easier. The steps to using this function are:</p>
+<blockquote>
+<div><ol class="simple">
+<li><p>Build the transformer</p></li>
+</ol>
+</div></blockquote>
+<ol class="simple">
+<li><p>Fit the transformer and</p></li>
+<li><p>Use the transformer to transform the data</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#create a copy of your dataframe to transform</span>
+<span class="n">df_train_scaled</span> <span class="o">=</span> <span class="n">df_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1">#1. build the preprocessing transformer</span>
+<span class="n">scal</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1">#2. Fit the DataFrameMapper, and transform the data </span>
+<span class="n">df_train_scaled</span> <span class="o">=</span> <span class="n">scal</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_train</span><span class="p">[:])</span>
+
+<span class="c1">#take a look</span>
+<span class="n">df_train_scaled</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q: estimate the mean and standard deviation for one of the new transformed features.</p>
+<p>Now run your best model again, this time with the scaled training data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#define model parameters, and the training data to be used
+best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_scaled) 
+
+#fit the model to the training data
+?
+
+#Get a summary of the model parameters
+?
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now compare the relative effect of each of the features in predicting the price of a house.</p>
+<blockquote>
+<div><p>e.g the magnitude and direction of each parameter estimate.</p>
+</div></blockquote>
+</div>
+<div class="section" id="font-color-lightblue-further-reading-font">
+<h1><span class="section-number">39. </span><font color='lightblue'>Further reading</font><a class="headerlink" href="#font-color-lightblue-further-reading-font" title="Permalink to this headline">¶</a></h1>
+<p>Read more about <a class="reference external" href="https://www.statsmodels.org/stable/gettingstarted.html">using statsmodel</a> to run regression models.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/introModeling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../introViz/IntroViz4_exploritoryDataAnalysis.html" title="previous page"><span class="section-number">30. </span><font color='lightblue'>Exploritory Data Analysis</font></a>
+    <a class='right-next' id="next-link" href="IntroModelling_LogisticReg.html" title="next page"><span class="section-number">40. </span>Data preprocessing (binary variables)</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tyler R. Bonnell<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

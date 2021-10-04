@@ -1,24 +1,41 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro.md
 parts:
-  - caption: Intro to colab and python
-    chapters:
-    - file: docs/IntroNotebooks.ipynb
-    - file: docs/IntroPython.ipynb
-    - file: docs/IntroNumpy.ipynb
-  - caption: Dataframes in python
-    chapters:
-    - file: docs/introData/IntroData1_DataFrames.ipynb
-    - file: docs/introData/IntroData2_LoadingData.ipynb
-    - file: docs/introData/IntroData3_MissingData.ipynb
-    - file: docs/introData/IntroData4_groupby.ipynb
-    - file: docs/introData/IntroData5_CombineData.ipynb
-  - caption: Exploration and visualization
-    chapters:
-    - file: docs/introViz/introViz1_histograms.ipynb
-    - file: docs/introViz/introViz2_densityPlots.ipynb
-    - file: docs/introViz/IntroViz3_scatterplots.ipynb
-    - file: docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb
+- caption: Part 1 - Coding
+  numbered: true
+  chapters:
+  - file: docs/IntroColab.md
+  - file: docs/IntroNotebooks.ipynb
+  - file: docs/IntroPython.ipynb
+  - file: docs/IntroNumpy.ipynb
+- caption: Part 2 - Data organization
+  numbered: true
+  chapters:
+  - file: docs/introDataFrames.md
+  - file: docs/introData/IntroData1_DataFrames.ipynb
+  - file: docs/introData/IntroData2_LoadingData.ipynb
+  - file: docs/introData/IntroData3_MissingData.ipynb
+  - file: docs/introData/IntroData4_groupby.ipynb
+  - file: docs/introData/IntroData5_CombineData.ipynb
+- caption: Part 3 - Data visualization
+  numbered: true
+  chapters:
+  - file: docs/introViz.md
+  - file: docs/introViz/introViz1_histograms.ipynb
+  - file: docs/introViz/introViz2_densityPlots.ipynb
+  - file: docs/introViz/IntroViz3_scatterplots.ipynb
+  - file: docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb
+- caption: Part 4 - Building models
+  numbered: true
+  chapters:
+  - file: docs/introModeling.md
+  - file: docs/introModeling/IntroModeling1_LinearReg.ipynb
+  - file: docs/introModeling/IntroModelling_LogisticReg.ipynb
+  - file: docs/introModeling/IntroModeling3_decisionTrees.ipynb
+  - file: docs/introModeling/Intro_RandomForest.ipynb
+- caption: Part 5 - Interpreting and communicating models
+  numbered: true
+  chapters:
+  - file: docs/introComm.md
+  - file: docs/introComm/IntroCausalAnalysis.ipynb
+  - file: docs/introComm/A_B_Testing.ipynb

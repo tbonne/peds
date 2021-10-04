@@ -2,14 +2,20 @@ This is just to keep notes about the commands for building and publishing this b
 
 1. Make changes on colab
 
-then clone the github pages to get all the new docs (in the colabDocs folder)
-git clone https://github.com/tbonne/IntroDataScience.git
+Changes can be done in the notebooks under the introdatascience folder (with the git revision control - bottom folder)
+Double check that the notebook as edited in VScode works well in colab (formating issues sometimes)
 
-3. build book (from one dir above peds)
+#then clone the github pages to get all the new docs (in the colabDocs folder)
+#git clone https://github.com/tbonne/IntroDataScience.git
 
-jupyter-book build mybookname/
+then move the ipynb files to the docs folder of the peds workspace folder
 
-2. Git
+2. build book (from one dir above peds)
+
+jupyter-book clean peds/
+jupyter-book build peds/
+
+3. Git
 stage and commit within the peds folder
 git add ./*
 git commit -m "adding my first book!"
@@ -19,3 +25,6 @@ git push
 
 ghp-import -n -p -f _build/html
 
+5. View final book version
+
+https://tbonne.github.io/peds/intro.html

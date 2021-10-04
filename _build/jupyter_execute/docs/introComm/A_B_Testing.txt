@@ -1,0 +1,130 @@
+#load packages
+import pandas as pd
+import sklearn as sk
+import seaborn as sns
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
+
+#load data
+df_cats = pd.read_csv("/content/cookie_cats.csv")
+
+#take a look
+df_cats.head()
+
+?.value_counts()
+
+#gate placed at level 30
+df_cats[?=='gate_30'].retention_7.sum() / len(df_cats[df_cats['version']=='gate_30'])
+
+#gate placed at level 40
+?
+
+#plot the differences between the versions
+?
+
+from sklearn.preprocessing import OrdinalEncoder
+
+#get the columns names of features you'd like to turn into 0/1
+bin_names = ['retention_7','version']
+
+#create a dataframe of those features
+?
+
+#fit the scaler to those data
+?
+
+#use the scaler to transform your data
+?
+
+#put these scaled features back into your transformed features dataframe
+?
+
+#take a look
+df_cats
+
+bin_scaler.categories_
+
+#split these data into training and testing datasets
+df_train, df_test = train_test_split(df_cats, test_size=0.20, stratify=df_cats[['retention_7']])
+
+import statsmodels.api as sm #for running regression!
+import statsmodels.formula.api as smf
+
+#1. Build the model
+linear_reg_model = ?(formula='retention_7 ~ version ', data=?)
+
+#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)
+linear_reg_results = linear_reg_model.?
+
+#3. take a look at the summary
+?
+
+y_pred_prob = linear_reg_results.predict(df_train)
+y_pred_prob.hist()
+
+import statsmodels.api as sm #for running regression!
+import statsmodels.formula.api as smf
+
+#1. Build the model
+linear_reg_model = ?(formula='retention_7 ~ version + sum_gamerounds  ', data=?)
+
+#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)
+linear_reg_results = linear_reg_model.?()
+
+#3. take a look at the summary
+?
+
+y_pred_prob = linear_reg_results.predict(df_train)
+y_pred_prob.hist()
+
+from sklearn.metrics import confusion_matrix
+
+#predict on testing data
+y_pred_prob = ?
+
+#convert probs to 0/1
+y_pred = (y_pred_prob > 0.5).astype(int)
+
+#create a confusion matrix
+cm_logit = confusion_matrix(df_test.retention_7, ?)
+
+#visualize the confusion matrix
+sns.heatmap(cm_logit, annot=True)
+plt.xlabel('Predicted label')
+plt.ylabel('True label')
+
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+
+?
+
+
+#1. Create a dataframe
+df_question = pd.DataFrame({'version':[?,?],
+                            'sum_gamerounds':?})
+                            
+#2. Use the model to make predictions
+question_pred =  ?(df_question)
+
+#3. add a column to the df_question
+df_question['predicted_retention'] = question_pred
+
+#4. plot the predictions
+?
+
+import scipy
+
+#the following function can be used to convert numbers on the logit scale back into the probability scale
+scipy.special.expit(0)
+
+#i.e., on the logit scale 0 is equivalent to 0.5 probability
+
+#what was the intercept and slope of the line your model estimated? 
+intercept = ?
+b_version = ?
+b_sumGame = ?
+
+#probability of retention for version 0
+scipy.special.expit(intercept + b_version * 0 + b_sumGame*100)
+
+#probability of retention for version 1
+scipy.special.expit(intercept + b_version * 1 + b_sumGame*100)
