@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Exploritory Data Analysis &#8212; Practical exercises in data science - PEDS</title>
+    <title>Answering Questions &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="14. Linear regression" href="../introModeling/IntroModeling1_LinearReg.html" />
-    <link rel="prev" title="12. Scatter plots" href="IntroViz3_scatterplots.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -180,9 +178,9 @@
   Part 3 - Data visualization
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz1_histograms.html">
+  <a class="reference internal" href="../introViz/introViz1_histograms.html">
    10.
    <font color="darkorange">
     Summary statistics and histograms
@@ -190,7 +188,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz2_densityPlots.html">
+  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
    11.
    <font color="darkorange">
     Density plots and normal distributions
@@ -198,15 +196,15 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroViz3_scatterplots.html">
+  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
    12.
    <font color="darkorange">
     Scatter plots
    </font>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
    13.
    <font color="darkorange">
     Exploritory Data Analysis
@@ -316,7 +314,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/Projects/Project3_AnsweringQuestions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -336,7 +334,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introViz/IntroViz4_exploritoryDataAnalysis.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/Projects/Project3_AnsweringQuestions.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -357,7 +355,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/Projects/Project3_AnsweringQuestions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -380,18 +378,44 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-data-and-summary-statistics-font">
-   13.1.
-   <font color="darkorange">
-    Data and summary statistics
+  <a class="reference internal nav-link" href="#font-color-lightblue-1-ask-a-question-font">
+   <font color="lightblue">
+    1. Ask a question
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-visualize-the-data-font">
-   13.2.
-   <font color="darkorange">
-    Visualize the data
+  <a class="reference internal nav-link" href="#font-color-lightblue-2-data-understanding-exploration-and-visualization-font">
+   <font color="lightblue">
+    2. Data understanding, exploration, and visualization
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-3-data-wrangling-and-preprocessing-font">
+   <font color="lightblue">
+    3. Data wrangling and preprocessing
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-4-build-and-test-a-model-font">
+   <font color="lightblue">
+    4. Build and test a model
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-5-interpret-your-model-font">
+   <font color="lightblue">
+    5. Interpret your model
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-lightblue-6-answer-your-question-font">
+   <font color="lightblue">
+    6. Answer your question
    </font>
   </a>
  </li>
@@ -406,46 +430,47 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1Lv8NU_SuGQ9uVjU8N6_NwNi72qbSnbQL'><div class="section" id="font-color-darkorange-exploritory-data-analysis-font">
-<h1><span class="section-number">13. </span><font color='darkorange'>Exploritory Data Analysis</font><a class="headerlink" href="#font-color-darkorange-exploritory-data-analysis-font" title="Permalink to this headline">¶</a></h1>
-<p>In this exercise we will use what we learnt in this class to do some exploritory data analysis. The steps we will take are:</p>
-<ul class="simple">
-<li><p>Choose and download a dataset</p></li>
-<li><p>Visualize and get summary statistics</p></li>
-<li><p>Look for relationships between variables in the data</p></li>
-</ul>
-<p>Import the libraries</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import libraries</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-</pre></div>
+  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/Projects/Project3_AnsweringQuestions.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src='http://drive.google.com/uc?export=view&id=1UAsSD6z0wK4UJjjzBhDEIlSZnELLmeeb'><div class="section" id="font-color-lightblue-answering-questions-font">
+<h1><font color='lightblue'>Answering Questions</font><a class="headerlink" href="#font-color-lightblue-answering-questions-font" title="Permalink to this headline">¶</a></h1>
+<p>In this project you will use all you learnt about in the class to answer a question. Imagine you are part of a team and you have been assigned a question to answer, build a notebook that you would be able to share with your team that shows what you found.</p>
+<p>In this project you will:</p>
+<ol class="simple">
+<li><p>Introduce your question of interest</p></li>
+<li><p>Make sure your reader knows enough about the data</p></li>
+<li><p>Wrangle and preprocess your data so that a team mate can reproduce your work</p></li>
+<li><p>Build and test a model that can provide insight into your question</p></li>
+<li><p>Interpret your model results</p></li>
+<li><p>Answer your question</p></li>
+</ol>
+<p>Note: Marks will be awarded for clarity, organization, and succinctness. I.e., try to point out only the important parts in a well-organized easy to follow manner. (Marks: 3)</p>
+<div class="section" id="font-color-lightblue-1-ask-a-question-font">
+<h2><font color='lightblue'>1. Ask a question </font><a class="headerlink" href="#font-color-lightblue-1-ask-a-question-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Q1</strong>: Layout your question of interest. Remember to state your question as clearly and simply as you can (Mark 1), and what your ideal outcome would be (Marks 1).</p>
+<p><strong>Q2</strong>: Identify and describe what data sources you’ll use (Marks 1). Make sure to talk about one of the following: data accuracy, reliability, validity, or sample selection. (Marks: 1)</p>
+<p><strong>Q3</strong>: Layout what kind of ML problem you are facing and what kind of model you’ll use to answer it (eg., is it unsupervised or supervised learning, and is it classification or regression). Make sure to say why. (Marks 1)</p>
 </div>
+<div class="section" id="font-color-lightblue-2-data-understanding-exploration-and-visualization-font">
+<h2><font color='lightblue'>2. Data understanding, exploration, and visualization </font><a class="headerlink" href="#font-color-lightblue-2-data-understanding-exploration-and-visualization-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Action</strong>: While above you gave an overview of the dataset(s) that will be used, here make sure that the reader understands the important details of the data. E.g., show a figure or descriptive statistic and explain why the reader should know about this, i.e., how will it help your reader understand your analysis? (Marks: 2)</p>
 </div>
+<div class="section" id="font-color-lightblue-3-data-wrangling-and-preprocessing-font">
+<h2><font color='lightblue'>3. Data wrangling and preprocessing </font><a class="headerlink" href="#font-color-lightblue-3-data-wrangling-and-preprocessing-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Action</strong>: Layout all your data wrangling and preprocessing steps so that a reader will understand why you took each step, and would be able to reproduce your steps. (Marks: 3)</p>
 </div>
-<div class="section" id="font-color-darkorange-data-and-summary-statistics-font">
-<h2><span class="section-number">13.1. </span><font color='darkorange'>Data and summary statistics</font><a class="headerlink" href="#font-color-darkorange-data-and-summary-statistics-font" title="Permalink to this headline">¶</a></h2>
-<p>Choose a dataset and import it into colaboratory. You can use a dataset from the <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">class dataset folder</a>, or if you have found other data please feel free to use that data!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>df_? = pd.read_csv(?)
-</pre></div>
+<div class="section" id="font-color-lightblue-4-build-and-test-a-model-font">
+<h2><font color='lightblue'>4. Build and test a model</font><a class="headerlink" href="#font-color-lightblue-4-build-and-test-a-model-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Action:</strong> Use your training dataset to build a model with the goal addressing your question of interest. (Marks: 2)</p>
+<p><strong>Q4</strong>: Measure the performance of your model, and describe how well your model generalizes to new data (Marks: 2)</p>
 </div>
+<div class="section" id="font-color-lightblue-5-interpret-your-model-font">
+<h2><font color='lightblue'>5. Interpret your model</font><a class="headerlink" href="#font-color-lightblue-5-interpret-your-model-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Q5</strong>: Interpret your model results. E.g., what features contributed to your predictions, if possible, can you determine the sign and magnitude of the effect (Marks: 2).</p>
 </div>
-</div>
-<p>What types of data are you dealing with?</p>
-<p>What are the summary statistics of some of the key variables?</p>
-</div>
-<div class="section" id="font-color-darkorange-visualize-the-data-font">
-<h2><span class="section-number">13.2. </span><font color="darkorange">Visualize the data</font><a class="headerlink" href="#font-color-darkorange-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
-<p>What does the distribution of values look like for some key variables?</p>
-<p>What are some potentially interesting relationships between variables?</p>
-<blockquote>
-<div><p>i.e., scatterplots, correlations, and heatmaps</p>
-</div></blockquote>
+<div class="section" id="font-color-lightblue-6-answer-your-question-font">
+<h2><font color='lightblue'>6. Answer your question</font><a class="headerlink" href="#font-color-lightblue-6-answer-your-question-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Q6:</strong> Use your analysis above to answer your question of interest. Did you achieve your desired outcome, and what might the next steps be? Remember to write as though you are writing to team mates working on the same/similar problem. (Marks: 3)</p>
+<p>Note: It is ok if your analysis doesn’t provide a strong answer, you can point out where it failed. If anything you can cross the approach you took off the list of possible ways to tackle your question. I.e., you still made progress!</p>
 </div>
 </div>
 
@@ -462,7 +487,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/introViz"
+            path: "./docs/Projects"
         },
         predefinedOutput: true
     }
@@ -474,8 +499,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroViz3_scatterplots.html" title="previous page"><span class="section-number">12. </span><font color='darkorange'>Scatter plots</font></a>
-    <a class='right-next' id="next-link" href="../introModeling/IntroModeling1_LinearReg.html" title="next page"><span class="section-number">14. </span><font color='darkorange'>Linear regression</font></a>
 
         </div>
         
