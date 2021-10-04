@@ -29,8 +29,6 @@ df_test.index
 #index of the columns
 df_test.columns
 
-
-
 #take a look at the full dataframe
 df_test
 

@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 
+  
 #load in the nyc data 
 df_flights = pd.read_csv('?')
 
