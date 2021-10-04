@@ -1,14 +1,8 @@
 This is just to keep notes about the commands for building and publishing this book
 
-1. Make changes on colab
+1. Make changes to notebooks in docs folder
 
-Changes can be done in the notebooks under the introdatascience folder (with the git revision control - bottom folder)
 Double check that the notebook as edited in VScode works well in colab (formating issues sometimes)
-
-#then clone the github pages to get all the new docs (in the colabDocs folder)
-#git clone https://github.com/tbonne/IntroDataScience.git
-
-then move the ipynb files to the docs folder of the peds workspace folder
 
 2. build book (from one dir above peds)
 
