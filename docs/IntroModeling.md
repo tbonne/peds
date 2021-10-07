@@ -1,3 +1,3 @@
-# <font color="darkorange">Introduction to modeling</font>
+# <font color="darkorange">Let's build some models!</font>
 
-Here we will start to buil supervised machine learning models. We'll start simple with linear regression, then work our way up to random forest models.
+Now that we know how to explore our data and have a good understanding of our datasets, we can now move onto building models. In this part we’ll introduce how to use a number of supervised learning algorithms to make predictions. We focus on how to run these models in python, but also how to use training and destiny data to measure if our models or overfitting our data. We’ll see that the dangers of an overfit model are that we can make good predictions with our specific dataset, but our model will perform poorly when we try it out on new data. We’ll also learn about the trade-offs involved when fitting ever more complicated models. We’ll see that as we work our way up from simple linear regression to more complicated random forest models we gain in our ability to make predictions but we start to lose our ability to understand exactly how the model is making those predictions.

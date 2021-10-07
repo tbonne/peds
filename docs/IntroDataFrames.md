@@ -1,3 +1,4 @@
-# <font color="darkorange">Introduction to DataFrames and pandas</font>
+# <font color="darkorange">Working with data</font>
 
-This chapter we'll learn how to use dataframes!
+We’ll be working with many example datasets in this book, and we’ll ask you to find some of your own along the way. To do this we’ll need to know how to import data into your notebooks, and how to wrangle the data into a shape/format that we can then work with in python. Luckily for us there has been a lot of good work done to make this easier on us. In particular, we’ll use something called dataframes as our base. These dataframes have rows that are observations, e.g., one flight, and columns that are variables that describe that observation, e.g., flight time, flight distance, destination. We’ll first introduce how to create our own little dataframes, and show some of the python code that we can use to manipulate it. Then we’ll introduce how to load existing data into a dataframe and how we can clean and wrangle the data into something we can use. 
+Interestingly, this step of importing, cleaning, and wrangling your data can often be the most time consuming and important part of the data science workflow! 

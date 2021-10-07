@@ -1,3 +1,3 @@
-# <font color="darkorange">Model interpretation and communication</font>
+# <font color="darkorange">Let's try and learn from our models</font>
 
-Here we will spend a little time looking at how to interpret the results from our models, and importantly how we can communicate these results to non-specialists.
+In this part of the book we look a little closer at how we can interpret the results of our supervised learning models. In particular we’ll make the distinction between know how our models are making predictions, and whether those patterns the model finds useful are causal in some way. We’ll start off with a silly example of divorce rates and the number of waffle houses. We’ll show that the model can use the number of waffle houses to make better predictions about divorce rates, but the pattern is not causal. This is meant to help us communicate the difference between how the model is making predictions and causal interpretations to non-specialists. We’ll also take a look at a more experimental approach, called A-B testing, that tries to get at causal questions using machine learning. 

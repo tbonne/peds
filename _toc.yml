@@ -11,16 +11,16 @@ parts:
 - caption: Part 2 - Data organization
   numbered: true
   chapters:
-  - file: docs/introDataFrames.md
+  - file: docs/IntroDataFrames.md
   - file: docs/introData/IntroData1_DataFrames.ipynb
   - file: docs/introData/IntroData2_LoadingData.ipynb
   - file: docs/introData/IntroData3_MissingData.ipynb
   - file: docs/introData/IntroData4_groupby.ipynb
   - file: docs/introData/IntroData5_CombineData.ipynb
-- caption: Part 3 - Data visualization
+- caption: Part 3 - Exploritory Data Analysis
   numbered: true
   chapters:
-  - file: docs/introViz.md
+  - file: docs/IntroViz.md
   - file: docs/introViz/introViz1_histograms.ipynb
   - file: docs/introViz/introViz2_densityPlots.ipynb
   - file: docs/introViz/IntroViz3_scatterplots.ipynb
@@ -28,7 +28,7 @@ parts:
 - caption: Part 4 - Building models
   numbered: true
   chapters:
-  - file: docs/introModeling.md
+  - file: docs/IntroModeling.md
   - file: docs/introModeling/IntroModeling1_LinearReg.ipynb
   - file: docs/introModeling/IntroModelling_LogisticReg.ipynb
   - file: docs/introModeling/IntroModeling3_decisionTrees.ipynb
@@ -36,6 +36,6 @@ parts:
 - caption: Part 5 - Interpreting and communicating models
   numbered: true
   chapters:
-  - file: docs/introComm.md
+  - file: docs/IntroComm.md
   - file: docs/introComm/IntroCausalAnalysis.ipynb
   - file: docs/introComm/A_B_Testing.ipynb
