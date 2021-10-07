@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Project 1 - Exploritory Data Analysis &#8212; Practical exercises in data science - PEDS</title>
+    <title>Project 1 - Exploritory Data Analysis &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Let’s build some models!" href="../IntroModeling.html" />
-    <link rel="prev" title="16. Clustering in higher dimensions" href="IntroClustering2_highDimensions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,7 +186,7 @@
   Part 3 - Exploritory Data Analysis
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroViz.html">
    11.
@@ -237,8 +235,8 @@
    </font>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
    17.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
@@ -292,6 +290,14 @@
    </font>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
+   23.
+   <font color="darkorange">
+    Project 2 - Making Predictions
+   </font>
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -301,7 +307,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   23.
+   24.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -309,7 +315,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   24.
+   25.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -317,9 +323,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/A_B_Testing.html">
-   25.
+   26.
    <font color="darkorange">
     A/B Testing
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
+   27.
+   <font color="darkorange">
+    Project 3 - Answering Questions
    </font>
   </a>
  </li>
@@ -429,7 +443,6 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-data-and-summary-statistics-font">
-   17.1.
    <font color="darkorange">
     Data and summary statistics
    </font>
@@ -437,7 +450,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-visualize-the-data-font">
-   17.2.
    <font color="darkorange">
     Visualize the data
    </font>
@@ -456,7 +468,7 @@
                 
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1Lv8NU_SuGQ9uVjU8N6_NwNi72qbSnbQL'><div class="section" id="font-color-darkorange-project-1-exploritory-data-analysis-font">
-<h1><span class="section-number">17. </span><font color='darkorange'> Project 1 - Exploritory Data Analysis</font><a class="headerlink" href="#font-color-darkorange-project-1-exploritory-data-analysis-font" title="Permalink to this headline">¶</a></h1>
+<h1><font color='darkorange'> Project 1 - Exploritory Data Analysis</font><a class="headerlink" href="#font-color-darkorange-project-1-exploritory-data-analysis-font" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise we will use what we learnt in this class to do some exploritory data analysis. The steps we will take are:</p>
 <ul class="simple">
 <li><p>Choose and download a dataset</p></li>
@@ -475,7 +487,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-data-and-summary-statistics-font">
-<h2><span class="section-number">17.1. </span><font color='darkorange'>Data and summary statistics</font><a class="headerlink" href="#font-color-darkorange-data-and-summary-statistics-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Data and summary statistics</font><a class="headerlink" href="#font-color-darkorange-data-and-summary-statistics-font" title="Permalink to this headline">¶</a></h2>
 <p>Choose a dataset and import it into colaboratory. You can use a dataset from the <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">class dataset folder</a>, or if you have found other data please feel free to use that data!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -488,7 +500,7 @@
 <p>What are the summary statistics of some of the key variables?</p>
 </div>
 <div class="section" id="font-color-darkorange-visualize-the-data-font">
-<h2><span class="section-number">17.2. </span><font color="darkorange">Visualize the data</font><a class="headerlink" href="#font-color-darkorange-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color="darkorange">Visualize the data</font><a class="headerlink" href="#font-color-darkorange-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>What does the distribution of values look like for some key variables?</p>
 <p>What are some potentially interesting relationships between variables?</p>
 <blockquote>
@@ -522,8 +534,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroClustering2_highDimensions.html" title="previous page"><span class="section-number">16. </span><font color='darkorange'>Clustering in higher dimensions</font></a>
-    <a class='right-next' id="next-link" href="../IntroModeling.html" title="next page"><span class="section-number">18. </span><font color="darkorange">Let’s build some models!</font></a>
 
         </div>
         

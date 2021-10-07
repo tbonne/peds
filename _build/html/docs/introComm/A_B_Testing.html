@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>25. A/B Testing &#8212; Practical exercises in data science - PEDS</title>
+    <title>26. A/B Testing &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="24. Explainability vs Causality" href="IntroCausalAnalysis.html" />
+    <link rel="next" title="27. Project 3 - Answering Questions" href="../Projects/Project3_AnsweringQuestions.html" />
+    <link rel="prev" title="25. Explainability vs Causality" href="IntroCausalAnalysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -237,7 +238,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
    17.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
@@ -291,6 +292,14 @@
    </font>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
+   23.
+   <font color="darkorange">
+    Project 2 - Making Predictions
+   </font>
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -300,7 +309,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   23.
+   24.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -308,7 +317,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroCausalAnalysis.html">
-   24.
+   25.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -316,9 +325,17 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   25.
+   26.
    <font color="darkorange">
     A/B Testing
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
+   27.
+   <font color="darkorange">
+    Project 3 - Answering Questions
    </font>
   </a>
  </li>
@@ -428,7 +445,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-describe-the-data-font">
-   25.1.
+   26.1.
    <font color="darkorange">
     Describe the data
    </font>
@@ -436,7 +453,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-visualize-the-data-font">
-   25.2.
+   26.2.
    <font color="darkorange">
     Visualize the data
    </font>
@@ -444,7 +461,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-wrangle-the-data-font">
-   25.3.
+   26.3.
    <font color="darkorange">
     Wrangle the data
    </font>
@@ -452,7 +469,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-build-a-model-font">
-   25.4.
+   26.4.
    <font color="darkorange">
     Build a model
    </font>
@@ -460,7 +477,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-   25.5.
+   26.5.
    <font color="darkorange">
     Bonus
    </font>
@@ -480,7 +497,7 @@
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introComm/A_B_Testing.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1JqHLLc4CGhWdmUAb0xCn1anYe6Qkl_U_' width=500>
 <div class="section" id="font-color-darkorange-a-b-testing-font">
-<h1><span class="section-number">25. </span><font color='darkorange'>A/B Testing</font><a class="headerlink" href="#font-color-darkorange-a-b-testing-font" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">26. </span><font color='darkorange'>A/B Testing</font><a class="headerlink" href="#font-color-darkorange-a-b-testing-font" title="Permalink to this headline">¶</a></h1>
 <p>Here we will look at how to collect and analyze data to determine the difference between two groups. The idea here is that if we randomly assign individuals to two groups we end up with comparable groups. If we then measure how these two groups respond to a treatment (e.g., being given game version A vs. game version B) we can better determine the effect of that treatment.</p>
 <p>We’ll take a look at data collected to test how effective different versions of a game are at retaining users.</p>
 <div class="cell docutils container">
@@ -578,7 +595,7 @@
 </div></div></div>
 </div>
 <div class="section" id="font-color-darkorange-describe-the-data-font">
-<h2><span class="section-number">25.1. </span><font color='darkorange'>Describe the data</font><a class="headerlink" href="#font-color-darkorange-describe-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.1. </span><font color='darkorange'>Describe the data</font><a class="headerlink" href="#font-color-darkorange-describe-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>How many in each group?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -606,7 +623,7 @@ df_cats[?==&#39;gate_30&#39;].retention_7.sum() / len(df_cats[df_cats[&#39;versi
 </div>
 </div>
 <div class="section" id="font-color-darkorange-visualize-the-data-font">
-<h2><span class="section-number">25.2. </span><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#font-color-darkorange-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.2. </span><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#font-color-darkorange-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#plot the differences between the versions
@@ -617,7 +634,7 @@ df_cats[?==&#39;gate_30&#39;].retention_7.sum() / len(df_cats[df_cats[&#39;versi
 </div>
 </div>
 <div class="section" id="font-color-darkorange-wrangle-the-data-font">
-<h2><span class="section-number">25.3. </span><font color='darkorange'>Wrangle the data</font><a class="headerlink" href="#font-color-darkorange-wrangle-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.3. </span><font color='darkorange'>Wrangle the data</font><a class="headerlink" href="#font-color-darkorange-wrangle-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>Convert the binary traget and binary input variable to 0/1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -663,7 +680,7 @@ df_cats
 </div>
 </div>
 <div class="section" id="font-color-darkorange-build-a-model-font">
-<h2><span class="section-number">25.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#font-color-darkorange-build-a-model-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#font-color-darkorange-build-a-model-font" title="Permalink to this headline">¶</a></h2>
 <p>Can we predict which game version does better?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -764,7 +781,7 @@ plt.ylabel(&#39;True label&#39;)
 </div>
 </div>
 <div class="section" id="font-color-darkorange-bonus-font">
-<h2><span class="section-number">25.5. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">26.5. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
 <p>What does the model think retetion will change when we vary versions and sum_gamerounds?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,7 +868,8 @@ b_sumGame = ?
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroCausalAnalysis.html" title="previous page"><span class="section-number">24. </span><font color='darkorange'>Explainability vs Causality</font></a>
+    <a class='left-prev' id="prev-link" href="IntroCausalAnalysis.html" title="previous page"><span class="section-number">25. </span><font color='darkorange'>Explainability vs Causality</font></a>
+    <a class='right-next' id="next-link" href="../Projects/Project3_AnsweringQuestions.html" title="next page"><span class="section-number">27. </span><font color='darkorange'>Project 3 - Answering Questions</font></a>
 
         </div>
         

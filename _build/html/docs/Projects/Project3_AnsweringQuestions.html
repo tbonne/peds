@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Answering Questions &#8212; Practical exercises in data science - PEDS</title>
+    <title>27. Project 3 - Answering Questions &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="26. A/B Testing" href="../introComm/A_B_Testing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -236,7 +237,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroViz4_exploritoryDataAnalysis.html">
+  <a class="reference internal" href="Project1_ExploritoryDataAnalysis.html">
    17.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
@@ -290,16 +291,24 @@
    </font>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Project2_MakingPredictions.html">
+   23.
+   <font color="darkorange">
+    Project 2 - Making Predictions
+   </font>
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
   Part 5 - Interpreting and communicating models
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   23.
+   24.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -307,7 +316,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   24.
+   25.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -315,9 +324,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/A_B_Testing.html">
-   25.
+   26.
    <font color="darkorange">
     A/B Testing
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   27.
+   <font color="darkorange">
+    Project 3 - Answering Questions
    </font>
   </a>
  </li>
@@ -426,43 +443,49 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-1-ask-a-question-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-1-ask-a-question-font">
+   27.1.
+   <font color="darkorange">
     1. Ask a question
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-2-data-understanding-exploration-and-visualization-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-2-data-understanding-exploration-and-visualization-font">
+   27.2.
+   <font color="darkorange">
     2. Data understanding, exploration, and visualization
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-3-data-wrangling-and-preprocessing-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-3-data-wrangling-and-preprocessing-font">
+   27.3.
+   <font color="darkorange">
     3. Data wrangling and preprocessing
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-4-build-and-test-a-model-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-4-build-and-test-a-model-font">
+   27.4.
+   <font color="darkorange">
     4. Build and test a model
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-5-interpret-your-model-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-5-interpret-your-model-font">
+   27.5.
+   <font color="darkorange">
     5. Interpret your model
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-6-answer-your-question-font">
-   <font color="lightblue">
+  <a class="reference internal nav-link" href="#font-color-darkorange-6-answer-your-question-font">
+   27.6.
+   <font color="darkorange">
     6. Answer your question
    </font>
   </a>
@@ -479,8 +502,8 @@
               <div>
                 
   <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/Projects/Project3_AnsweringQuestions.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1UAsSD6z0wK4UJjjzBhDEIlSZnELLmeeb'><div class="section" id="font-color-lightblue-answering-questions-font">
-<h1><font color='lightblue'>Answering Questions</font><a class="headerlink" href="#font-color-lightblue-answering-questions-font" title="Permalink to this headline">¶</a></h1>
+<img src='http://drive.google.com/uc?export=view&id=1UAsSD6z0wK4UJjjzBhDEIlSZnELLmeeb'><div class="section" id="font-color-darkorange-project-3-answering-questions-font">
+<h1><span class="section-number">27. </span><font color='darkorange'>Project 3 - Answering Questions</font><a class="headerlink" href="#font-color-darkorange-project-3-answering-questions-font" title="Permalink to this headline">¶</a></h1>
 <p>In this project you will use all you learnt about in the class to answer a question. Imagine you are part of a team and you have been assigned a question to answer, build a notebook that you would be able to share with your team that shows what you found.</p>
 <p>In this project you will:</p>
 <ol class="simple">
@@ -492,31 +515,31 @@
 <li><p>Answer your question</p></li>
 </ol>
 <p>Note: Marks will be awarded for clarity, organization, and succinctness. I.e., try to point out only the important parts in a well-organized easy to follow manner. (Marks: 3)</p>
-<div class="section" id="font-color-lightblue-1-ask-a-question-font">
-<h2><font color='lightblue'>1. Ask a question </font><a class="headerlink" href="#font-color-lightblue-1-ask-a-question-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-1-ask-a-question-font">
+<h2><span class="section-number">27.1. </span><font color='darkorange'>1. Ask a question </font><a class="headerlink" href="#font-color-darkorange-1-ask-a-question-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Q1</strong>: Layout your question of interest. Remember to state your question as clearly and simply as you can (Mark 1), and what your ideal outcome would be (Marks 1).</p>
 <p><strong>Q2</strong>: Identify and describe what data sources you’ll use (Marks 1). Make sure to talk about one of the following: data accuracy, reliability, validity, or sample selection. (Marks: 1)</p>
 <p><strong>Q3</strong>: Layout what kind of ML problem you are facing and what kind of model you’ll use to answer it (eg., is it unsupervised or supervised learning, and is it classification or regression). Make sure to say why. (Marks 1)</p>
 </div>
-<div class="section" id="font-color-lightblue-2-data-understanding-exploration-and-visualization-font">
-<h2><font color='lightblue'>2. Data understanding, exploration, and visualization </font><a class="headerlink" href="#font-color-lightblue-2-data-understanding-exploration-and-visualization-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-2-data-understanding-exploration-and-visualization-font">
+<h2><span class="section-number">27.2. </span><font color='darkorange'>2. Data understanding, exploration, and visualization </font><a class="headerlink" href="#font-color-darkorange-2-data-understanding-exploration-and-visualization-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Action</strong>: While above you gave an overview of the dataset(s) that will be used, here make sure that the reader understands the important details of the data. E.g., show a figure or descriptive statistic and explain why the reader should know about this, i.e., how will it help your reader understand your analysis? (Marks: 2)</p>
 </div>
-<div class="section" id="font-color-lightblue-3-data-wrangling-and-preprocessing-font">
-<h2><font color='lightblue'>3. Data wrangling and preprocessing </font><a class="headerlink" href="#font-color-lightblue-3-data-wrangling-and-preprocessing-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-3-data-wrangling-and-preprocessing-font">
+<h2><span class="section-number">27.3. </span><font color='darkorange'>3. Data wrangling and preprocessing </font><a class="headerlink" href="#font-color-darkorange-3-data-wrangling-and-preprocessing-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Action</strong>: Layout all your data wrangling and preprocessing steps so that a reader will understand why you took each step, and would be able to reproduce your steps. (Marks: 3)</p>
 </div>
-<div class="section" id="font-color-lightblue-4-build-and-test-a-model-font">
-<h2><font color='lightblue'>4. Build and test a model</font><a class="headerlink" href="#font-color-lightblue-4-build-and-test-a-model-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-4-build-and-test-a-model-font">
+<h2><span class="section-number">27.4. </span><font color='darkorange'>4. Build and test a model</font><a class="headerlink" href="#font-color-darkorange-4-build-and-test-a-model-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Action:</strong> Use your training dataset to build a model with the goal addressing your question of interest. (Marks: 2)</p>
 <p><strong>Q4</strong>: Measure the performance of your model, and describe how well your model generalizes to new data (Marks: 2)</p>
 </div>
-<div class="section" id="font-color-lightblue-5-interpret-your-model-font">
-<h2><font color='lightblue'>5. Interpret your model</font><a class="headerlink" href="#font-color-lightblue-5-interpret-your-model-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-5-interpret-your-model-font">
+<h2><span class="section-number">27.5. </span><font color='darkorange'>5. Interpret your model</font><a class="headerlink" href="#font-color-darkorange-5-interpret-your-model-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Q5</strong>: Interpret your model results. E.g., what features contributed to your predictions, if possible, can you determine the sign and magnitude of the effect (Marks: 2).</p>
 </div>
-<div class="section" id="font-color-lightblue-6-answer-your-question-font">
-<h2><font color='lightblue'>6. Answer your question</font><a class="headerlink" href="#font-color-lightblue-6-answer-your-question-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-6-answer-your-question-font">
+<h2><span class="section-number">27.6. </span><font color='darkorange'>6. Answer your question</font><a class="headerlink" href="#font-color-darkorange-6-answer-your-question-font" title="Permalink to this headline">¶</a></h2>
 <p><strong>Q6:</strong> Use your analysis above to answer your question of interest. Did you achieve your desired outcome, and what might the next steps be? Remember to write as though you are writing to team mates working on the same/similar problem. (Marks: 3)</p>
 <p>Note: It is ok if your analysis doesn’t provide a strong answer, you can point out where it failed. If anything you can cross the approach you took off the list of possible ways to tackle your question. I.e., you still made progress!</p>
 </div>
@@ -547,6 +570,7 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="../introComm/A_B_Testing.html" title="previous page"><span class="section-number">26. </span><font color='darkorange'>A/B Testing</font></a>
 
         </div>
         
