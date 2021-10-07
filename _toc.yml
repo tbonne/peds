@@ -8,7 +8,7 @@ parts:
   - file: docs/IntroNotebooks.ipynb
   - file: docs/IntroPython.ipynb
   - file: docs/IntroNumpy.ipynb
-- caption: Part 2 - Data organization
+- caption: Part 2 - Data Wrangling
   numbered: true
   chapters:
   - file: docs/IntroDataFrames.md
@@ -24,6 +24,8 @@ parts:
   - file: docs/introViz/introViz1_histograms.ipynb
   - file: docs/introViz/introViz2_densityPlots.ipynb
   - file: docs/introViz/IntroViz3_scatterplots.ipynb
+  - file: docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb
+  - file: docs/introViz/IntroClustering2_highDimensions.ipynb
   - file: docs/introViz/IntroViz4_exploritoryDataAnalysis.ipynb
 - caption: Part 4 - Building models
   numbered: true
