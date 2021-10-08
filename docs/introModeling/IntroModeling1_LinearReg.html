@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Linear regression &#8212; Practical exercises in data science - PEDS</title>
+    <title>20. Linear regression &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Logistic regression" href="IntroModelling_LogisticReg.html" />
-    <link rel="prev" title="18. Let’s build some models!" href="../IntroModeling.html" />
+    <link rel="next" title="21. Logistic regression" href="IntroModelling_LogisticReg.html" />
+    <link rel="prev" title="19. Let’s build some models!" href="../IntroModeling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -238,8 +238,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
    17.
+   <font color="darkorange">
+    Class Data Challenge 1
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+   18.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
    </font>
@@ -254,7 +262,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroModeling.html">
-   18.
+   19.
    <font color="darkorange">
     Let’s build some models!
    </font>
@@ -262,7 +270,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   19.
+   20.
    <font color="darkorange">
     Linear regression
    </font>
@@ -270,7 +278,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroModelling_LogisticReg.html">
-   20.
+   21.
    <font color="darkorange">
     Logistic regression
    </font>
@@ -278,7 +286,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroModeling3_decisionTrees.html">
-   21.
+   22.
    <font color="darkorange">
     Decision trees
    </font>
@@ -286,15 +294,23 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Intro_RandomForest.html">
-   22.
+   23.
    <font color="darkorange">
     Random forests
    </font>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
+   24.
+   <font color="darkorange">
+    Class Data Challenge II
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   23.
+   25.
    <font color="darkorange">
     Project 2 - Making Predictions
    </font>
@@ -309,7 +325,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   24.
+   26.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -317,7 +333,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   25.
+   27.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -325,7 +341,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/A_B_Testing.html">
-   26.
+   28.
    <font color="darkorange">
     A/B Testing
    </font>
@@ -333,7 +349,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   27.
+   29.
    <font color="darkorange">
     Project 3 - Answering Questions
    </font>
@@ -445,7 +461,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-load-the-data-font">
-   19.1.
+   20.1.
    <font color="darkorange">
     Load the data
    </font>
@@ -453,7 +469,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-lightblue-visualize-and-explore-font">
-   19.2.
+   20.2.
    <font color="lightblue">
     Visualize and Explore
    </font>
@@ -461,7 +477,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-build-and-train-a-model-font">
-   19.3.
+   20.3.
    <font color="darkorange">
     Build and train a model
    </font>
@@ -469,7 +485,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-training-testing-split-font">
-   19.4.
+   20.4.
    <font color="darkorange">
     Training / Testing Split
    </font>
@@ -477,7 +493,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-fit-a-model-font">
-   19.5.
+   20.5.
    <font color="darkorange">
     Fit a model
    </font>
@@ -485,7 +501,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-lightblue-fit-a-more-complex-model-font">
-   19.6.
+   20.6.
    <font color="lightblue">
     Fit a more complex model
    </font>
@@ -493,7 +509,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-lightblue-try-adding-more-variables-font">
-   19.7.
+   20.7.
    <font color="lightblue">
     Try adding more variables!
    </font>
@@ -501,7 +517,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-lightblue-explaining-how-the-model-is-making-predictions-font">
-   19.8.
+   20.8.
    <font color="lightblue">
     Explaining how the model is making predictions
    </font>
@@ -509,7 +525,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   19.9.
+   20.9.
    <font color="darkorange">
     Further reading
    </font>
@@ -528,7 +544,7 @@
                 
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModeling1_LinearReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1L4qAFCwXR9S6RHVzdOc7PhL7-B3yW-Jb' width="300">  <div class="section" id="font-color-darkorange-linear-regression-font">
-<h1><span class="section-number">19. </span><font color='darkorange'>Linear regression</font><a class="headerlink" href="#font-color-darkorange-linear-regression-font" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">20. </span><font color='darkorange'>Linear regression</font><a class="headerlink" href="#font-color-darkorange-linear-regression-font" title="Permalink to this headline">¶</a></h1>
 <p>In previous classes we have used exploritory approaches to visualize and quantify relationships between variables. Now we will use linear regression to start to build models that can make predictions based on these relationships.</p>
 <p>Import the needed libraries</p>
 <div class="cell docutils container">
@@ -545,7 +561,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-load-the-data-font">
-<h2><span class="section-number">19.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#font-color-darkorange-load-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#font-color-darkorange-load-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>Download the ‘bostonHouses.csv’ from the class’s <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">shared data folder</a> and load it into a dataframe.</p>
 <blockquote>
 <div><p>Note: one way to get the data in, is just to drag and drop the csv file into the files tab on the left. However, using this method means that when we leave our session the data will be removed (i.e., it isn’t on your gdrive).</p>
@@ -575,7 +591,7 @@
 </div>
 </div>
 <div class="section" id="font-color-lightblue-visualize-and-explore-font">
-<h2><span class="section-number">19.2. </span><font color='lightblue'>Visualize and Explore</font><a class="headerlink" href="#font-color-lightblue-visualize-and-explore-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.2. </span><font color='lightblue'>Visualize and Explore</font><a class="headerlink" href="#font-color-lightblue-visualize-and-explore-font" title="Permalink to this headline">¶</a></h2>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Plot the house prices on the y-axis, with some other variables on the x-axis.</p>
 <blockquote>
 <div><p>Generally the value we are trying to predict is called the response variable, while the values we are using to make those predictions are the predictor variables.</p>
@@ -598,7 +614,7 @@ sns.heatmap(data=?)
 </div>
 </div>
 <div class="section" id="font-color-darkorange-build-and-train-a-model-font">
-<h2><span class="section-number">19.3. </span><font color='darkorange'>Build and train a model </font><a class="headerlink" href="#font-color-darkorange-build-and-train-a-model-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.3. </span><font color='darkorange'>Build and train a model </font><a class="headerlink" href="#font-color-darkorange-build-and-train-a-model-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at building our first model – linear regression!</p>
 <blockquote>
 <div><p>Can how well can we predict the price of a house based on the proportion of large lots in the area (i.e., the ZN value)?</p>
@@ -653,7 +669,7 @@ sns.heatmap(data=?)
 </div>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
 <div class="section" id="font-color-darkorange-training-testing-split-font">
-<h2><span class="section-number">19.4. </span><font color='darkorange'>Training / Testing Split </font><a class="headerlink" href="#font-color-darkorange-training-testing-split-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.4. </span><font color='darkorange'>Training / Testing Split </font><a class="headerlink" href="#font-color-darkorange-training-testing-split-font" title="Permalink to this headline">¶</a></h2>
 </br>
 </br>
 We will follow a general approach when building models. We will divide the dataset into *training* and *testing* datasets. 
@@ -687,7 +703,7 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 </div>
 <div class="section" id="font-color-darkorange-fit-a-model-font">
-<h2><span class="section-number">19.5. </span><font color='darkorange'>Fit a model </font><a class="headerlink" href="#font-color-darkorange-fit-a-model-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.5. </span><font color='darkorange'>Fit a model </font><a class="headerlink" href="#font-color-darkorange-fit-a-model-font" title="Permalink to this headline">¶</a></h2>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>In general when using sklearn to fit a model we will follow these steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,7 +772,7 @@ print(linear_reg_split_results.summary())
 <p>Q: Is all that error just noise? Or could there be other variables that might explain why the predictions are off?</p>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
 <div class="section" id="font-color-lightblue-fit-a-more-complex-model-font">
-<h2><span class="section-number">19.6. </span><font color='lightblue'>Fit a more complex model</font><a class="headerlink" href="#font-color-lightblue-fit-a-more-complex-model-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.6. </span><font color='lightblue'>Fit a more complex model</font><a class="headerlink" href="#font-color-lightblue-fit-a-more-complex-model-font" title="Permalink to this headline">¶</a></h2>
 <p>This time we will try multiple linear regression</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,7 +834,7 @@ Let’s look at the number of rooms (RM) first:</p>
 <p>Q: how does that compare to our simple model?</p>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  </div>
 <div class="section" id="font-color-lightblue-try-adding-more-variables-font">
-<h2><span class="section-number">19.7. </span><font color='lightblue'>Try adding more variables!</font><a class="headerlink" href="#font-color-lightblue-try-adding-more-variables-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.7. </span><font color='lightblue'>Try adding more variables!</font><a class="headerlink" href="#font-color-lightblue-try-adding-more-variables-font" title="Permalink to this headline">¶</a></h2>
 <p>Run a linear regression model to predict house prices. Try and beat the RMSE of the previous models! Feel free to post to slack your results and RMSE scores! Does RMSE always decrease as you add more variables?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -850,7 +866,7 @@ print(&quot; Mean squared error = &quot;, ?)
 </div>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
 <div class="section" id="font-color-lightblue-explaining-how-the-model-is-making-predictions-font">
-<h2><span class="section-number">19.8. </span><font color='lightblue'>Explaining how the model is making predictions</font><a class="headerlink" href="#font-color-lightblue-explaining-how-the-model-is-making-predictions-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.8. </span><font color='lightblue'>Explaining how the model is making predictions</font><a class="headerlink" href="#font-color-lightblue-explaining-how-the-model-is-making-predictions-font" title="Permalink to this headline">¶</a></h2>
 <p>With linear regression we can look to see what features are important when making predictions. We can also see the direction and magnitude of the effect of these features.</p>
 <blockquote>
 <div><p>E.g., more rooms in a house are positively associated with house price</p>
@@ -925,7 +941,7 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
 </div></blockquote>
 </div>
 <div class="section" id="font-color-darkorange-further-reading-font">
-<h2><span class="section-number">19.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">20.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
 <p>Read more about <a class="reference external" href="https://www.statsmodels.org/stable/gettingstarted.html">using statsmodel</a> to run regression models.</p>
 </div>
 </div>
@@ -955,8 +971,8 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../IntroModeling.html" title="previous page"><span class="section-number">18. </span><font color="darkorange">Let’s build some models!</font></a>
-    <a class='right-next' id="next-link" href="IntroModelling_LogisticReg.html" title="next page"><span class="section-number">20. </span><font color='darkorange'>Logistic regression</font></a>
+    <a class='left-prev' id="prev-link" href="../IntroModeling.html" title="previous page"><span class="section-number">19. </span><font color="darkorange">Let’s build some models!</font></a>
+    <a class='right-next' id="next-link" href="IntroModelling_LogisticReg.html" title="next page"><span class="section-number">21. </span><font color='darkorange'>Logistic regression</font></a>
 
         </div>
         

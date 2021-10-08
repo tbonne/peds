@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>18. Project 1 - Exploritory Data Analysis &#8212; Practical exercises in data science - PEDS</title>
+    <title>24. Class Data Challenge II &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="19. Let’s build some models!" href="../IntroModeling.html" />
-    <link rel="prev" title="17. Class Data Challenge 1" href="../dataChallenges/DataChallenge1.html" />
+    <link rel="next" title="25. Project 2 - Making Predictions" href="../Projects/Project2_MakingPredictions.html" />
+    <link rel="prev" title="23. Random forests" href="../introModeling/Intro_RandomForest.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -188,7 +188,7 @@
   Part 3 - Exploritory Data Analysis
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroViz.html">
    11.
@@ -238,15 +238,15 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
+  <a class="reference internal" href="DataChallenge1.html">
    17.
    <font color="darkorange">
     Class Data Challenge 1
    </font>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
    18.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
@@ -259,7 +259,7 @@
   Part 4 - Building models
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroModeling.html">
    19.
@@ -300,8 +300,8 @@
    </font>
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    24.
    <font color="darkorange">
     Class Data Challenge II
@@ -309,7 +309,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Project2_MakingPredictions.html">
+  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
    25.
    <font color="darkorange">
     Project 2 - Making Predictions
@@ -348,7 +348,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Project3_AnsweringQuestions.html">
+  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
    29.
    <font color="darkorange">
     Project 3 - Answering Questions
@@ -396,7 +396,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/Projects/Project1_ExploritoryDataAnalysis.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/dataChallenges/DataChallenge2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -416,7 +416,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/Projects/Project1_ExploritoryDataAnalysis.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dataChallenges/DataChallenge2.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -437,7 +437,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/Projects/Project1_ExploritoryDataAnalysis.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/dataChallenges/DataChallenge2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -460,42 +460,50 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-1-data-font">
-   18.1.
+  <a class="reference internal nav-link" href="#font-color-darkorange-data-wrangling-font">
+   24.1.
    <font color="darkorange">
-    1. Data
+    Data wrangling
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-2-summary-statistics-font">
-   18.2.
+  <a class="reference internal nav-link" href="#font-color-darkorange-data-visualization-and-exploration-font">
+   24.2.
    <font color="darkorange">
-    2. Summary statistics
+    Data Visualization and Exploration
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-3-visualize-the-data-font">
-   18.3.
+  <a class="reference internal nav-link" href="#font-color-darkorange-model-building-and-fitting-font">
+   24.3.
    <font color="darkorange">
-    3. Visualize the data
+    Model building and fitting
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-4-correlations-font">
-   18.4.
+  <a class="reference internal nav-link" href="#font-color-darkorange-model-inference-font">
+   24.4.
    <font color="darkorange">
-    4. Correlations
+    Model inference
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-5-discussion-font">
-   18.5.
+  <a class="reference internal nav-link" href="#font-color-darkorange-new-data-font">
+   24.5.
    <font color="darkorange">
-    5. Discussion
+    New data
+   </font>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
+   24.6.
+   <font color="darkorange">
+    Bonus
    </font>
   </a>
  </li>
@@ -510,61 +518,75 @@
         
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/Projects/Project1_ExploritoryDataAnalysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1Lv8NU_SuGQ9uVjU8N6_NwNi72qbSnbQL'><div class="section" id="font-color-darkorange-project-1-exploritory-data-analysis-font">
-<h1><span class="section-number">18. </span><font color='darkorange'>Project 1 - Exploritory Data Analysis</font><a class="headerlink" href="#font-color-darkorange-project-1-exploritory-data-analysis-font" title="Permalink to this headline">¶</a></h1>
-<p>In this project you will perform an exploritory data analysis (EDA) using visualizations and correlations. You may choose from one of the datasets within the <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">class shared data folder</a>, or search for a dataset that interests you the most! <a class="reference external" href="https://www.kaggle.com/datasets?fileType=csv">Kaggle</a> is a good place to start, as they often have relatively clean and easy to use datasets, but feel free to explore other places. There is a lot of data out there!</p>
-<p>In this project you will:</p>
+  <img src='http://drive.google.com/uc?export=view&id=1BoSI6ZAmGc3mvjUZWGiUw9IZaPaWbV6Y' width=200><div class="section" id="font-color-darkorange-class-data-challenge-ii-font">
+<h1><span class="section-number">24. </span><font color="darkorange">Class Data Challenge II</font><a class="headerlink" href="#font-color-darkorange-class-data-challenge-ii-font" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Welcome to data challenge II. In this challenge we will break into groups to work on a large dataset. The goal will be to gain the highest prediction, while being able to explain how the model is making those predictions.</p>
+</div></blockquote>
+<p><strong>Context</strong></p>
+<p>Congratulations you’ve just been hired by the local school board to help them make decision about how to reduce alcohol consumption in high schoolers. They have provided you with a dataset collected over the last year from anonymous students. They would like to know the following:</p>
 <ol class="simple">
-<li><p>Choose and download a dataset</p></li>
-<li><p>Get summary statistics for key variables</p></li>
-<li><p>Create visuals to help understand your data</p></li>
-<li><p>Use correlation to measure relationships between key variables</p></li>
-<li><p>Summarise how EDA helped (or not!) in understanding your dataset</p></li>
+<li><p>Can you build a model to help identify individuals that might be high drinkers?</p></li>
+<li><p>What are some of the most important factors leading to these predictions?</p></li>
 </ol>
-<p>Import python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">sk</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="font-color-darkorange-1-data-font">
-<h2><span class="section-number">18.1. </span><font color='darkorange'>1. Data </font><a class="headerlink" href="#font-color-darkorange-1-data-font" title="Permalink to this headline">¶</a></h2>
-<p><strong>Action:</strong> Import your data into colaboratory.</p>
-<p><strong>Action:</strong> Determine the types of data are you dealing with.</p>
+<p>Load in the dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/student-mat.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
 </div>
-<div class="section" id="font-color-darkorange-2-summary-statistics-font">
-<h2><span class="section-number">18.2. </span><font color='darkorange'>2. Summary statistics</font><a class="headerlink" href="#font-color-darkorange-2-summary-statistics-font" title="Permalink to this headline">¶</a></h2>
-<p><strong>Action:</strong> Estimate the summary statistics of some of the key variables</p>
 </div>
-<div class="section" id="font-color-darkorange-3-visualize-the-data-font">
-<h2><span class="section-number">18.3. </span><font color='darkorange'>3. Visualize the data</font><a class="headerlink" href="#font-color-darkorange-3-visualize-the-data-font" title="Permalink to this headline">¶</a></h2>
-<p><strong>Action:</strong> Visualize the distribution of values for some key variables</p>
-<p><strong>Q1:</strong> Explain your choice of plots using the five visualization components:</p>
-<ol class="simple">
-<li><p>Data component – what kinds of data are you dealing with?</p></li>
-<li><p>Graphical component – what kinds of plot can you use?</p></li>
-<li><p>Label component – what should be on the plot axis?</p></li>
-<li><p>Esthetic component – what should you plot say, and how best to do this?</p></li>
-<li><p>Ethical component – Is the graph misleading, what is left out?</p></li>
-</ol>
 </div>
-<div class="section" id="font-color-darkorange-4-correlations-font">
-<h2><span class="section-number">18.4. </span><font color='darkorange'>4. Correlations</font><a class="headerlink" href="#font-color-darkorange-4-correlations-font" title="Permalink to this headline">¶</a></h2>
-<p><strong>Action:</strong> Use correlation to estimate the relationship between some of the key variables. Try exploring for interesting relationships using heatmaps.</p>
-<p><strong>Q2:</strong> Choose one or two correlations and describe what the magnitude and direction of the correlation suggests about the relationship between the two variables.</p>
+<div class="section" id="font-color-darkorange-data-wrangling-font">
+<h2><span class="section-number">24.1. </span><font color="darkorange">Data wrangling</font><a class="headerlink" href="#font-color-darkorange-data-wrangling-font" title="Permalink to this headline">¶</a></h2>
+<p>Get your data ready for visualization and modeling!</p>
 </div>
-<div class="section" id="font-color-darkorange-5-discussion-font">
-<h2><span class="section-number">18.5. </span><font color='darkorange'>5. Discussion</font><a class="headerlink" href="#font-color-darkorange-5-discussion-font" title="Permalink to this headline">¶</a></h2>
-<p><strong>Q3:</strong> Did this exploritory data analysis help you better understand your chosen dataset? If so how? Is there still parts that don’t make sense?</p>
-<blockquote>
-<div><p>The idea with this question is not to see if you know everything about this dataset, just how EDA might have helped (or not!).</p>
-</div></blockquote>
+<div class="section" id="font-color-darkorange-data-visualization-and-exploration-font">
+<h2><span class="section-number">24.2. </span><font color="darkorange">Data Visualization and Exploration</font><a class="headerlink" href="#font-color-darkorange-data-visualization-and-exploration-font" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at the distribution of the variable we are trying to predict.</p>
+</div>
+<div class="section" id="font-color-darkorange-model-building-and-fitting-font">
+<h2><span class="section-number">24.3. </span><font color="darkorange">Model building and fitting</font><a class="headerlink" href="#font-color-darkorange-model-building-and-fitting-font" title="Permalink to this headline">¶</a></h2>
+<p>Build your model then fit it to the data!</p>
+<p>How well does it perform?</p>
+</div>
+<div class="section" id="font-color-darkorange-model-inference-font">
+<h2><span class="section-number">24.4. </span><font color="darkorange">Model inference </font><a class="headerlink" href="#font-color-darkorange-model-inference-font" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see what it thought was important for making predictions</p>
+</div>
+<div class="section" id="font-color-darkorange-new-data-font">
+<h2><span class="section-number">24.5. </span><font color="darkorange">New data</font><a class="headerlink" href="#font-color-darkorange-new-data-font" title="Permalink to this headline">¶</a></h2>
+<p>Let me know when your group is happy with your model and I’ll release some new data! We can use this new data to compare and see which group has the most useful model: it makes predictions outside the data it was built with (i.e., it generalizes well).</p>
+</div>
+<div class="section" id="font-color-darkorange-bonus-font">
+<h2><span class="section-number">24.6. </span><font color="darkorange">Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try that again with another dataset!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/student-mat2.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -581,7 +603,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/Projects"
+            path: "./docs/dataChallenges"
         },
         predefinedOutput: true
     }
@@ -593,8 +615,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../dataChallenges/DataChallenge1.html" title="previous page"><span class="section-number">17. </span><font color='darkorange'>Class Data Challenge 1</font></a>
-    <a class='right-next' id="next-link" href="../IntroModeling.html" title="next page"><span class="section-number">19. </span><font color="darkorange">Let’s build some models!</font></a>
+    <a class='left-prev' id="prev-link" href="../introModeling/Intro_RandomForest.html" title="previous page"><span class="section-number">23. </span><font color='darkorange'>Random forests</font></a>
+    <a class='right-next' id="next-link" href="../Projects/Project2_MakingPredictions.html" title="next page"><span class="section-number">25. </span><font color='darkorange'>Project 2 - Making Predictions</font></a>
 
         </div>
         
