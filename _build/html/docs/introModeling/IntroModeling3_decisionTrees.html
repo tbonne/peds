@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>21. Decision trees &#8212; Practical exercises in data science - PEDS</title>
+    <title>22. Decision trees &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="22. Random forests" href="Intro_RandomForest.html" />
-    <link rel="prev" title="20. Logistic regression" href="IntroModelling_LogisticReg.html" />
+    <link rel="next" title="23. Random forests" href="Intro_RandomForest.html" />
+    <link rel="prev" title="21. Logistic regression" href="IntroModelling_LogisticReg.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -238,8 +238,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
    17.
+   <font color="darkorange">
+    Class Data Challenge 1
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+   18.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
    </font>
@@ -254,7 +262,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroModeling.html">
-   18.
+   19.
    <font color="darkorange">
     Let’s build some models!
    </font>
@@ -262,7 +270,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroModeling1_LinearReg.html">
-   19.
+   20.
    <font color="darkorange">
     Linear regression
    </font>
@@ -270,7 +278,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="IntroModelling_LogisticReg.html">
-   20.
+   21.
    <font color="darkorange">
     Logistic regression
    </font>
@@ -278,7 +286,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   21.
+   22.
    <font color="darkorange">
     Decision trees
    </font>
@@ -286,15 +294,23 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Intro_RandomForest.html">
-   22.
+   23.
    <font color="darkorange">
     Random forests
    </font>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
+   24.
+   <font color="darkorange">
+    Class Data Challenge II
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   23.
+   25.
    <font color="darkorange">
     Project 2 - Making Predictions
    </font>
@@ -309,7 +325,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   24.
+   26.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -317,7 +333,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   25.
+   27.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -325,7 +341,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introComm/A_B_Testing.html">
-   26.
+   28.
    <font color="darkorange">
     A/B Testing
    </font>
@@ -333,7 +349,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   27.
+   29.
    <font color="darkorange">
     Project 3 - Answering Questions
    </font>
@@ -445,7 +461,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-load-the-data-font">
-   21.1.
+   22.1.
    <font color="darkorange">
     Load the data
    </font>
@@ -453,7 +469,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-descriptive-statistics-font">
-   21.2.
+   22.2.
    <font color="darkorange">
     Descriptive statistics
    </font>
@@ -461,7 +477,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-visualizing-the-data-font">
-   21.3.
+   22.3.
    <font color="darkorange">
     Visualizing the data
    </font>
@@ -469,7 +485,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-data-wrangling-font">
-   21.4.
+   22.4.
    <font color="darkorange">
     Data wrangling
    </font>
@@ -477,29 +493,29 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#preprocessing-categorical-input-variables">
-     21.4.1. Preprocessing (categorical input variables)\
+     22.4.1. Preprocessing (categorical input variables)\
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#preprocessing-categorical-target-variable">
-     21.4.2. Preprocessing (categorical target variable)
+     22.4.2. Preprocessing (categorical target variable)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#training-testing-split">
-     21.4.3. Training testing split
+     22.4.3. Training testing split
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#preprocessing-numeric-variables">
-     21.4.4. Preprocessing (numeric variables)
+     22.4.4. Preprocessing (numeric variables)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-model-building-font">
-   21.5.
+   22.5.
    <font color="darkorange">
     Model building
    </font>
@@ -507,12 +523,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#predictions">
-   21.6. Predictions
+   22.6. Predictions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-   21.7.
+   22.7.
    <font color="darkorange">
     Bonus
    </font>
@@ -520,7 +536,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-model-interpretation-font">
-   21.8.
+   22.8.
    <font color="darkorange">
     Model interpretation
    </font>
@@ -528,7 +544,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-bonus-2-font">
-   21.9.
+   22.9.
    <font color="darkorange">
     Bonus 2
    </font>
@@ -547,7 +563,7 @@
                 
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModeling3_decisionTrees.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1WZbnKvEzIK70qhQXyPIS36ahLWoEsqaA' width=500><div class="section" id="font-color-darkorange-decision-trees-font">
-<h1><span class="section-number">21. </span><font color='darkorange'>Decision trees</font><a class="headerlink" href="#font-color-darkorange-decision-trees-font" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">22. </span><font color='darkorange'>Decision trees</font><a class="headerlink" href="#font-color-darkorange-decision-trees-font" title="Permalink to this headline">¶</a></h1>
 <p>Let’s take a look at decision tree as classifiers. Here we will use this algorithm to classify which grape plant was used to create a wine.</p>
 <p>Load in the needed libraries</p>
 <div class="cell docutils container">
@@ -562,7 +578,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-load-the-data-font">
-<h2><span class="section-number">21.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#font-color-darkorange-load-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#font-color-darkorange-load-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>Get the ‘wine.csv’ from the class’s shared data folder and load it into a dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +618,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-descriptive-statistics-font">
-<h2><span class="section-number">21.2. </span><font color='darkorange'>Descriptive statistics</font><a class="headerlink" href="#font-color-darkorange-descriptive-statistics-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.2. </span><font color='darkorange'>Descriptive statistics</font><a class="headerlink" href="#font-color-darkorange-descriptive-statistics-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s take a little time to look at some summary statistics.</p>
 <p>E.g., how many values of plant type there are?</p>
 <div class="cell docutils container">
@@ -623,7 +639,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-visualizing-the-data-font">
-<h2><span class="section-number">21.3. </span><font color='darkorange'>Visualizing the data</font><a class="headerlink" href="#font-color-darkorange-visualizing-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.3. </span><font color='darkorange'>Visualizing the data</font><a class="headerlink" href="#font-color-darkorange-visualizing-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s plot the relationships between plant type and some of the wine measures.</p>
 <p>Q: Choose one or more wine measures and generate a plot that shows the relationship between that measure and plant type.</p>
 <div class="cell docutils container">
@@ -635,9 +651,9 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-data-wrangling-font">
-<h2><span class="section-number">21.4. </span><font color='darkorange'>Data wrangling</font><a class="headerlink" href="#font-color-darkorange-data-wrangling-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.4. </span><font color='darkorange'>Data wrangling</font><a class="headerlink" href="#font-color-darkorange-data-wrangling-font" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="preprocessing-categorical-input-variables">
-<h3><span class="section-number">21.4.1. </span>Preprocessing (categorical input variables)\<a class="headerlink" href="#preprocessing-categorical-input-variables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">22.4.1. </span>Preprocessing (categorical input variables)\<a class="headerlink" href="#preprocessing-categorical-input-variables" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>Convert the categorical ‘lab’ variable using onehot encoding (i.e., create dummy columns).</p>
 </div></blockquote>
@@ -650,7 +666,7 @@
 </div>
 </div>
 <div class="section" id="preprocessing-categorical-target-variable">
-<h3><span class="section-number">21.4.2. </span>Preprocessing (categorical target variable)<a class="headerlink" href="#preprocessing-categorical-target-variable" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">22.4.2. </span>Preprocessing (categorical target variable)<a class="headerlink" href="#preprocessing-categorical-target-variable" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>As the target variable is categorical we will convert each category into a number, and unlike the onehot encoding we will keep these numbers within the same column.</p>
 </div></blockquote>
@@ -663,7 +679,7 @@
 </div>
 </div>
 <div class="section" id="training-testing-split">
-<h3><span class="section-number">21.4.3. </span>Training testing split<a class="headerlink" href="#training-testing-split" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">22.4.3. </span>Training testing split<a class="headerlink" href="#training-testing-split" title="Permalink to this headline">¶</a></h3>
 <p>Here we change a little how we do the data splitting. Instead of spliting the dataframe into training and testing, we’ll first split the dataframe into inputs and target variables. I.e., we’d like to use X to predict y. Then we split each into training and testing sets. This makes it easier to work with sklearn algorithms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,7 +696,7 @@
 </div>
 </div>
 <div class="section" id="preprocessing-numeric-variables">
-<h3><span class="section-number">21.4.4. </span>Preprocessing (numeric variables)<a class="headerlink" href="#preprocessing-numeric-variables" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">22.4.4. </span>Preprocessing (numeric variables)<a class="headerlink" href="#preprocessing-numeric-variables" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?
@@ -691,7 +707,7 @@
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
 </div>
 <div class="section" id="font-color-darkorange-model-building-font">
-<h2><span class="section-number">21.5. </span><font color='darkorange'>Model building</font><a class="headerlink" href="#font-color-darkorange-model-building-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.5. </span><font color='darkorange'>Model building</font><a class="headerlink" href="#font-color-darkorange-model-building-font" title="Permalink to this headline">¶</a></h2>
 <p>Here we will build our first decision tree!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -708,7 +724,7 @@
 </div>
 </div>
 <div class="section" id="predictions">
-<h2><span class="section-number">21.6. </span>Predictions<a class="headerlink" href="#predictions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.6. </span>Predictions<a class="headerlink" href="#predictions" title="Permalink to this headline">¶</a></h2>
 <p>Make some predictions on the testing data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -823,11 +839,11 @@ sns.relplot(?, kind=&#39;line&#39;)
 </div>
 </div>
 <div class="section" id="font-color-darkorange-bonus-font">
-<h2><span class="section-number">21.7. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.7. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
 <p>Try this exercise again but this time use min_samples_split. Which is the parameter that defines when splits are no longer considered (e.g., if a leaf has 10 points in it and min_samples_split is 11 then the algorithm will not look to split the leaf.</p>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></div>
 <div class="section" id="font-color-darkorange-model-interpretation-font">
-<h2><span class="section-number">21.8. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#font-color-darkorange-model-interpretation-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.8. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#font-color-darkorange-model-interpretation-font" title="Permalink to this headline">¶</a></h2>
 <p>Decision trees can offer some nice visuals that can help interpret and communicate your results, lets take a look at a few</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,7 +921,7 @@ from dtreeviz.trees import dtreeviz
 </div>
 </div>
 <div class="section" id="font-color-darkorange-bonus-2-font">
-<h2><span class="section-number">21.9. </span><font color='darkorange'>Bonus 2</font><a class="headerlink" href="#font-color-darkorange-bonus-2-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">22.9. </span><font color='darkorange'>Bonus 2</font><a class="headerlink" href="#font-color-darkorange-bonus-2-font" title="Permalink to this headline">¶</a></h2>
 <p>Now that you know how to use decision tree models, try going back to one of the datasets we’ve already worked on and see if you can get better predictions? Can you still explain what features are helping you to make those predictions?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -942,8 +958,8 @@ from dtreeviz.trees import dtreeviz
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroModelling_LogisticReg.html" title="previous page"><span class="section-number">20. </span><font color='darkorange'>Logistic regression</font></a>
-    <a class='right-next' id="next-link" href="Intro_RandomForest.html" title="next page"><span class="section-number">22. </span><font color='darkorange'>Random forests</font></a>
+    <a class='left-prev' id="prev-link" href="IntroModelling_LogisticReg.html" title="previous page"><span class="section-number">21. </span><font color='darkorange'>Logistic regression</font></a>
+    <a class='right-next' id="next-link" href="Intro_RandomForest.html" title="next page"><span class="section-number">23. </span><font color='darkorange'>Random forests</font></a>
 
         </div>
         

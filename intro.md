@@ -8,8 +8,11 @@ The book is laid out in 5 parts, following a typical data science workflow (Fig.
 <p align="center">
 <img src='http://drive.google.com/uc?export=view&id=1iuzz_ggxqq1J_UAtM-r0OMnmD7qpg-uz' width="25%" class = 'center'>
 
-</p>
+</p align="center">
 Figure 1: Data science workflow we will use in this book
+ <p>
 
+</p> 
+  
 
- 
+If this book is being used with a course there are some extras that might be useful. There are three class projects, each building on the last. In these projects you will choose a dataset of your choice and apply what your learning in class to a dataset that you find interesting. A good place to look for data is kaggle.com/datasets, or if you have some already in mind that is great! You'll really learn data science by applying it to something you care about. Finally, there are also some class data challenges that are meant to get you working in groups and trying out some algorithms we will learn in the class to meet some challenge! These challenges will rely on collaboration between individuals and groups (e.g., using Slack). Though, if you are completing this book on your own you can still give them a try!

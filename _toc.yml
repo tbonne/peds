@@ -26,6 +26,7 @@ parts:
   - file: docs/introViz/IntroViz3_scatterplots.ipynb
   - file: docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb
   - file: docs/introViz/IntroClustering2_highDimensions.ipynb
+  - file: docs/dataChallenges/DataChallenge1.ipynb
   - file: docs/Projects/Project1_ExploritoryDataAnalysis.ipynb
 - caption: Part 4 - Building models
   numbered: true
@@ -35,6 +36,7 @@ parts:
   - file: docs/introModeling/IntroModelling_LogisticReg.ipynb
   - file: docs/introModeling/IntroModeling3_decisionTrees.ipynb
   - file: docs/introModeling/Intro_RandomForest.ipynb
+  - file: docs/dataChallenges/DataChallenge2.ipynb
   - file: docs/Projects/Project2_MakingPredictions.ipynb
 - caption: Part 5 - Interpreting and communicating models
   numbered: true

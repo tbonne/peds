@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>25. Explainability vs Causality &#8212; Practical exercises in data science - PEDS</title>
+    <title>27. Explainability vs Causality &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="26. A/B Testing" href="A_B_Testing.html" />
-    <link rel="prev" title="24. Let’s try and learn from our models" href="../IntroComm.html" />
+    <link rel="next" title="28. A/B Testing" href="A_B_Testing.html" />
+    <link rel="prev" title="26. Let’s try and learn from our models" href="../IntroComm.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -238,8 +238,16 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
    17.
+   <font color="darkorange">
+    Class Data Challenge 1
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
+   18.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
    </font>
@@ -254,7 +262,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroModeling.html">
-   18.
+   19.
    <font color="darkorange">
     Let’s build some models!
    </font>
@@ -262,7 +270,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
-   19.
+   20.
    <font color="darkorange">
     Linear regression
    </font>
@@ -270,7 +278,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
-   20.
+   21.
    <font color="darkorange">
     Logistic regression
    </font>
@@ -278,7 +286,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
-   21.
+   22.
    <font color="darkorange">
     Decision trees
    </font>
@@ -286,15 +294,23 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
-   22.
+   23.
    <font color="darkorange">
     Random forests
    </font>
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
+   24.
+   <font color="darkorange">
+    Class Data Challenge II
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   23.
+   25.
    <font color="darkorange">
     Project 2 - Making Predictions
    </font>
@@ -309,7 +325,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroComm.html">
-   24.
+   26.
    <font color="darkorange">
     Let’s try and learn from our models
    </font>
@@ -317,7 +333,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   25.
+   27.
    <font color="darkorange">
     Explainability vs Causality
    </font>
@@ -325,7 +341,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="A_B_Testing.html">
-   26.
+   28.
    <font color="darkorange">
     A/B Testing
    </font>
@@ -333,7 +349,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   27.
+   29.
    <font color="darkorange">
     Project 3 - Answering Questions
    </font>
@@ -445,7 +461,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-waffle-houses-and-divorce-rates-font">
-   25.1.
+   27.1.
    <font color="darkorange">
     Waffle houses and divorce rates
    </font>
@@ -453,7 +469,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-do-whaffle-houses-cause-divorce-font">
-   25.2.
+   27.2.
    <font color="darkorange">
     Do whaffle houses cause divorce?
    </font>
@@ -461,7 +477,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-build-a-model-font">
-   25.3.
+   27.3.
    <font color="darkorange">
     Build a model
    </font>
@@ -469,7 +485,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-fit-the-model-again-this-time-add-the-south-variable-font">
-   25.4.
+   27.4.
    <font color="darkorange">
     Fit the model again, this time add the South variable
    </font>
@@ -477,7 +493,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-     25.4.1.
+     27.4.1.
      <font color="darkorange">
       Bonus
      </font>
@@ -487,7 +503,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-statistical-confounds-font">
-   25.5.
+   27.5.
    <font color="darkorange">
     Statistical confounds
    </font>
@@ -495,7 +511,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-let-s-see-what-feature-importance-suggests-font">
-   25.6.
+   27.6.
    <font color="darkorange">
     Let’s see what feature importance suggests
    </font>
@@ -503,7 +519,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-let-s-see-what-feature-selection-suggests-font">
-   25.7.
+   27.7.
    <font color="darkorange">
     Let’s see what feature selection suggests
    </font>
@@ -511,7 +527,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   25.8.
+   27.8.
    <font color="darkorange">
     Bonus
    </font>
@@ -531,11 +547,11 @@
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introComm/IntroCausalAnalysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1gfef2jOOS8IuF0L-2yYmx2D0eEEmZwQs' width=500>
 <div class="section" id="font-color-darkorange-explainability-vs-causality-font">
-<h1><span class="section-number">25. </span><font color='darkorange'>Explainability vs Causality</font><a class="headerlink" href="#font-color-darkorange-explainability-vs-causality-font" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">27. </span><font color='darkorange'>Explainability vs Causality</font><a class="headerlink" href="#font-color-darkorange-explainability-vs-causality-font" title="Permalink to this headline">¶</a></h1>
 <p>Here we will look at the difference between understanding how the ML model is making predictions (explainability) and what is causing the outcome (causality)</p>
 <p>To do so we will look at a silly example where we know that the patterns picked up by the model are not causal.</p>
 <div class="section" id="font-color-darkorange-waffle-houses-and-divorce-rates-font">
-<h2><span class="section-number">25.1. </span><font color='darkorange'>Waffle houses and divorce rates</font><a class="headerlink" href="#font-color-darkorange-waffle-houses-and-divorce-rates-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.1. </span><font color='darkorange'>Waffle houses and divorce rates</font><a class="headerlink" href="#font-color-darkorange-waffle-houses-and-divorce-rates-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -574,7 +590,7 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-do-whaffle-houses-cause-divorce-font">
-<h2><span class="section-number">25.2. </span><font color='darkorange'>Do whaffle houses cause divorce?</font><a class="headerlink" href="#font-color-darkorange-do-whaffle-houses-cause-divorce-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.2. </span><font color='darkorange'>Do whaffle houses cause divorce?</font><a class="headerlink" href="#font-color-darkorange-do-whaffle-houses-cause-divorce-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#correlation
@@ -602,7 +618,7 @@ sns.?(data=?, x=&quot;WaffleHouses&quot;, y=&quot;Divorce&quot; )
 </div>
 </div>
 <div class="section" id="font-color-darkorange-build-a-model-font">
-<h2><span class="section-number">25.3. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#font-color-darkorange-build-a-model-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.3. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#font-color-darkorange-build-a-model-font" title="Permalink to this headline">¶</a></h2>
 <p>Can we predict divorce rates based on:</p>
 <ol class="simple">
 <li><p>population</p></li>
@@ -630,7 +646,7 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <div class="section" id="font-color-darkorange-fit-the-model-again-this-time-add-the-south-variable-font">
-<h2><span class="section-number">25.4. </span><font color='darkorange'>Fit the model again, this time add the South variable</font><a class="headerlink" href="#font-color-darkorange-fit-the-model-again-this-time-add-the-south-variable-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.4. </span><font color='darkorange'>Fit the model again, this time add the South variable</font><a class="headerlink" href="#font-color-darkorange-fit-the-model-again-this-time-add-the-south-variable-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>#Build the model
@@ -646,12 +662,12 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <div class="section" id="font-color-darkorange-bonus-font">
-<h3><span class="section-number">25.4.1. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">27.4.1. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h3>
 <p>Try to run the models with alternative combinations of variables? How does the model estimate of the effect of wafflehouses on divorce change?</p>
 </div>
 </div>
 <div class="section" id="font-color-darkorange-statistical-confounds-font">
-<h2><span class="section-number">25.5. </span><font color='darkorange'>Statistical confounds</font><a class="headerlink" href="#font-color-darkorange-statistical-confounds-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.5. </span><font color='darkorange'>Statistical confounds</font><a class="headerlink" href="#font-color-darkorange-statistical-confounds-font" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Statistical confounds make it hard to determine the causal nature of the patterns we find in ML model results. We need to be careful about how we explain how a model makes predictions and the causal nature of those patterns.</p>
 </div></blockquote>
@@ -667,7 +683,7 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <div class="section" id="font-color-darkorange-let-s-see-what-feature-importance-suggests-font">
-<h2><span class="section-number">25.6. </span><font color='darkorange'>Let’s see what feature importance suggests</font><a class="headerlink" href="#font-color-darkorange-let-s-see-what-feature-importance-suggests-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.6. </span><font color='darkorange'>Let’s see what feature importance suggests</font><a class="headerlink" href="#font-color-darkorange-let-s-see-what-feature-importance-suggests-font" title="Permalink to this headline">¶</a></h2>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
@@ -693,7 +709,7 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <div class="section" id="font-color-darkorange-let-s-see-what-feature-selection-suggests-font">
-<h2><span class="section-number">25.7. </span><font color='darkorange'>Let’s see what feature selection suggests</font><a class="headerlink" href="#font-color-darkorange-let-s-see-what-feature-selection-suggests-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.7. </span><font color='darkorange'>Let’s see what feature selection suggests</font><a class="headerlink" href="#font-color-darkorange-let-s-see-what-feature-selection-suggests-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
@@ -771,7 +787,7 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">25.8. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">27.8. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Redo the exercise above this time using a more black box approach, e.g., Random Forest!</p>
 </div>
 </div>
@@ -801,8 +817,8 @@ import statsmodels.formula.api as smf
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../IntroComm.html" title="previous page"><span class="section-number">24. </span><font color="darkorange">Let’s try and learn from our models</font></a>
-    <a class='right-next' id="next-link" href="A_B_Testing.html" title="next page"><span class="section-number">26. </span><font color='darkorange'>A/B Testing</font></a>
+    <a class='left-prev' id="prev-link" href="../IntroComm.html" title="previous page"><span class="section-number">26. </span><font color="darkorange">Let’s try and learn from our models</font></a>
+    <a class='right-next' id="next-link" href="A_B_Testing.html" title="next page"><span class="section-number">28. </span><font color='darkorange'>A/B Testing</font></a>
 
         </div>
         

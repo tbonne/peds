@@ -1,0 +1,138 @@
+import pandas as pd
+import numpy as np
+
+import sklearn as sk
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+
+df = pd.read_csv('/content/student-mat.csv')
+
+#df=df.sample(frac=1)
+
+df
+
+#keep a copy of the original dataframe
+df_original = df.copy()
+
+#df_original.to_csv('student_matp.csv',index=False)
+
+#categorical variables
+cat_names = ['Mjob','Fjob','reason','guardian']
+
+#create dummy variables
+df_cat = pd.get_dummies(df[cat_names])
+
+#add them back to the original dataframe
+df = pd.concat([df,df_cat], axis=1)
+
+#remove the old columns
+df = df.drop(cat_names, axis=1)
+
+#take a look
+df
+
+from sklearn.preprocessing import OrdinalEncoder
+
+#get the columns names of features you'd like to turn into 0/1
+bin_names = ['sex','famsize','address','school','Pstatus','schoolsup','famsup','paid','activities','nursery','higher','internet','romantic']
+
+#create a dataframe of those features
+bin_features = df[bin_names]
+
+#fit the scaler to those data
+bin_scaler = OrdinalEncoder().fit(bin_features.values)
+
+#use the scaler to transform your data
+bin_features = bin_scaler.transform(bin_features.values)
+
+#put these scaled features back into your transformed features dataframe
+df[bin_names] = bin_features
+
+#take a look
+df
+
+
+#split data into predictors (X) and target (y)
+X = df.drop(['Dalc','Walc'], axis=1)
+y = df['Dalc']
+
+#split these data into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+#first create a new copy of your dataframe to hold the transformed values
+X_train_transformed = X_train.copy()
+
+from sklearn.preprocessing import StandardScaler
+
+#get the column names of the features you'd like to scale
+num_names = X_train_transformed.select_dtypes('number').columns.to_list()
+
+#create a dataframe of those features
+num_features = X_train_transformed[num_names]
+
+#fit the scaler to those data
+num_scaler = StandardScaler().fit(num_features.values)
+
+#use the scaler to transform your data
+num_features = num_scaler.transform(num_features.values)
+
+#put these scaled features back into your transformed features dataframe
+X_train_transformed[num_names] = num_features
+
+df.romantic.value_counts()
+
+df.Walc.hist()
+
+from sklearn.ensemble import RandomForestRegressor
+max_depth = [1,2,3,4,5,6,7]
+
+sk.metrics.SCORERS.keys()
+
+for val in max_depth:
+  scores = cross_val_score(RandomForestRegressor(n_estimators=200,max_samples=0.9, max_depth=val), X_train_transformed, y_train, cv=5, scoring='neg_root_mean_squared_error')
+  print(scores.mean())
+
+number_of_trees = [50, 100, 150, 200, 250, 300, 350]
+
+for val in number_of_trees:
+  scores = cross_val_score(RandomForestRegressor(n_estimators=val), X_train_transformed, y_train, cv=5, scoring='neg_root_mean_squared_error')
+  print(scores.mean())
+
+
+forest_regressor = RandomForestRegressor(n_estimators=150, max_depth=3)
+forest_regressor.fit(X_train_transformed, y_train)
+
+#keep a copy of the original X_test
+X_test_transformed = X_test.copy()
+
+#scale the test data so that it is on the same scale as the training data
+X_test_transformed[num_names] = num_scaler.transform(X_test_transformed[num_names])
+
+#predictions from the forest model
+y_forest_pred = forest_regressor.predict(X_test_transformed)
+
+y_preds = pd.DataFrame({'obs':y_test, 'pred':y_forest_pred.round(2)})
+
+y_preds
+
+sk.metrics.mean_absolute_error(y_preds.pred, y_preds.obs)
+
+
+sk.metrics.mean_absolute_error(np.linspace(1,1,num=len(y_preds.obs)), y_preds.obs)
+
+sns.scatterplot(data=y_preds, x='pred',y='obs')
+
+df.Dalc.hist()
+
+df.Dalc.mean()
+
+from sklearn.inspection import permutation_importance
+
+result = permutation_importance(forest_regressor, X=X_test, y=y_test, n_repeats=10, n_jobs=2)
+
+forest_importances = pd.DataFrame({'variable':X_test.columns,'impo':result.importances_mean, "sd":result.importances_std})
+
+forest_importances.sort_values(by='impo', ascending=False)

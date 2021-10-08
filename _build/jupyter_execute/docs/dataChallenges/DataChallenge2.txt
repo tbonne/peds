@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+
+import sklearn as sk
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+
+df = pd.read_csv('/content/student-mat.csv')
+
+df
+
+
+
+df = pd.read_csv('/content/student-mat2.csv')
+
+df
