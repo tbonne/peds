@@ -255,8 +255,4 @@ dict_dtypes["List"]
 #   
 # 
 # > In this course we will build slowly on our python skills. Each new challendge in developing our data science workflow will require learning new bits of python code. The idea here is that you'll learn python through applied examples.
-#   
-#   
-#     
-# > If you would like the notebook without missing code check out the [full code](https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/fullNoteBooks/IntroClustering1_kmeans_HDBScan_full.ipynb) version.
 # 

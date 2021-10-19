@@ -218,5 +218,3 @@ x4
 # ## <font color='darkorange'>Further reading</font>
 # 
 # > If you would like to learn more, the *Python Data Science Handbook* by Jake VanderPlas has a good chapter on [using numpy](https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html).
-# 
-# > If you would like the notebook without missing code check out the [full code](https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/fullNoteBooks/IntroClustering1_kmeans_HDBScan_full.ipynb) version.
