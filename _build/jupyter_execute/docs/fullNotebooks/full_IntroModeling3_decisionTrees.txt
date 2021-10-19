@@ -1,0 +1,190 @@
+import sklearn as sk
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+
+
+#get wine to a dataframe
+df_wine = pd.read_csv('/content/wine_labs.csv')
+
+#take a look
+df_wine.head(3)
+
+
+
+df_wine.dtypes
+
+df_wine.isna().sum() / len(df_wine)
+
+#let's drop rows with missing data
+df_wine = df_wine.dropna(how='any')
+
+#take a look
+df_wine.head(3)
+
+#count how many of each value in a column using value_conunts
+df_wine.plant.value_counts()
+
+df_wine.total_sugar.describe()
+
+sns.violinplot(data=df_wine, x='plant', y='total_sugar')
+
+#categorical variables
+cat_names = ['lab']
+
+#create dummy variables
+df_cat = pd.get_dummies(df_wine[cat_names])
+
+#add them back to the original dataframe
+df_wine = pd.concat([df_wine,df_cat], axis=1)
+
+#remove the old columns
+df_wine = df_wine.drop(cat_names, axis=1)
+
+#take a look
+df_wine
+
+#Feature Scaling (after spliting the data!)
+from sklearn.preprocessing import OrdinalEncoder 
+
+#numeric variables
+target_names = ['plant']
+
+#create the standard scaler object
+ordinal_encoder = OrdinalEncoder()
+
+#use this object to fit (i.e., to calculate the mean and sd of each variable in the training data) and then to transform the training data
+df_wine[target_names] = ordinal_encoder.fit_transform(df_wine[target_names])
+
+#take a look
+df_wine
+
+
+#split data into predictors (X) and target (y)
+X = df_wine.drop('plant', axis=1)
+y = df_wine['plant']
+
+#split these data into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+
+#Feature Scaling (after spliting the data!)
+from sklearn.preprocessing import StandardScaler 
+
+#numeric variables
+numb_names = X_train.drop(['lab_lab1','lab_lab2','lab_lab3'],axis=1).select_dtypes('number').columns.tolist()
+
+#create the standard scaler object
+sc = StandardScaler()
+
+#use this object to fit (i.e., to calculate the mean and sd of each variable in the training data) and then to transform the training data
+X_train[numb_names] = sc.fit_transform(X_train[numb_names])
+
+#use the fit from the training data to transform the test data
+X_test[numb_names] = sc.transform(X_test[numb_names])
+
+#take a look
+X_train
+
+
+from sklearn.tree import DecisionTreeClassifier
+
+#1. build the algorithm
+classifier = DecisionTreeClassifier()
+
+#2. fit the algorithm to the data
+classifier_res= classifier.fit(X_train, y_train)
+
+
+y_pred = classifier.predict(X_test)
+
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+
+
+#more visual approach
+sns.heatmap(cm, annot=True)
+plt.xlabel('Predicted label')
+plt.ylabel('True label')
+
+print('Accuracy: {:.2f}'.format(sk.metrics.accuracy_score(y_test, y_pred)))
+print('Precision: {:.2f}'.format(sk.metrics.precision_score(y_test, y_pred, average='micro')))
+print('Recal: {:.2f}'.format(sk.metrics.recall_score(y_test, y_pred, average='micro')))
+
+X_hyper_train, X_hyper_val, y_hyper_train, y_hyper_val = train_test_split(X_train, y_train, test_size=0.20)
+
+def fit_decision_tree(maxDep):
+
+  #1. build the algorithm
+  classifier = DecisionTreeClassifier(max_depth=maxDep)
+
+  #2. Fit the algorithm
+  classifier_res= classifier.fit(X_hyper_train, y_hyper_train)
+
+  #3. Make predictions
+  y_pred = classifier.predict(X_hyper_val)
+
+  #4. Meausure the accuracy
+  accuracy_measured = sk.metrics.accuracy_score(y_hyper_val, y_pred)
+
+  return accuracy_measured
+
+fit_decision_tree(maxDep=4)
+
+acc_scores = []
+for i in range(1,10):
+  acc_s = fit_decision_tree(i)
+  acc_scores.append(acc_s)
+
+#create a dataframe
+df_plot_maxDep = pd.DataFrame({'accuracy':acc_scores, 'maxDep':range(1,10)})
+
+#make a plot
+sns.relplot(data=df_plot_maxDep, x='maxDep',y='accuracy', kind='line')
+
+!pip install dtreeviz
+from dtreeviz.trees import dtreeviz 
+
+#build the figure
+viz = dtreeviz(classifier_res, X_train, y_train,
+                target_name="plant",
+                feature_names=X_train.columns.to_list(),
+                class_names={0:'plantA',1:'plantB',2:'plantC'},
+                scale=1.0)
+
+#take a look
+viz
+
+#build the figure
+viz_test = dtreeviz(classifier_res, X_test, y_test,
+                target_name="plant",
+                feature_names=X_train.columns.to_list(),
+                class_names={0:'plantA',1:'plantB',2:'plantC'},
+                scale=1)
+
+#take a look
+viz_test
+
+#Vizualize one prediction 
+import numpy as np
+# pick random X test point
+X_values_for_pred = X_test.iloc[12] #you can choose any other row!
+
+X_values_for_pred
+
+#build the figure
+viz_one_pred = dtreeviz(classifier_res, X_train, y_train,
+                target_name="plant",
+                feature_names=X_train.columns.to_list(),
+                class_names={0:'plantA',1:'plantB',2:'plantC'},
+                scale=0.75,
+                X=X_values_for_pred)
+
+#take a look
+viz_one_pred
+
+y_test.iloc[12]
+
+#load a dataset
