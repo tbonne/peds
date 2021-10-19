@@ -5,54 +5,52 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Introduction to Numpy &#8212; Practical exercises in data science - PEDS</title>
+    <title>Introduction to Numpy &#8212; Practical exercises in data science - PEDS</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Working with data" href="IntroDataFrames.html" />
-    <link rel="prev" title="3. Short introduction to Python" href="IntroPython.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -69,22 +67,22 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
-      <img src="../_static/runners_logo.png" class="logo" alt="logo">
+      <img src="../../_static/runners_logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Practical exercises in data science - PEDS</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
+  <a class="reference internal" href="../../intro.html">
    Introduction to PEDS
   </a>
  </li>
@@ -94,9 +92,9 @@
   Part 1 - Coding
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroColab.html">
+  <a class="reference internal" href="../IntroColab.html">
    1.
    <font color="darkorange">
     Let’s start coding
@@ -104,7 +102,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroNotebooks.html">
+  <a class="reference internal" href="../IntroNotebooks.html">
    2.
    <font color="darkorange">
     Colaboratory notebooks!
@@ -112,15 +110,15 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroPython.html">
+  <a class="reference internal" href="../IntroPython.html">
    3.
    <font color="darkorange">
     Short introduction to Python
    </font>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IntroNumpy.html">
    4.
    <font color="darkorange">
     Introduction to Numpy
@@ -135,7 +133,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroDataFrames.html">
+  <a class="reference internal" href="../IntroDataFrames.html">
    5.
    <font color="darkorange">
     Working with data
@@ -143,7 +141,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introData/IntroData1_DataFrames.html">
+  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
    6.
    <font color="darkorange">
     Introduction to DataFrames
@@ -151,7 +149,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introData/IntroData2_LoadingData.html">
+  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
    7.
    <font color="darkorange">
     Using existing data
@@ -159,7 +157,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introData/IntroData3_MissingData.html">
+  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
    8.
    <font color="darkorange">
     Missing Data
@@ -167,7 +165,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introData/IntroData4_groupby.html">
+  <a class="reference internal" href="../introData/IntroData4_groupby.html">
    9.
    <font color="darkorange">
     Grouping data
@@ -175,7 +173,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introData/IntroData5_CombineData.html">
+  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
    10.
    <font color="darkorange">
     Combining data
@@ -190,7 +188,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroViz.html">
+  <a class="reference internal" href="../IntroViz.html">
    11.
    <font color="darkorange">
     Let’s start exploring
@@ -198,7 +196,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz/introViz1_histograms.html">
+  <a class="reference internal" href="../introViz/introViz1_histograms.html">
    12.
    <font color="darkorange">
     Summary statistics and histograms
@@ -206,7 +204,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz/introViz2_densityPlots.html">
+  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
    13.
    <font color="darkorange">
     Density plots and normal distributions
@@ -214,7 +212,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz/IntroViz3_scatterplots.html">
+  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
    14.
    <font color="darkorange">
     Scatter plots
@@ -222,7 +220,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz/IntroClustering1_kmeans_HDBScan.html">
+  <a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">
    15.
    <font color="darkorange">
     Clustering algorithms
@@ -230,7 +228,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introViz/IntroClustering2_highDimensions.html">
+  <a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">
    16.
    <font color="darkorange">
     Clustering in higher dimensions
@@ -238,7 +236,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dataChallenges/DataChallenge1.html">
+  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
    17.
    <font color="darkorange">
     Class Data Challenge 1
@@ -246,7 +244,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Projects/Project1_ExploritoryDataAnalysis.html">
+  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
    18.
    <font color="darkorange">
     Project 1 - Exploritory Data Analysis
@@ -261,7 +259,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroModeling.html">
+  <a class="reference internal" href="../IntroModeling.html">
    19.
    <font color="darkorange">
     Let’s build some models!
@@ -269,7 +267,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introModeling/IntroModeling1_LinearReg.html">
+  <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
    20.
    <font color="darkorange">
     Linear regression
@@ -277,7 +275,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introModeling/IntroModelling_LogisticReg.html">
+  <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
    21.
    <font color="darkorange">
     Logistic regression
@@ -285,7 +283,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introModeling/IntroModeling3_decisionTrees.html">
+  <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
    22.
    <font color="darkorange">
     Decision trees
@@ -293,7 +291,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introModeling/Intro_RandomForest.html">
+  <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
    23.
    <font color="darkorange">
     Random forests
@@ -301,7 +299,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dataChallenges/DataChallenge2.html">
+  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
    24.
    <font color="darkorange">
     Class Data Challenge II
@@ -309,7 +307,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Projects/Project2_MakingPredictions.html">
+  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
    25.
    <font color="darkorange">
     Project 2 - Making Predictions
@@ -324,7 +322,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroComm.html">
+  <a class="reference internal" href="../IntroComm.html">
    26.
    <font color="darkorange">
     Let’s try and learn from our models
@@ -332,7 +330,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introComm/IntroCausalAnalysis.html">
+  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
    27.
    <font color="darkorange">
     Explainability vs Causality
@@ -340,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="introComm/A_B_Testing.html">
+  <a class="reference internal" href="../introComm/A_B_Testing.html">
    28.
    <font color="darkorange">
     A/B Testing
@@ -348,7 +346,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Projects/Project3_AnsweringQuestions.html">
+  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
    29.
    <font color="darkorange">
     Project 3 - Answering Questions
@@ -396,7 +394,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/docs/IntroNumpy.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/fullNotebooks/full_IntroNumpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -416,7 +414,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/IntroNumpy.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/fullNotebooks/full_IntroNumpy.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -437,10 +435,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/IntroNumpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/fullNotebooks/full_IntroNumpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
+                    src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -461,7 +459,6 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-using-a-python-package-font">
-   4.1.
    <font color="darkorange">
     Using a python package
    </font>
@@ -469,7 +466,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-array-slicing-font">
-   4.2.
    <font color="darkorange">
     Array slicing
    </font>
@@ -477,7 +473,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-arithmatic-with-arrays-font">
-   4.3.
    <font color="darkorange">
     Arithmatic with arrays!
    </font>
@@ -485,7 +480,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   4.4.
    <font color="darkorange">
     Further reading
    </font>
@@ -504,10 +498,10 @@
                 
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/IntroNumpy.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=11oIuCZt0sglfxu175KWiLj54wHbossfi'> <div class="section" id="font-color-darkorange-introduction-to-numpy-font">
-<h1><span class="section-number">4. </span><font color='darkorange'>Introduction to Numpy</font><a class="headerlink" href="#font-color-darkorange-introduction-to-numpy-font" title="Permalink to this headline">¶</a></h1>
+<h1><font color='darkorange'>Introduction to Numpy</font><a class="headerlink" href="#font-color-darkorange-introduction-to-numpy-font" title="Permalink to this headline">¶</a></h1>
 <p>We will make use of <strong>arrays</strong> in this course, let’s learn what they are and how we can use them!</p>
 <div class="section" id="font-color-darkorange-using-a-python-package-font">
-<h2><span class="section-number">4.1. </span><font color='darkorange'>Using a python package</font><a class="headerlink" href="#font-color-darkorange-using-a-python-package-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Using a python package</font><a class="headerlink" href="#font-color-darkorange-using-a-python-package-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s create an <strong>array</strong> using the numpy package.</p>
 <blockquote>
 <div><p>An array is like a list but has some nice built-in features that make them easier to work with.</p>
@@ -521,8 +515,7 @@
 <p>Let’s load in the <strong>numpy</strong> package, and create an array</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="c1">#importing code from already exhisting python packages!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing code from already exhisting python packages!</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1">#create an array from a list of numbers</span>
@@ -533,10 +526,15 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7])
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="font-color-darkorange-array-slicing-font">
-<h2><span class="section-number">4.2. </span><font color='darkorange'>Array slicing</font><a class="headerlink" href="#font-color-darkorange-array-slicing-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Array slicing</font><a class="headerlink" href="#font-color-darkorange-array-slicing-font" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Now we will try to slice out a portion of the array. We’ll do this just like we did with lists, using:</p>
 </div></blockquote>
@@ -546,8 +544,13 @@
 <p>Try out a few combinations on our 1d array!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#first three values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first three values</span>
 <span class="n">x1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2])
 </pre></div>
 </div>
 </div>
@@ -555,16 +558,26 @@
 <p>As the defaults for the start stop step are 1, you might also use the following.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#first three values (default step is by 1)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first three values (default step is by 1)</span>
 <span class="n">x1</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#values from the 4th value onwards</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#values from the 4th value onwards</span>
 <span class="n">x1</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5, 6, 7])
 </pre></div>
 </div>
 </div>
@@ -575,10 +588,17 @@
 <p>To create a 2d array we will use a function from the numpy package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#using code from the np package generate an arry of random integers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using code from the np package generate an arry of random integers</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>  <span class="c1"># 3 rows x 3 columns array</span>
 
 <span class="n">x2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 7, 4],
+       [4, 5, 8],
+       [5, 7, 2]])
 </pre></div>
 </div>
 </div>
@@ -592,16 +612,27 @@
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s take the first two rows, and all the columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s take the first two rows, and all the columns</span>
 <span class="n">x2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 7, 4],
+       [4, 5, 8]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s take all the rows, and the last column</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s take all the rows, and the last column</span>
 <span class="n">x2</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 8, 2])
 </pre></div>
 </div>
 </div>
@@ -609,9 +640,18 @@
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Let’s try out what you’ve learnt. Try and create a 2d array of size 5x5 of integers using the numpy package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>x3 = np.random.randint(low=?, high=?, size=?)  # Two-dimensional array
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>  <span class="c1"># Two-dimensional array</span>
 
-x3
+<span class="n">x3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 3, 6, 2, 6],
+       [1, 8, 5, 6, 2],
+       [8, 5, 4, 7, 2],
+       [5, 8, 4, 1, 3],
+       [2, 6, 2, 3, 6]])
 </pre></div>
 </div>
 </div>
@@ -619,7 +659,12 @@ x3
 <p>And now select only the first column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>x3[:,?]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 1, 8, 5, 2])
 </pre></div>
 </div>
 </div>
@@ -630,7 +675,12 @@ x3
 <p>1d array</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8,)
 </pre></div>
 </div>
 </div>
@@ -638,7 +688,12 @@ x3
 <p>2d array</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x2</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x2</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 3)
 </pre></div>
 </div>
 </div>
@@ -646,19 +701,29 @@ x3
 <p>For most of this course 2d array slicing will be as far as we go!</p>
 </div>
 <div class="section" id="font-color-darkorange-arithmatic-with-arrays-font">
-<h2><span class="section-number">4.3. </span><font color='darkorange'>Arithmatic with arrays!</font><a class="headerlink" href="#font-color-darkorange-arithmatic-with-arrays-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Arithmatic with arrays!</font><a class="headerlink" href="#font-color-darkorange-arithmatic-with-arrays-font" title="Permalink to this headline">¶</a></h2>
 <p>We can also do arithmatic on arrays.</p>
 <p>Here we will first add 1 to each value of the first column of your array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5, 6, 7, 8])
 </pre></div>
 </div>
 </div>
@@ -666,7 +731,12 @@ x3
 <p>You can also add two arrays together. For example, let’s add the first and fourth columns of the x3 array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12,  9, 13, 13,  8])
 </pre></div>
 </div>
 </div>
@@ -674,9 +744,18 @@ x3
 <p>Add you can assign the outcome of this addition to the third column of your array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">x3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9,  3, 12,  2,  6],
+       [ 1,  8,  9,  6,  2],
+       [ 8,  5, 13,  7,  2],
+       [ 5,  8, 13,  1,  3],
+       [ 2,  6,  8,  3,  6]])
 </pre></div>
 </div>
 </div>
@@ -685,21 +764,58 @@ x3
 <p>Try and create a 2d array with three columns and 10 rows using the numpy package, add the first and second columns together, and place the values in the third column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>x4 = np.random.randint(?)  # Two-dimensional array
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>  <span class="c1"># Two-dimensional array</span>
 
-x4
+<span class="n">x4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 2, 8],
+       [4, 3, 2],
+       [1, 6, 7],
+       [3, 9, 2],
+       [1, 8, 2],
+       [1, 4, 4],
+       [3, 3, 8],
+       [5, 5, 2],
+       [2, 5, 1],
+       [2, 8, 8]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x4</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x4</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">x4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8,  2, 10],
+       [ 4,  3,  7],
+       [ 1,  6,  7],
+       [ 3,  9, 12],
+       [ 1,  8,  9],
+       [ 1,  4,  5],
+       [ 3,  3,  6],
+       [ 5,  5, 10],
+       [ 2,  5,  7],
+       [ 2,  8, 10]])
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="font-color-darkorange-further-reading-font">
-<h2><span class="section-number">4.4. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>If you would like to learn more, the <em>Python Data Science Handbook</em> by Jake VanderPlas has a good chapter on <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html">using numpy</a>.</p>
 </div></blockquote>
 <blockquote>
-<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/fullNotebooks/full_IntroNumpy.ipynb">full code</a> version.</p>
+<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/fullNoteBooks/IntroClustering1_kmeans_HDBScan_full.ipynb">full code</a> version.</p>
 </div></blockquote>
 </div>
 </div>
@@ -717,7 +833,7 @@ x4
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs"
+            path: "./docs/fullNotebooks"
         },
         predefinedOutput: true
     }
@@ -729,8 +845,6 @@ x4
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroPython.html" title="previous page"><span class="section-number">3. </span><font color='darkorange'>Short introduction to Python</font></a>
-    <a class='right-next' id="next-link" href="IntroDataFrames.html" title="next page"><span class="section-number">5. </span><font color="darkorange">Working with data</font></a>
 
         </div>
         
@@ -752,7 +866,7 @@ x4
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
   
   </body>
