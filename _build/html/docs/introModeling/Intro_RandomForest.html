@@ -460,24 +460,16 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-load-the-data-font">
+  <a class="reference internal nav-link" href="#font-color-darkorange-descriptive-statistics-font">
    23.1.
-   <font color="lightblue">
-    Load the data
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-lightblue-descriptive-statistics-font">
-   23.2.
-   <font color="lightblue">
+   <font color="darkorange">
     Descriptive statistics
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-visualizing-the-data-font">
-   23.3.
+   23.2.
    <font color="darkorange">
     Visualizing the data
    </font>
@@ -485,7 +477,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-data-wrangling-font">
-   23.4.
+   23.3.
    <font color="darkorange">
     Data wrangling
    </font>
@@ -493,7 +485,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-model-building-font">
-   23.5.
+   23.4.
    <font color="darkorange">
     Model building
    </font>
@@ -501,7 +493,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-hyperparameter-tuning-font">
-   23.6.
+   23.5.
    <font color="darkorange">
     Hyperparameter tuning
    </font>
@@ -509,7 +501,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-   23.7.
+   23.6.
    <font color="darkorange">
     Bonus
    </font>
@@ -517,22 +509,15 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-model-interpretation-font">
-   23.8.
+   23.7.
    <font color="darkorange">
     Model interpretation
    </font>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#asking-your-model-questions">
-     23.8.1. Asking your model questions?
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-model-application-font">
-   23.9.
+   23.8.
    <font color="darkorange">
     Model Application
    </font>
@@ -540,7 +525,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   23.10.
+   23.9.
    <font color="darkorange">
     Further reading
    </font>
@@ -575,8 +560,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="font-color-lightblue-load-the-data-font">
-<h2><span class="section-number">23.1. </span><font color='lightblue'>Load the data</font><a class="headerlink" href="#font-color-lightblue-load-the-data-font" title="Permalink to this headline">¶</a></h2>
+<p><strong>Load the data</strong></p>
 <p>Get the ‘wine.csv’ from the class’s shared data folder and load it into a dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -605,9 +589,8 @@ df_diab = pd.read_csv(&#39;&#39;)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-lightblue-descriptive-statistics-font">
-<h2><span class="section-number">23.2. </span><font color='lightblue'>Descriptive statistics</font><a class="headerlink" href="#font-color-lightblue-descriptive-statistics-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-descriptive-statistics-font">
+<h2><span class="section-number">23.1. </span><font color='darkorange'>Descriptive statistics</font><a class="headerlink" href="#font-color-darkorange-descriptive-statistics-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s take a little time to look at some summary statistics.</p>
 <p>E.g., how many values of outcome types there are?</p>
 <div class="cell docutils container">
@@ -636,7 +619,7 @@ df_diab.?.value_counts()
 </div>
 </div>
 <div class="section" id="font-color-darkorange-visualizing-the-data-font">
-<h2><span class="section-number">23.3. </span><font color='darkorange'>Visualizing the data</font><a class="headerlink" href="#font-color-darkorange-visualizing-the-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.2. </span><font color='darkorange'>Visualizing the data</font><a class="headerlink" href="#font-color-darkorange-visualizing-the-data-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s plot the relationships between outcome and some of the health measures.</p>
 <p>Q: Choose one or more wine measures and generate a plot that shows the relationship between that measure and plant type.</p>
 <div class="cell docutils container">
@@ -655,7 +638,7 @@ df_diab.?.value_counts()
 </div>
 </div>
 <div class="section" id="font-color-darkorange-data-wrangling-font">
-<h2><span class="section-number">23.4. </span><font color='darkorange'>Data wrangling</font><a class="headerlink" href="#font-color-darkorange-data-wrangling-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.3. </span><font color='darkorange'>Data wrangling</font><a class="headerlink" href="#font-color-darkorange-data-wrangling-font" title="Permalink to this headline">¶</a></h2>
 <p>Training testing split</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,7 +650,7 @@ df_diab.?.value_counts()
 </div>
 </div>
 <div class="section" id="font-color-darkorange-model-building-font">
-<h2><span class="section-number">23.5. </span><font color="darkorange">Model building</font><a class="headerlink" href="#font-color-darkorange-model-building-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.4. </span><font color="darkorange">Model building</font><a class="headerlink" href="#font-color-darkorange-model-building-font" title="Permalink to this headline">¶</a></h2>
 <p>Here we will build our first random forest model!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,7 +733,7 @@ tree_classifier = ?()
 </div>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
 <div class="section" id="font-color-darkorange-hyperparameter-tuning-font">
-<h2><span class="section-number">23.6. </span><font color='darkorange'>Hyperparameter tuning</font><a class="headerlink" href="#font-color-darkorange-hyperparameter-tuning-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.5. </span><font color='darkorange'>Hyperparameter tuning</font><a class="headerlink" href="#font-color-darkorange-hyperparameter-tuning-font" title="Permalink to this headline">¶</a></h2>
 <p>Above we used the default values for how much randomness to include while builing our trees for the random forest. Let’s look at how we can use k-fold cross validation to help us choose how much randomness to use when building these trees!</p>
 <p>One hyperparameter:</p>
 <div class="cell docutils container">
@@ -824,7 +807,7 @@ print(&#39;Recall : {:.2f}&#39;.format(sk.metrics.recall_score(y_test, y_forest_
 <p>Did your optimized model beat the default one?</p>
 </div>
 <div class="section" id="font-color-darkorange-bonus-font">
-<h2><span class="section-number">23.7. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.6. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Try adding other hyperparameters, how much better can you make the model by tuning?</span>
@@ -836,7 +819,7 @@ print(&#39;Recall : {:.2f}&#39;.format(sk.metrics.recall_score(y_test, y_forest_
 </div>
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
 <div class="section" id="font-color-darkorange-model-interpretation-font">
-<h2><span class="section-number">23.8. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#font-color-darkorange-model-interpretation-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.7. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#font-color-darkorange-model-interpretation-font" title="Permalink to this headline">¶</a></h2>
 <p>Random forests are collections of many decision trees. This makes it a little more difficult to interpret how the predictions are being made, as there can be 1000s of individual trees.</p>
 <blockquote>
 <div><p>Let’s look at how to use feature importance to evaluate what is being used by the model to make predictions.</p>
@@ -874,8 +857,7 @@ print(&#39;Recall : {:.2f}&#39;.format(sk.metrics.recall_score(y_test, y_forest_
 </div>
 </div>
 </div>
-<div class="section" id="asking-your-model-questions">
-<h3><span class="section-number">23.8.1. </span>Asking your model questions?<a class="headerlink" href="#asking-your-model-questions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Asking your model questions?</strong></p>
 <p>Sometimes it can be very helpful to create a dataset that represents a question you have, and then use your model to make predictions to answer that question. For instance, what if someone had mean values for all measures?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -936,9 +918,8 @@ print(&#39;Recall : {:.2f}&#39;.format(sk.metrics.recall_score(y_test, y_forest_
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="font-color-darkorange-model-application-font">
-<h2><span class="section-number">23.9. </span><font color='darkorange'>Model Application</font><a class="headerlink" href="#font-color-darkorange-model-application-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.8. </span><font color='darkorange'>Model Application</font><a class="headerlink" href="#font-color-darkorange-model-application-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s apply what we learnt about random forests to other datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,7 +930,7 @@ print(&#39;Recall : {:.2f}&#39;.format(sk.metrics.recall_score(y_test, y_forest_
 </div>
 </div>
 <div class="section" id="font-color-darkorange-further-reading-font">
-<h2><span class="section-number">23.10. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">23.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_Intro_RandomForest.ipynb">full code</a> version.</p>
 </div></blockquote>
