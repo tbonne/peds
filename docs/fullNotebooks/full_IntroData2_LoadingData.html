@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Using existing data &#8212; Practical exercises in data science - PEDS</title>
+    <title>Using existing data &#8212; Practical exercises in data science - PEDS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Missing Data" href="IntroData3_MissingData.html" />
-    <link rel="prev" title="6. Introduction to DataFrames" href="IntroData1_DataFrames.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -133,7 +131,7 @@
   Part 2 - Data Wrangling
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../IntroDataFrames.html">
    5.
@@ -143,15 +141,15 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroData1_DataFrames.html">
+  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
    6.
    <font color="darkorange">
     Introduction to DataFrames
    </font>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
    7.
    <font color="darkorange">
     Using existing data
@@ -159,7 +157,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroData3_MissingData.html">
+  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
    8.
    <font color="darkorange">
     Missing Data
@@ -167,7 +165,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroData4_groupby.html">
+  <a class="reference internal" href="../introData/IntroData4_groupby.html">
    9.
    <font color="darkorange">
     Grouping data
@@ -175,7 +173,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroData5_CombineData.html">
+  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
    10.
    <font color="darkorange">
     Combining data
@@ -396,7 +394,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/introData/IntroData2_LoadingData.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/fullNotebooks/full_IntroData2_LoadingData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -416,7 +414,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introData/IntroData2_LoadingData.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/fullNotebooks/full_IntroData2_LoadingData.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -437,7 +435,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/introData/IntroData2_LoadingData.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/fullNotebooks/full_IntroData2_LoadingData.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -461,7 +459,6 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-loading-data-font">
-   7.1.
    <font color="darkorange">
     Loading data
    </font>
@@ -469,7 +466,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-exploring-the-dataframe-font">
-   7.2.
    <font color="darkorange">
     Exploring the dataframe
    </font>
@@ -477,7 +473,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-manipulate-the-dataframe-font">
-   7.3.
    <font color="darkorange">
     Manipulate the dataframe
    </font>
@@ -485,7 +480,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   7.4.
    <font color="darkorange">
     Further reading
    </font>
@@ -504,7 +498,7 @@
                 
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData2_LoadingData.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1FZW6_R4T8PailZCgLSdNTZLIDoAG9VM5' width="300" align = 'center'> <div class="section" id="font-color-darkorange-using-existing-data-font">
-<h1><span class="section-number">7. </span><font color='darkorange'>Using existing data</font><a class="headerlink" href="#font-color-darkorange-using-existing-data-font" title="Permalink to this headline">¶</a></h1>
+<h1><font color='darkorange'>Using existing data</font><a class="headerlink" href="#font-color-darkorange-using-existing-data-font" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <p>In this exercise we will start working with some real data. We will first learn how to load in data, then test out what you’ve learnt about DataFrames.</p>
 <p>Outline:</p>
@@ -515,14 +509,14 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load in pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load in pandas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="font-color-darkorange-loading-data-font">
-<h2><span class="section-number">7.1. </span><font color='darkorange'>Loading data</font><a class="headerlink" href="#font-color-darkorange-loading-data-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Loading data</font><a class="headerlink" href="#font-color-darkorange-loading-data-font" title="Permalink to this headline">¶</a></h2>
 <p>There are many ways to load in datasets, here we’ll look at two methods.</p>
 <p>But first let’s get the data:</p>
 <blockquote>
@@ -537,7 +531,7 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in the nyc flight data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in the nyc flight data</span>
 <span class="n">df_flights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/nyc_flight_data.csv&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -549,7 +543,7 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#mount your google drive</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mount your google drive</span>
 <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/gdrive&#39;</span><span class="p">)</span>
 </pre></div>
@@ -563,7 +557,7 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##load in the nyc flight data </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##load in the nyc flight data </span>
 <span class="n">df_flights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/gdrive/MyDrive/Colab Notebooks/DataScience/dataDSI/nyc_flight_data.csv&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -571,11 +565,11 @@
 </div>
 </div>
 <div class="section" id="font-color-darkorange-exploring-the-dataframe-font">
-<h2><span class="section-number">7.2. </span><font color='darkorange'>Exploring the dataframe</font><a class="headerlink" href="#font-color-darkorange-exploring-the-dataframe-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Exploring the dataframe</font><a class="headerlink" href="#font-color-darkorange-exploring-the-dataframe-font" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have the dataset loaded, let’s take a look at it. Let’s first look at it’s shape.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -583,7 +577,7 @@
 <p>Here we can get a quick look the dataframe using the <strong>head</strong> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -591,7 +585,7 @@
 <p>Or if you like a little more options you can use the folowing to help visualize the table better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">google</span><span class="o">.</span><span class="n">colab</span><span class="o">.</span><span class="n">data_table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> google.colab.data_table
 </pre></div>
 </div>
 </div>
@@ -599,7 +593,7 @@
 <p>Now try looking at your dataframe again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,7 +601,7 @@
 <p>We can also see what kinds of variables are in the dataframe by using the <strong>dtype</strong> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#find the data types</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#find the data types</span>
 <span class="n">df_flights</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
@@ -616,7 +610,7 @@
 <p>We can get a quick description of the numeric data using the <strong>describe</strong> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -625,16 +619,16 @@
 Try filtering for carrier: e.g., AA</p>
 </div>
 <div class="section" id="font-color-darkorange-manipulate-the-dataframe-font">
-<h2><span class="section-number">7.3. </span><font color='darkorange'>Manipulate the dataframe</font><a class="headerlink" href="#font-color-darkorange-manipulate-the-dataframe-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Manipulate the dataframe</font><a class="headerlink" href="#font-color-darkorange-manipulate-the-dataframe-font" title="Permalink to this headline">¶</a></h2>
 <p>Let’s now use your new found skills to answer some questions!</p>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100"><p>Make a dataframe with only carrier, arr_delay, dep_delay, and air_time as columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#keep only the a subset of columns
-df_flights_sub = df_flights.loc[? ,?  ]  #Warning: the column names will be case sensitive!
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#keep only the a subset of columns</span>
+<span class="n">df_flights_sub</span> <span class="o">=</span> <span class="n">df_flights</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="p">[</span><span class="s1">&#39;carrier&#39;</span><span class="p">,</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">,</span><span class="s1">&#39;dep_delay&#39;</span><span class="p">,</span><span class="s1">&#39;air_time&#39;</span><span class="p">]</span>  <span class="p">]</span>  <span class="c1">#Warning: the column names will be case sensitive!</span>
 
-#take a look at the new dataframe
-?
+<span class="c1">#take a look at the new dataframe</span>
+<span class="n">df_flights_sub</span>
 </pre></div>
 </div>
 </div>
@@ -642,11 +636,11 @@ df_flights_sub = df_flights.loc[? ,?  ]  #Warning: the column names will be case
 <p>Make a dataframe of all flights that have an arrival delay of greater than 60min</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#keep only the rows with arr_delay of greater than 60 minutes
-df_flights_delayed60 = df_flights[?]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#keep only the rows with arr_delay of greater than 60 minutes</span>
+<span class="n">df_flights_delayed60</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="n">df_flights</span><span class="o">.</span><span class="n">arr_delay</span><span class="o">&gt;</span><span class="mi">60</span><span class="p">]</span>
 
-#What is the shape of this new dataframe
-?
+<span class="c1">#What is the shape of this new dataframe</span>
+<span class="n">df_flights_delayed60</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -654,9 +648,11 @@ df_flights_delayed60 = df_flights[?]
 <p>Can you also calculate how many flights arrived earlier than expected (i.e., where the plane arrived before the scheduled arrival time).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#keep only the rows with arr_delay less than 0 minutes (i.e., negative delay!)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#keep only the rows with arr_delay less than 0 minutes (i.e., negative delay!)</span>
+<span class="n">df_flights_early</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="n">df_flights</span><span class="o">.</span><span class="n">arr_delay</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1">#what is the shape of this new dataframe</span>
+<span class="n">df_flights_early</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -664,14 +660,30 @@ df_flights_delayed60 = df_flights[?]
 <p>Finally can you express these numbers as percentages?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#percentage of flights delayed more than 60mins, i.e., number delayed rows / number total rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#percentage of flights delayed more than 60mins, i.e., number delayed rows / number total rows</span>
+<span class="n">df_flights_delayed60</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">df_flights</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1">#or just</span>
+<span class="mi">226</span> <span class="o">/</span> <span class="mi">3614</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#percentage of flights arriving before scheduled time, i.e., number early rows / number total rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#percentage of flights arriving before scheduled time, i.e., number early rows / number total rows</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">df_flights_early</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_flights</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">ce70047e62e7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#percentage of flights arriving before scheduled time, i.e., number early rows / number total rows</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_flights_early</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_flights</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="ne">NameError</span>: name &#39;df_flights_early&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -679,7 +691,7 @@ df_flights_delayed60 = df_flights[?]
 <p>Post to slack once you’ve got an answer!</p>
 </div>
 <div class="section" id="font-color-darkorange-further-reading-font">
-<h2><span class="section-number">7.4. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
+<h2><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
 <p>The many ways to work with <a class="reference external" href="https://neptune.ai/blog/google-colab-dealing-with-files">data in colab</a>.</p>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroData2_LoadingData.ipynb">full code</a> version.</p>
@@ -700,7 +712,7 @@ df_flights_delayed60 = df_flights[?]
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/introData"
+            path: "./docs/fullNotebooks"
         },
         predefinedOutput: true
     }
@@ -712,8 +724,6 @@ df_flights_delayed60 = df_flights[?]
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="IntroData1_DataFrames.html" title="previous page"><span class="section-number">6. </span><font color='darkorange'>Introduction to DataFrames</font></a>
-    <a class='right-next' id="next-link" href="IntroData3_MissingData.html" title="next page"><span class="section-number">8. </span><font color='darkorange'>Missing Data</font></a>
 
         </div>
         
