@@ -460,47 +460,28 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-1-simulate-some-data-font">
+  <a class="reference internal nav-link" href="#font-color-darkorange-simulate-some-data-font">
    17.1.
    <font color="darkorange">
-    1) Simulate some data
+    Simulate some data
    </font>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#things-to-try">
-     17.1.1. Things to try
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#things-to-ask-yourself">
-     17.1.2. Things to ask yourself
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-2-post-your-data-to-slack-font">
+  <a class="reference internal nav-link" href="#font-color-darkorange-post-your-data-to-slack-font">
    17.2.
    <font color="darkorange">
-    2) Post your data to Slack!
+    Post your data to Slack!
    </font>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-3-predict-the-number-of-clusters-in-other-datasets-font">
+  <a class="reference internal nav-link" href="#font-color-darkorange-predict-the-number-of-clusters-in-other-datasets-font">
    17.3.
    <font color="darkorange">
-    3) Predict the number of clusters in other datasets!
+    Predict the number of clusters in other datasets!
    </font>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     17.3.1. Things to ask yourself:
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -514,7 +495,8 @@
               <div>
                 
   <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/challenges/DataChallenge1.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1BoSI6ZAmGc3mvjUZWGiUw9IZaPaWbV6Y' width=200><div class="section" id="font-color-darkorange-class-data-challenge-1-font">
+<img src='http://drive.google.com/uc?export=view&id=1BoSI6ZAmGc3mvjUZWGiUw9IZaPaWbV6Y' width=200><hr class="docutils" />
+<div class="section" id="font-color-darkorange-class-data-challenge-1-font">
 <h1><span class="section-number">17. </span><font color='darkorange'>Class Data Challenge 1</font><a class="headerlink" href="#font-color-darkorange-class-data-challenge-1-font" title="Permalink to this headline">¶</a></h1>
 <p>Welcome to the first simulation challenge! We will use this competition to try out what we’ve learnt so far, and to learn some important lessons about clustering and visualizing data.</p>
 <p>The challenge will follow five stages:</p>
@@ -538,8 +520,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="font-color-darkorange-1-simulate-some-data-font">
-<h2><span class="section-number">17.1. </span><font color='darkorange'>1) Simulate some data</font><a class="headerlink" href="#font-color-darkorange-1-simulate-some-data-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-simulate-some-data-font">
+<h2><span class="section-number">17.1. </span><font color='darkorange'>Simulate some data</font><a class="headerlink" href="#font-color-darkorange-simulate-some-data-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Simulate a cluster</span>
@@ -592,8 +574,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="things-to-try">
-<h3><span class="section-number">17.1.1. </span>Things to try<a class="headerlink" href="#things-to-try" title="Permalink to this headline">¶</a></h3>
+<p><strong>Things to try</strong></p>
 <ul class="simple">
 <li><p>Change the mean of your clusters: np.random.normal(<strong>50</strong>,10,size=1000)</p></li>
 <li><p>Change the spread of your clusters: np.random.normal(50,<strong>10</strong>,size=1000)</p></li>
@@ -612,18 +593,15 @@ np.random.<strong>normal</strong>(5,10,size=100)<br></p>
 cluster_<strong>y</strong> = np.random.uniform(5,10,size=1000)<br>
 cluster_<strong>z</strong> = np.random.uniform(5,10,size=1000)</p>
 </div></blockquote>
-</div>
-<div class="section" id="things-to-ask-yourself">
-<h3><span class="section-number">17.1.2. </span>Things to ask yourself<a class="headerlink" href="#things-to-ask-yourself" title="Permalink to this headline">¶</a></h3>
+<p><strong>Things to ask yourself</strong></p>
 <ul class="simple">
 <li><p>Do you think it is easy to find out how many clusters there are?</p></li>
 <li><p>Is it imposible to figure it out?</p></li>
 <li><p>How can you visualize something that is in 3D well enough to see the clusters you made?</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="font-color-darkorange-2-post-your-data-to-slack-font">
-<h2><span class="section-number">17.2. </span><font color='darkorange'>2) Post your data to Slack!</font><a class="headerlink" href="#font-color-darkorange-2-post-your-data-to-slack-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-post-your-data-to-slack-font">
+<h2><span class="section-number">17.2. </span><font color='darkorange'>Post your data to Slack!</font><a class="headerlink" href="#font-color-darkorange-post-your-data-to-slack-font" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#randomly shuffle the rows around</span>
@@ -640,8 +618,8 @@ cluster_<strong>z</strong> = np.random.uniform(5,10,size=1000)</p>
 </div>
 <p>The csv file should now be in your google drive. You can also just click on files on the left and you will be able to see and download your data. Once downloaded place into the simulation_competition1 channel on slack.</p>
 </div>
-<div class="section" id="font-color-darkorange-3-predict-the-number-of-clusters-in-other-datasets-font">
-<h2><span class="section-number">17.3. </span><font color='darkorange'>3) Predict the number of clusters in other datasets!</font><a class="headerlink" href="#font-color-darkorange-3-predict-the-number-of-clusters-in-other-datasets-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="font-color-darkorange-predict-the-number-of-clusters-in-other-datasets-font">
+<h2><span class="section-number">17.3. </span><font color='darkorange'>Predict the number of clusters in other datasets!</font><a class="headerlink" href="#font-color-darkorange-predict-the-number-of-clusters-in-other-datasets-font" title="Permalink to this headline">¶</a></h2>
 <p>Import the data into your colab:</p>
 <ol class="simple">
 <li><p>Download a dataset from slack</p></li>
@@ -678,14 +656,12 @@ cluster_<strong>z</strong> = np.random.uniform(5,10,size=1000)</p>
 </div>
 </div>
 <p>Which method does better on mean silhouette distance, and how many clusters does it suggest?</p>
-<div class="section" id="id1">
-<h3><span class="section-number">17.3.1. </span>Things to ask yourself:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Things to ask yourself:</strong></p>
 <ul class="simple">
 <li><p>Do the visualization and clustering algorithms aggree on the number of clusters?</p></li>
 </ul>
 <p>When you think you have an answer post it to slack and see if you are right!
 Feel free to communicate and collaborate with the eachother!!</p>
-</div>
 </div>
 </div>
 
