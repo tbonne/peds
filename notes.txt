@@ -30,5 +30,5 @@ https://tbonne.github.io/peds #/intro.html
 Next steps:
 -need to add in the data challenges (challenge 2 needs the right data!)
 -need to go over content 
--need to add in the full notebook link at the end of each section
 -need to start to build the second version of this book (deep leanring in python)
+-need to see if i can change the orientation of the figure on page 1 (too low quality)
