@@ -249,7 +249,7 @@
   <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
    18.
    <font color="darkorange">
-    Project 1 - Exploritory Data Analysis
+    Project 1 - Exploratory Data Analysis
    </font>
   </a>
  </li>
@@ -327,7 +327,7 @@
   <a class="reference internal" href="../IntroComm.html">
    26.
    <font color="darkorange">
-    Let’s try and learn from our models
+    Let’s try to learn from our models
    </font>
   </a>
  </li>
@@ -668,7 +668,7 @@
 </div>
 </div>
 </div>
-<p><strong>Finaly</strong>, we can visualize the predictions it made by using seaborn</p>
+<p><strong>Finally</strong>, we can visualize the predictions it made by using seaborn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot it!</span>
@@ -680,7 +680,7 @@
 <p>This is what is considered as a hard clustering algorithm - it assigns every point to a cluster. It also makes some assumptions about clusters:</p>
 <ul class="simple">
 <li><p>You know in advance how many clusters there are</p></li>
-<li><p>Clusters are roughly oval shaped (noramlly distributied along each dimension)</p></li>
+<li><p>Clusters are roughly oval shaped (normally distributed along each dimension)</p></li>
 </ul>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Go back and try shifting the mean and standard deviation of the simulated clusters and see how well k-means does. Try changing the number of clusters k-means looks for. When does it break down?</p>
 <p>When this book is used within a class setting there are often good points to break up long sections of coding exercises. We’ll use this stop sign (below) to indicate when we will take a break from coding and discuss more theoretical issues.</p>
@@ -688,7 +688,7 @@
 <div class="section" id="font-color-darkorange-tuning-machine-learning-algorithms-font">
 <h2><span class="section-number">15.3. </span><font color='darkorange'>Tuning machine learning algorithms</font><a class="headerlink" href="#font-color-darkorange-tuning-machine-learning-algorithms-font" title="Permalink to this headline">¶</a></h2>
 <p>The elbow method can be used to help choose how many clusters are likely in the data. It also introduces us to how tune machine learning algorithms by running the model using different parameters and monitoring how well the algorithm performs.</p>
-<p>First let’s measure how successfull the clustering algorithm is. There are many ways to measure <em>success</em> in clustering, but here we will use <em>mean silhouette distance</em>. Which describes how far apart the points within clusters are from each other.</p>
+<p>First let’s measure how successfull the clustering algorithm is. There are many ways to measure <em>success</em> in clustering, here we will use <em>mean silhouette distance</em> which describes how far apart the points within clusters are from each other.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Mean silhouette distance</span>
@@ -754,7 +754,7 @@
 </div>
 </div>
 </div>
-<p>Is it much easier to figure out what number of clusters results in the highest avgerage silhouette score?</p>
+<p>Is it much easier to figure out what number of clusters results in the highest average silhouette score?</p>
 </div>
 <div class="section" id="font-color-darkorange-using-loops-font">
 <h2><span class="section-number">15.5. </span><font color='darkorange'>Using loops</font><a class="headerlink" href="#font-color-darkorange-using-loops-font" title="Permalink to this headline">¶</a></h2>
@@ -819,7 +819,7 @@ import hdbscan
 <p>First initalize the ml algorithm</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#initalize the kmeans algorithm (hyperparameter - choose minimum cluster size)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#initialize the kmeans algorithm (hyperparameter - choose minimum cluster size)</span>
 <span class="n">clus_hdbscan</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -958,7 +958,7 @@ sns.relplot(?)
 </div>
 </div>
 <p>Can you find an optimum value for min_cluster_size? If you go back and run the HDBScan algorithm with the optimal min_cluster_size do you see large differences in how it clusters the data?</p>
-<p>Finally, what happends if you run your function for large min_cluster sizes? How large can you go before your code fails, and why do you think it failed?</p>
+<p>Finally, what happens if you run your function for large min_cluster sizes? How large can you go before your code fails, and why do you think it failed?</p>
 </div>
 <div class="section" id="font-color-darkorange-further-reading-font">
 <h2><span class="section-number">15.10. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
