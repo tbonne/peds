@@ -102,7 +102,7 @@ sns.relplot(x='clusters', y='sil', data=df_sil, kind="line")
 !pip install hdbscan
 import hdbscan
 
-#initalize the kmeans algorithm (hyperparameter - choose minimum cluster size)
+#initialize the kmeans algorithm (hyperparameter - choose minimum cluster size)
 clus_hdbscan = hdbscan.HDBSCAN(min_cluster_size = 30) 
 
 #fit the model

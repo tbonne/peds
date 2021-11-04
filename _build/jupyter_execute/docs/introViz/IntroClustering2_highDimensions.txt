@@ -44,7 +44,7 @@ import plotly.express as px
 fig = px.scatter_3d(df_class, x='x', y='y', z='z', color='class')
 fig.show()
 
-#initalize the kmeans algorithm
+#initialize the kmeans algorithm
 clus_kmeans = cluster.KMeans(n_clusters=2) #how many clusters are there?
 
 #fit the model
