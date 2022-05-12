@@ -39,7 +39,6 @@ import pandas as pd
 # In[2]:
 
 
-
 ## create a dictionary
 d = {'A':[1,2,3,4], 'B':[5,6,7,8] }
 
@@ -176,7 +175,6 @@ df_test.iloc[2, 2:4]
 # ## <font color='darkorange'>Creating new variables</font>
 
 # In[16]:
-
 
 
 #multiply the B column by 4 to create a new variable C

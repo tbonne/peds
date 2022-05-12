@@ -1,3 +1,9 @@
+#load pandas
+?
+
+#load flight data
+?
+
 #Group rows by airline carrier, then take the departure delay column values, and finally sum them up.
 df_flights.groupby('carrier').dep_delay.sum()
 

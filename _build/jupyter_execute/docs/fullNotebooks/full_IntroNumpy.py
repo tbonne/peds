@@ -24,7 +24,6 @@
 # In[27]:
 
 
-
 #importing code from already exhisting python packages!
 import numpy as np
 
