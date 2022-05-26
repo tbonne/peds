@@ -141,7 +141,7 @@ df_train_scaled = df_train.copy()
 scal = StandardScaler()
 
 #2. Fit the DataFrameMapper, and transform the data 
-df_train_scaled = scal.fit_transform(df_train[:])
+df_train_scaled[:] = scal.fit_transform(df_train)
 
 #take a look
 df_train_scaled
