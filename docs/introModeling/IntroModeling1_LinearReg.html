@@ -1007,7 +1007,7 @@ print(&quot; Mean squared error = &quot;, ?)
 <span class="n">scal</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
 <span class="c1">#2. Fit the DataFrameMapper, and transform the data </span>
-<span class="n">df_train_scaled</span> <span class="o">=</span> <span class="n">scal</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_train</span><span class="p">[:])</span>
+<span class="n">df_train_scaled</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">scal</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_train_scaled</span>
