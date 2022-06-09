@@ -27,22 +27,16 @@ from sklearn.preprocessing import OrdinalEncoder
 #get the columns names of features you'd like to turn into 0/1
 bin_names = ['retention_7','version']
 
-#create a dataframe of those features
-?
+#create the OrdinalEncoder
+my_ordinal = ?()
 
-#fit the scaler to those data
-?
-
-#use the scaler to transform your data
-?
-
-#put these scaled features back into your transformed features dataframe
-?
+#fit and transform the data
+df_cats[bin_names] = my_ordinal.?(?)
 
 #take a look
 df_cats
 
-bin_scaler.categories_
+my_ordinal.categories_
 
 #split these data into training and testing datasets
 df_train, df_test = train_test_split(df_cats, test_size=0.20, stratify=df_cats[['retention_7']])
@@ -95,7 +89,13 @@ plt.ylabel('True label')
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score
 
-?
+model_acc = accuracy_score(df_test.retention_7, ?)
+model_prec = precision_score(?)
+model_rec = recall_score(?)
+
+print(f"accuracy: {model_acc}" )
+print(f"?: {model_prec}" )
+print(f"?: {?}" )
 
 
 #1. Create a dataframe

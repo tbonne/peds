@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="29. Project 3 - Answering Questions" href="../Projects/Project3_AnsweringQuestions.html" />
-    <link rel="prev" title="27. Explainability vs Causality" href="IntroCausalAnalysis.html" />
+    <link rel="prev" title="27. Explainability vs Causality" href="IntroCausalAnalysis_admissions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -341,7 +341,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="IntroCausalAnalysis.html">
+  <a class="reference internal" href="IntroCausalAnalysis_admissions.html">
    27.
    <font color="darkorange">
     Explainability vs Causality
@@ -743,17 +743,11 @@ df_cats[?==&#39;gate_30&#39;].retention_7.sum() / len(df_cats[df_cats[&#39;versi
 #get the columns names of features you&#39;d like to turn into 0/1
 bin_names = [&#39;retention_7&#39;,&#39;version&#39;]
 
-#create a dataframe of those features
-?
+#create the OrdinalEncoder
+my_ordinal = ?()
 
-#fit the scaler to those data
-?
-
-#use the scaler to transform your data
-?
-
-#put these scaled features back into your transformed features dataframe
-?
+#fit and transform the data
+df_cats[bin_names] = my_ordinal.?(?)
 
 #take a look
 df_cats
@@ -764,7 +758,7 @@ df_cats
 <p>Check which version is assigned to which value</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bin_scaler</span><span class="o">.</span><span class="n">categories_</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_ordinal</span><span class="o">.</span><span class="n">categories_</span>
 </pre></div>
 </div>
 </div>
@@ -862,19 +856,13 @@ plt.ylabel(&#39;True label&#39;)
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import accuracy_score, precision_score, recall_score
 
-?
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-2d9ef43a93a7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+model_acc = accuracy_score(df_test.retention_7, ?)
+model_prec = precision_score(?)
+model_rec = recall_score(?)
 
-<span class="ne">NameError</span>: name &#39;df_test&#39; is not defined
+print(f&quot;accuracy: {model_acc}&quot; )
+print(f&quot;?: {model_prec}&quot; )
+print(f&quot;?: {?}&quot; )
 </pre></div>
 </div>
 </div>
@@ -974,7 +962,7 @@ b_sumGame = ?
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="IntroCausalAnalysis.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="IntroCausalAnalysis_admissions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
