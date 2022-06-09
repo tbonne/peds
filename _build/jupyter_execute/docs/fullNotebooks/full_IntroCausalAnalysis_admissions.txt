@@ -1,0 +1,129 @@
+import pandas as pd
+import sklearn as sk
+import seaborn as sns
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
+
+#load data
+df_admit = pd.read_csv("/content/UCBadmit_01.csv")
+
+#take a look
+df_admit.head()
+
+df_admit.info()
+
+#plot admissions by reported gender
+sns.barplot(data=df_admit, x="gender",y="admitted")
+
+#plot admissions by department
+sns.barplot(data=df_admit, x="dept",y="admitted")
+
+df_cat = pd.get_dummies(df_admit['dept'])
+
+df_admit = pd.concat([df_admit, df_cat], axis = 1)
+
+df_admit = df_admit.drop(['dept'], axis=1)
+
+df_admit
+
+from sklearn.preprocessing import OrdinalEncoder
+
+#build the encoder
+my_gen = OrdinalEncoder()
+
+#fit and transform the gender column
+df_admit['gender'] = my_gen.fit_transform(df_admit['gender'].values.reshape(-1,1))
+
+#take a look
+df_admit
+
+
+#take a look at the categories
+my_gen.categories_
+
+#split these data into training and testing datasets
+df_train, df_test = train_test_split(df_admit, test_size=0.20, random_state=14)
+
+import statsmodels.api as sm #for running regression!
+import statsmodels.formula.api as smf
+
+#1. Build the model
+m1 = smf.logit("admitted ~ gender", data=df_train)
+
+#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)
+m1_results = m1.fit()
+
+#Look summary
+print(m1_results.summary())
+
+#1. Build the model
+m2 = smf.logit("admitted ~ gender + B + C + D + E + F", data=df_train)
+
+#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)
+m2_results = m2.fit()
+
+#Look summary
+print(m2_results.summary())
+
+from sklearn.linear_model import LinearRegression
+from sklearn.inspection import permutation_importance
+
+#split data into predictors (X) and target (y)
+X = df_admit.drop(['admitted', 'A'],axis=1)
+y = df_admit['admitted']
+
+#split these data into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+#fit linear regression
+LR1 = LinearRegression()
+LR1.fit(X_train, y_train)
+
+#model interpretation
+rel_impo = permutation_importance(LR1, X_test, y_test,n_repeats=30,random_state=0)
+pd.DataFrame({"feature":X_test.columns,"importance":rel_impo.importances_mean, "sd":rel_impo.importances_std})
+
+from sklearn.model_selection import KFold
+from sklearn.feature_selection import RFECV
+
+#split data into predictors (X) and target (y)
+X = df_admit.drop(['admitted','A'], axis=1)
+y = df_admit['admitted']
+
+#split these data into training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+#build a linear regression (full model)
+LR1 = LinearRegression()
+
+#fit linear regression
+LR1.fit(X_train, y_train)
+
+#min number of variables/features
+min_features_to_select = 1
+
+#build the feature selection algorithm
+rfecv = RFECV(estimator=LR1, step=1, cv=3,scoring='neg_mean_squared_error', min_features_to_select=min_features_to_select)
+
+#fit the algorithm to the data
+rfecv.fit(X_train, y_train)
+
+print("Optimal number of features : %d" % rfecv.n_features_)
+
+# Plot number of features VS. cross-validation scores
+plt.figure()
+plt.xlabel("Number of features selected")
+plt.ylabel("Cross validation score (mean square error?)")
+plt.plot(range(min_features_to_select,
+               len(rfecv.grid_scores_) + min_features_to_select),
+         rfecv.grid_scores_)
+plt.show()
+
+rfecv.support_
+
+X_train_reduced = X_train.iloc[:,rfecv.support_]
+
+X_train_reduced.head(3)
+
+#get the slopes!
+rfecv.estimator_.coef_

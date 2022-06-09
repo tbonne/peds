@@ -42,6 +42,6 @@ parts:
   numbered: true
   chapters:
   - file: docs/IntroComm.md
-  - file: docs/introComm/IntroCausalAnalysis.ipynb
+  - file: docs/introComm/IntroCausalAnalysis_admissions.ipynb
   - file: docs/introComm/A_B_Testing.ipynb
   - file: docs/Projects/Project3_AnsweringQuestions.ipynb
