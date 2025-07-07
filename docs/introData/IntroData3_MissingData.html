@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -434,7 +434,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData3_MissingData.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='../../_images/missingData.jpeg' width="300" align = 'center'> <hr class="docutils" />
+<a class="reference internal image-reference" href="../../_images/missingData.jpeg"><img alt="colab" class="align-center" src="../../_images/missingData.jpeg" style="width: 300px;" />
+</a>
+<hr class="docutils" />
 <section id="missing-data">
 <h1><span class="section-number">8. </span><font color='darkorange'>Missing Data</font><a class="headerlink" href="#missing-data" title="Link to this heading">#</a></h1>
 <p>In this exercise we will learn how to handle missing data.</p>
@@ -445,7 +447,10 @@ document.write(`
 </ul>
 <section id="load-data">
 <h2><span class="section-number">8.1. </span><font color='darkorange'>Load Data</font><a class="headerlink" href="#load-data" title="Link to this heading">#</a></h2>
-<img src='../../_images/take_action.jpg' width="100"><p>First load in the pandas library and bring in the NYC flight data</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>First load in the pandas library and bring in the NYC flight data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Import pandas library
@@ -523,7 +528,10 @@ len(df_flights_sub_na)
 </div>
 </div>
 </div>
-<img src='../../_images/take_action.jpg' width="100"><p>Try removing all the rows with NAs in arr_time.</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Try removing all the rows with NAs in arr_time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#drop rows if arrival time contains missing values
@@ -564,7 +572,10 @@ df_flights
 </div>
 </div>
 </div>
-<img src='../../_images/take_action.jpg' width="100"><p>Try adding a column of missingness for plane tail number (i.e., tailnum).</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Try adding a column of missingness for plane tail number (i.e., tailnum).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#create new column with 1/0 if there is missing data in tailnum
