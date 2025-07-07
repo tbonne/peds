@@ -6,7 +6,7 @@ The book is laid out in 5 parts, following a typical data science workflow (Fig.
   
 
 <p align="center">
-<img src='_images/DSFlow2.png' width="25%" class = 'center'>
+<img src='../images/DSFlow2.png' width="25%" class = 'center'>
 
 </p align="center">
 Figure 1: Data science workflow we will use in this book
