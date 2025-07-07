@@ -1,542 +1,449 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Summary statistics and histograms &#8212; Practical exercises in data science - PEDS</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/fullNotebooks/full_introViz1_histograms';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../../_static/runners_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Practical exercises in data science - PEDS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Introduction to PEDS
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 1 - Coding
- </span>
-</p>
+    
+    
+    <img src="../../_static/runners_logo.png" class="logo__image only-light" alt="Practical exercises in data science - PEDS - Home"/>
+    <script>document.write(`<img src="../../_static/runners_logo.png" class="logo__image only-dark" alt="Practical exercises in data science - PEDS - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction to PEDS
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroColab.html">
-   1.
-   <font color="darkorange">
-    Let’s start coding
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNotebooks.html">
-   2.
-   <font color="darkorange">
-    Colaboratory notebooks!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroPython.html">
-   3.
-   <font color="darkorange">
-    Short introduction to Python
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNumpy.html">
-   4.
-   <font color="darkorange">
-    Introduction to Numpy
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroColab.html">1. <font color="darkorange">Let’s start coding</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 2 - Data Wrangling
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroDataFrames.html">
-   5.
-   <font color="darkorange">
-    Working with data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
-   6.
-   <font color="darkorange">
-    Introduction to DataFrames
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
-   7.
-   <font color="darkorange">
-    Using existing data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
-   8.
-   <font color="darkorange">
-    Missing Data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData4_groupby.html">
-   9.
-   <font color="darkorange">
-    Grouping data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
-   10.
-   <font color="darkorange">
-    Combining data
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 3 - Exploritory Data Analysis
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroViz.html">
-   11.
-   <font color="darkorange">
-    Let’s start exploring
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/introViz1_histograms.html">
-   12.
-   <font color="darkorange">
-    Summary statistics and histograms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
-   13.
-   <font color="darkorange">
-    Density plots and normal distributions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
-   14.
-   <font color="darkorange">
-    Scatter plots
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">
-   15.
-   <font color="darkorange">
-    Clustering algorithms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">
-   16.
-   <font color="darkorange">
-    Clustering in higher dimensions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
-   17.
-   <font color="darkorange">
-    Class Data Challenge 1
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
-   18.
-   <font color="darkorange">
-    Project 1 - Exploratory Data Analysis
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">15. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 4 - Building models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroModeling.html">
-   19.
-   <font color="darkorange">
-    Let’s build some models!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
-   20.
-   <font color="darkorange">
-    Linear regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
-   21.
-   <font color="darkorange">
-    Logistic regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
-   22.
-   <font color="darkorange">
-    Decision trees
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
-   23.
-   <font color="darkorange">
-    Random forests
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
-   24.
-   <font color="darkorange">
-    Class Data Challenge II
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   25.
-   <font color="darkorange">
-    Project 2 - Making Predictions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">20. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 5 - Interpreting and communicating models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroComm.html">
-   26.
-   <font color="darkorange">
-    Let’s try to learn from our models
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   27.
-   <font color="darkorange">
-    Explainability vs Causality
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/A_B_Testing.html">
-   28.
-   <font color="darkorange">
-    A/B Testing
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   29.
-   <font color="darkorange">
-    Project 3 - Answering Questions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">28. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/fullNotebooks/full_introViz1_histograms.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/fullNotebooks/full_introViz1_histograms.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/fullNotebooks/full_introViz1_histograms.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/fullNotebooks/full_introViz1_histograms.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/fullNotebooks/full_introViz1_histograms.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color='darkorange'>Summary statistics and histograms</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-measures-of-dispersion-font">
-   <font color="darkorange">
-    Measures of dispersion
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-bonus-question-font">
-   <font color="darkorange">
-    (BONUS QUESTION)
-   </font>
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion"><font color="darkorange">Measures of dispersion</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-question"><font color="darkorange">(BONUS QUESTION)</font></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1><font color='darkorange'>Summary statistics and histograms</font></h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-measures-of-dispersion-font">
-   <font color="darkorange">
-    Measures of dispersion
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-bonus-question-font">
-   <font color="darkorange">
-    (BONUS QUESTION)
-   </font>
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introViz/introViz1_histograms.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <img src='http://drive.google.com/uc?export=view&id=1C2o3BW9_N9LkeIi2lM4viUwvXK75G6Nc'><hr class="docutils" />
-<div class="section" id="font-color-darkorange-summary-statistics-and-histograms-font">
-<h1><font color='darkorange'>Summary statistics and histograms</font><a class="headerlink" href="#font-color-darkorange-summary-statistics-and-histograms-font" title="Permalink to this headline">¶</a></h1>
+<section id="summary-statistics-and-histograms">
+<h1><font color='darkorange'>Summary statistics and histograms</font><a class="headerlink" href="#summary-statistics-and-histograms" title="Link to this heading">#</a></h1>
 <p>In this exercise we will look at how to describe a varaible of interst using some statistical measures. We will also learn how to plot and interpret a histogram.</p>
 <p>For plotting there are many options in python. For the most part, we’ll use <strong>seaborn</strong> for this class. It is a high level plotting library that will make it easy to plot your data in many different ways!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import python packages</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Import python packages
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+import pandas as pd
+import numpy as np
 </pre></div>
 </div>
 </div>
@@ -545,11 +452,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Load that in and let’s get started!</p>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'center'>  <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in the nyc data </span>
-<span class="n">df_flights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/nyc_flight_data.csv&#39;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#load in the nyc data 
+df_flights = pd.read_csv(&#39;/content/nyc_flight_data.csv&#39;)
 
-<span class="c1">#take a look</span>
-<span class="n">df_flights</span>
+#take a look
+df_flights
 </pre></div>
 </div>
 </div>
@@ -557,7 +464,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>What kinds of variables are we dealing with?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_flights</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_flights.dtypes
 </pre></div>
 </div>
 </div>
@@ -565,22 +472,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>For numeric variables we can describe their distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the mean</span>
-<span class="n">delay_mean</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get the mean
+delay_mean = df_flights[&#39;arr_delay&#39;].mean()
 
-<span class="c1">#geth the mode</span>
-<span class="n">delay_mode</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+#geth the mode
+delay_mode = df_flights[&#39;arr_delay&#39;].mode()
 
-<span class="c1">#get the median</span>
-<span class="n">delay_median</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+#get the median
+delay_median = df_flights[&#39;arr_delay&#39;].median()
 
-<span class="c1">#get the variance</span>
-<span class="n">delay_std</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+#get the variance
+delay_std = df_flights[&#39;arr_delay&#39;].std()
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the mean arrival delay is: &quot;</span><span class="p">,</span> <span class="n">delay_mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the most common arrival delay is: &quot;</span><span class="p">,</span> <span class="n">delay_mode</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the middle most arrival delay is: &quot;</span><span class="p">,</span> <span class="n">delay_median</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the standard deviation of arrival delays is: &quot;</span><span class="p">,</span> <span class="n">delay_std</span><span class="p">)</span>
+print(&quot;the mean arrival delay is: &quot;, delay_mean)
+print(&quot;the most common arrival delay is: &quot;, delay_mode)
+print(&quot;the middle most arrival delay is: &quot;, delay_median)
+print(&quot;the standard deviation of arrival delays is: &quot;, delay_std)
 </pre></div>
 </div>
 </div>
@@ -591,7 +498,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df_flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights, x=&#39;arr_delay&#39;)
 </pre></div>
 </div>
 </div>
@@ -599,7 +506,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'center'>  <p>Try that again but this time try playing with the bin size. How does the width of the bins we break the data into impact the histogram? Try going very big and very small. And feel free to share your results on Slack!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df_flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#E.g., 100</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights, x=&#39;arr_delay&#39;, binwidth=100) #E.g., 100
 </pre></div>
 </div>
 </div>
@@ -607,10 +514,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s now add in the measures of central tendencies and see how they match up on the histogram. Here we use the <strong>plt.axvline()</strong> method to add some vertical lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df_flights</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_mode</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights,x=&#39;arr_delay&#39;, binwidth=10)
+plt.axvline(delay_mean, color=&quot;red&quot;)
+plt.axvline(delay_mode[0], color=&quot;purple&quot;)
+plt.axvline(delay_median, color=&quot;pink&quot;)
 </pre></div>
 </div>
 </div>
@@ -618,11 +525,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>It’s a little hard to see the difference, let’s set focus in on a particular range of the x-axis using the <strong>plt.xlim()</strong> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df_flights</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_mode</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">delay_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights,x=&#39;arr_delay&#39;, binwidth=10)
+plt.xlim(-100,100)
+plt.axvline(delay_mean, color=&quot;red&quot;)
+plt.axvline(delay_mode[0], color=&quot;purple&quot;)
+plt.axvline(delay_median, color=&quot;pink&quot;)
 </pre></div>
 </div>
 </div>
@@ -630,17 +537,17 @@ const thebe_selector_output = ".output, .cell_output"
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'center'>  <p>Try this again but this time look at departure time as the variable of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the mean</span>
-<span class="n">dep_mean</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get the mean
+dep_mean = df_flights[&#39;dep_time&#39;].mean()
 
-<span class="c1">#geth the mode</span>
-<span class="n">dep_mode</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+#geth the mode
+dep_mode = df_flights[&#39;dep_time&#39;].mode()
 
-<span class="c1">#get the median</span>
-<span class="n">dep_median</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+#get the median
+dep_median = df_flights[&#39;dep_time&#39;].median()
 
-<span class="c1">#get the standard deviation</span>
-<span class="n">dep_std</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+#get the standard deviation
+dep_std = df_flights[&#39;dep_time&#39;].std()
 
 </pre></div>
 </div>
@@ -649,26 +556,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Create a histogram</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">dep_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">dep_mode</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">dep_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights[&#39;dep_time&#39;], binwidth=10)
+plt.axvline(dep_mean, color=&quot;red&quot;)
+plt.axvline(dep_mode[0], color=&quot;green&quot;)
+plt.axvline(dep_median, color=&quot;blue&quot;)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="font-color-darkorange-measures-of-dispersion-font">
-<h2><font color='darkorange'>Measures of dispersion</font><a class="headerlink" href="#font-color-darkorange-measures-of-dispersion-font" title="Permalink to this headline">¶</a></h2>
+<section id="measures-of-dispersion">
+<h2><font color='darkorange'>Measures of dispersion</font><a class="headerlink" href="#measures-of-dispersion" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get standard deviation for arrival delay</span>
-<span class="n">delay_sd</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get standard deviation for arrival delay
+delay_sd = df_flights[&#39;arr_delay&#39;].std()
 
-<span class="c1">#get standard deviation for departure times</span>
-<span class="n">dep_sd</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+#get standard deviation for departure times
+dep_sd = df_flights[&#39;dep_time&#39;].std()
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;standard deviation of arrival delays = &quot;</span><span class="p">,</span> <span class="n">delay_sd</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;standard deviation of departure times = &quot;</span><span class="p">,</span> <span class="n">dep_sd</span><span class="p">)</span>
+print(&quot;standard deviation of arrival delays = &quot;, delay_sd)
+print(&quot;standard deviation of departure times = &quot;, dep_sd)
 </pre></div>
 </div>
 </div>
@@ -676,45 +583,45 @@ const thebe_selector_output = ".output, .cell_output"
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'center'>  <p>Similarly we can find the min and max of the variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the min and max of delay times</span>
-<span class="n">delay_min</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">delay_max</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;arr_delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get the min and max of delay times
+delay_min = df_flights[&#39;arr_delay&#39;].min()
+delay_max = df_flights[&#39;arr_delay&#39;].max()
 
-<span class="c1">#get the min and max of departure times</span>
-<span class="n">time_min</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">time_max</span> <span class="o">=</span> <span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;dep_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+#get the min and max of departure times
+time_min = df_flights[&#39;dep_time&#39;].min()
+time_max = df_flights[&#39;dep_time&#39;].max()
 
-<span class="c1">#print out the values</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min arrival delays = &quot;</span><span class="p">,</span> <span class="n">delay_min</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;max arrival delays = &quot;</span><span class="p">,</span> <span class="n">delay_max</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min arrival delays = &quot;</span><span class="p">,</span> <span class="n">time_min</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;min arrival delays = &quot;</span><span class="p">,</span> <span class="n">time_max</span><span class="p">)</span>
+#print out the values
+print(&quot;min arrival delays = &quot;, delay_min)
+print(&quot;max arrival delays = &quot;, delay_max)
+print(&quot;min arrival delays = &quot;, time_min)
+print(&quot;min arrival delays = &quot;, time_max)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-darkorange-bonus-question-font">
-<h2><font color='darkorange'>(BONUS QUESTION)</font><a class="headerlink" href="#font-color-darkorange-bonus-question-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bonus-question">
+<h2><font color='darkorange'>(BONUS QUESTION)</font><a class="headerlink" href="#bonus-question" title="Link to this heading">#</a></h2>
 <p>Find the variable(s) with the highest and lowest standard deviations and plot them in a histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#estimate and sort standard deviation of all the columns</span>
-<span class="n">df_flights</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#estimate and sort standard deviation of all the columns
+df_flights.std().sort_values()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_flights</span><span class="o">.</span><span class="n">flight</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.distplot(df_flights.flight)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_flights</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.distplot(df_flights.month)
 </pre></div>
 </div>
 </div>
@@ -723,11 +630,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Finally can you create a histogram of air speeds?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate speed</span>
-<span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_flights</span><span class="o">.</span><span class="n">distance</span><span class="o">/</span><span class="n">df_flights</span><span class="o">.</span><span class="n">air_time</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#calculate speed
+df_flights[&#39;speed&#39;] = df_flights.distance/df_flights.air_time
 
-<span class="c1">#build a histogram</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df_flights</span><span class="o">.</span><span class="n">speed</span><span class="p">)</span>
+#build a histogram
+sns.distplot(df_flights.speed)
 </pre></div>
 </div>
 </div>
@@ -736,17 +643,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Finally, can you identify the speediest airline carrier?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate speed</span>
-<span class="n">df_flights</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_flights</span><span class="o">.</span><span class="n">distance</span><span class="o">/</span><span class="n">df_flights</span><span class="o">.</span><span class="n">air_time</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#calculate speed
+df_flights[&#39;speed&#39;] = df_flights.distance/df_flights.air_time
 
-<span class="c1">#use group by </span>
-<span class="n">df_flights</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;carrier&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">speed</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+#use group by 
+df_flights.groupby(&#39;carrier&#39;).speed.mean().sort_values()
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -760,7 +667,7 @@ const thebe_selector_output = ".output, .cell_output"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./docs/fullNotebooks"
         },
         predefinedOutput: true
@@ -768,30 +675,86 @@ const thebe_selector_output = ".output, .cell_output"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion"><font color="darkorange">Measures of dispersion</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-question"><font color="darkorange">(BONUS QUESTION)</font></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
+          </div>
+          <footer class="bd-footer-content">
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Tyler R. Bonnell<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tyler R. Bonnell
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

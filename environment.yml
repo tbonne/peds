@@ -1,0 +1,24 @@
+name: bookdown
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - jupyter
+  - jupyterlab
+  - pip
+  - myst-parser
+  - jupyter-book
+  - nbconvert
+  - sphinx
+  - matplotlib
+  - pandas
+  - numpy
+  - seaborn
+  - plotly
+  - scikit-learn
+  - ipywidgets
+  - pip:
+      - jupytext
+      - ghp-import

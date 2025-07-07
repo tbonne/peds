@@ -1,595 +1,469 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Data Challenge II &#8212; Practical exercises in data science - PEDS</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/dataChallenges/DataChallengeII_full';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../../_static/runners_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Practical exercises in data science - PEDS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Introduction to PEDS
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 1 - Coding
- </span>
-</p>
+    
+    
+    <img src="../../_static/runners_logo.png" class="logo__image only-light" alt="Practical exercises in data science - PEDS - Home"/>
+    <script>document.write(`<img src="../../_static/runners_logo.png" class="logo__image only-dark" alt="Practical exercises in data science - PEDS - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction to PEDS
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroColab.html">
-   1.
-   <font color="darkorange">
-    Let’s start coding
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNotebooks.html">
-   2.
-   <font color="darkorange">
-    Colaboratory notebooks!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroPython.html">
-   3.
-   <font color="darkorange">
-    Short introduction to Python
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNumpy.html">
-   4.
-   <font color="darkorange">
-    Introduction to Numpy
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroColab.html">1. <font color="darkorange">Let’s start coding</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 2 - Data Wrangling
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroDataFrames.html">
-   5.
-   <font color="darkorange">
-    Working with data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
-   6.
-   <font color="darkorange">
-    Introduction to DataFrames
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
-   7.
-   <font color="darkorange">
-    Using existing data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
-   8.
-   <font color="darkorange">
-    Missing Data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData4_groupby.html">
-   9.
-   <font color="darkorange">
-    Grouping data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
-   10.
-   <font color="darkorange">
-    Combining data
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 3 - Exploritory Data Analysis
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroViz.html">
-   11.
-   <font color="darkorange">
-    Let’s start exploring
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/introViz1_histograms.html">
-   12.
-   <font color="darkorange">
-    Summary statistics and histograms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/introViz2_densityPlots.html">
-   13.
-   <font color="darkorange">
-    Density plots and normal distributions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">
-   14.
-   <font color="darkorange">
-    Scatter plots
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">
-   15.
-   <font color="darkorange">
-    Clustering algorithms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">
-   16.
-   <font color="darkorange">
-    Clustering in higher dimensions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DataChallenge1.html">
-   17.
-   <font color="darkorange">
-    Class Data Challenge 1
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
-   18.
-   <font color="darkorange">
-    Project 1 - Exploratory Data Analysis
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">15. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 4 - Building models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroModeling.html">
-   19.
-   <font color="darkorange">
-    Let’s build some models!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
-   20.
-   <font color="darkorange">
-    Linear regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
-   21.
-   <font color="darkorange">
-    Logistic regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
-   22.
-   <font color="darkorange">
-    Decision trees
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
-   23.
-   <font color="darkorange">
-    Random forests
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="DataChallenge2.html">
-   24.
-   <font color="darkorange">
-    Class Data Challenge II
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   25.
-   <font color="darkorange">
-    Project 2 - Making Predictions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">20. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 5 - Interpreting and communicating models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroComm.html">
-   26.
-   <font color="darkorange">
-    Let’s try to learn from our models
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   27.
-   <font color="darkorange">
-    Explainability vs Causality
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/A_B_Testing.html">
-   28.
-   <font color="darkorange">
-    A/B Testing
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   29.
-   <font color="darkorange">
-    Project 3 - Answering Questions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">28. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/dataChallenges/DataChallengeII_full.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dataChallenges/DataChallengeII_full.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dataChallenges/DataChallengeII_full.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/dataChallenges/DataChallengeII_full.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/dataChallenges/DataChallengeII_full.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Challenge II</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Data Challenge II
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-wrangling">
-     Data wrangling
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization-and-exploration">
-   Data Visualization and Exploration
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-building-and-fitting">
-     Model building and fitting
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hyperparameter-tunning">
-       Hyperparameter tunning
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-inference">
-   Model inference
-  </a>
- </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Challenge II</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data wrangling</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-exploration">Data Visualization and Exploration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building-and-fitting">Model building and fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tunning">Hyperparameter tunning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-inference">Model inference</a></li>
 </ul>
 
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Challenge II</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Data Challenge II
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-wrangling">
-     Data wrangling
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization-and-exploration">
-   Data Visualization and Exploration
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-building-and-fitting">
-     Model building and fitting
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hyperparameter-tunning">
-       Hyperparameter tunning
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-inference">
-   Model inference
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <img src='http://drive.google.com/uc?export=view&id=1BoSI6ZAmGc3mvjUZWGiUw9IZaPaWbV6Y' width=200><hr class="docutils" />
-<div class="tex2jax_ignore mathjax_ignore section" id="data-challenge-ii">
-<h1>Data Challenge II<a class="headerlink" href="#data-challenge-ii" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="data-challenge-ii">
+<h1>Data Challenge II<a class="headerlink" href="#data-challenge-ii" title="Link to this heading">#</a></h1>
 <blockquote>
 <div><p>Welcome to data challenge II. In this challenge we will break into groups to work on two large datasets. The goal will be to gain the highest prediction, while being able to explain how the model is making those predictions.</p>
 </div></blockquote>
 <p>Congradualtions you’ve just been hired by the local school board to help them make decision about how to reduce alchohol consuption in high schoolers. They have provided you with a dataset collected over the last year from anonymous students. They would like to know the following:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Can you build a model to help identify individuals that might be high drinkers?</p></li>
 <li><p>What are some of the most important factors leading to these predictions?</p></li>
 </ol>
 <p><a class="reference external" href="https://www.kaggle.com/uciml/student-alcohol-consumption?select=student-mat.csv">https://www.kaggle.com/uciml/student-alcohol-consumption?select=student-mat.csv</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">sk</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
 </pre></div>
 </div>
 </div>
@@ -1060,8 +934,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>395 rows × 33 columns</p>
 </div></div></div>
 </div>
-<div class="section" id="data-wrangling">
-<h2>Data wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h2>
+<section id="data-wrangling">
+<h2>Data wrangling<a class="headerlink" href="#data-wrangling" title="Link to this heading">#</a></h2>
 <p>Make a copy before wrangling your data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1707,7 +1581,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinalEncoder</span>
 
 <span class="c1">#get the columns names of features you&#39;d like to turn into 0/1</span>
 <span class="n">bin_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;famsize&#39;</span><span class="p">,</span><span class="s1">&#39;address&#39;</span><span class="p">,</span><span class="s1">&#39;school&#39;</span><span class="p">,</span><span class="s1">&#39;Pstatus&#39;</span><span class="p">,</span><span class="s1">&#39;schoolsup&#39;</span><span class="p">,</span><span class="s1">&#39;famsup&#39;</span><span class="p">,</span><span class="s1">&#39;paid&#39;</span><span class="p">,</span><span class="s1">&#39;activities&#39;</span><span class="p">,</span><span class="s1">&#39;nursery&#39;</span><span class="p">,</span><span class="s1">&#39;higher&#39;</span><span class="p">,</span><span class="s1">&#39;internet&#39;</span><span class="p">,</span><span class="s1">&#39;romantic&#39;</span><span class="p">]</span>
@@ -2363,7 +2237,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="c1">#get the column names of the features you&#39;d like to scale</span>
 <span class="n">num_names</span> <span class="o">=</span> <span class="n">X_train_transformed</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
@@ -2397,10 +2271,10 @@ Name: romantic, dtype: int64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="data-visualization-and-exploration">
-<h1>Data Visualization and Exploration<a class="headerlink" href="#data-visualization-and-exploration" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-visualization-and-exploration">
+<h1>Data Visualization and Exploration<a class="headerlink" href="#data-visualization-and-exploration" title="Link to this heading">#</a></h1>
 <p>Let’s look at the distribution of the variable we are trying to predict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2412,16 +2286,16 @@ Name: romantic, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b71924fd0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/DataChallengeII_full_18_1.png" src="../../_images/DataChallengeII_full_18_1.png" />
+<img alt="../../_images/3dc3a9161416c9601d7685f088e017c236d723eb818e68652027ed2aa65c0c36.png" src="../../_images/3dc3a9161416c9601d7685f088e017c236d723eb818e68652027ed2aa65c0c36.png" />
 </div>
 </div>
-<div class="section" id="model-building-and-fitting">
-<h2>Model building and fitting<a class="headerlink" href="#model-building-and-fitting" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="hyperparameter-tunning">
-<h3>Hyperparameter tunning<a class="headerlink" href="#hyperparameter-tunning" title="Permalink to this headline">¶</a></h3>
+<section id="model-building-and-fitting">
+<h2>Model building and fitting<a class="headerlink" href="#model-building-and-fitting" title="Link to this heading">#</a></h2>
+<section id="hyperparameter-tunning">
+<h3>Hyperparameter tunning<a class="headerlink" href="#hyperparameter-tunning" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
 <span class="n">max_depth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
 
 <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SCORERS</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -2486,11 +2360,11 @@ Name: romantic, dtype: int64
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="model-inference">
-<h1>Model inference<a class="headerlink" href="#model-inference" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-inference">
+<h1>Model inference<a class="headerlink" href="#model-inference" title="Link to this heading">#</a></h1>
 <p>Let’s look at how it did with predictions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2627,7 +2501,7 @@ Name: romantic, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b6b730890&gt;
 </pre></div>
 </div>
-<img alt="../../_images/DataChallengeII_full_29_1.png" src="../../_images/DataChallengeII_full_29_1.png" />
+<img alt="../../_images/f003f23d766f14023d2c198c3f9b31124b8a18466ba3e1d390d3270190e818a8.png" src="../../_images/f003f23d766f14023d2c198c3f9b31124b8a18466ba3e1d390d3270190e818a8.png" />
 </div>
 </div>
 <p>Let’s look at what the background prediction is…</p>
@@ -2641,7 +2515,7 @@ Name: romantic, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b6b7511d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/DataChallengeII_full_31_1.png" src="../../_images/DataChallengeII_full_31_1.png" />
+<img alt="../../_images/23c8857aa5ca1df85444812e1a9514123a47409de529582b8312d65787c7ddbc.png" src="../../_images/23c8857aa5ca1df85444812e1a9514123a47409de529582b8312d65787c7ddbc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2659,7 +2533,7 @@ Name: romantic, dtype: int64
 <p>Let’s see what it thought was important for making predictions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">forest_regressor</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
@@ -2962,7 +2836,7 @@ Name: romantic, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2976,7 +2850,7 @@ Name: romantic, dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./docs/dataChallenges"
         },
         predefinedOutput: true
@@ -2984,30 +2858,97 @@ Name: romantic, dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data Challenge II</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling">Data wrangling</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-exploration">Data Visualization and Exploration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building-and-fitting">Model building and fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tunning">Hyperparameter tunning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-inference">Model inference</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
+          </div>
+          <footer class="bd-footer-content">
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Tyler R. Bonnell<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
-      </div>
-    </div>
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tyler R. Bonnell
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

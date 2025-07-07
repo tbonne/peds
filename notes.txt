@@ -6,7 +6,7 @@ conda activate bookdown
 
 1. Make changes to notebooks in docs folder
 
-Double check that the notebook as edited in VScode works well in colab (formating issues sometimes)
+Double check that the notebook as edited in VScode works well in colab (formatting issues sometimes)
 
 2. build book (from one dir above peds)
 

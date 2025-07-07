@@ -1,666 +1,447 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>15. Clustering algorithms &#8212; Practical exercises in data science - PEDS</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introViz/IntroClustering1_kmeans_HDBScan';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="16. Clustering in higher dimensions" href="IntroClustering2_highDimensions.html" />
     <link rel="prev" title="14. Scatter plots" href="IntroViz3_scatterplots.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/runners_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Practical exercises in data science - PEDS</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Introduction to PEDS
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 1 - Coding
- </span>
-</p>
+    
+    
+    <img src="../../_static/runners_logo.png" class="logo__image only-light" alt="Practical exercises in data science - PEDS - Home"/>
+    <script>document.write(`<img src="../../_static/runners_logo.png" class="logo__image only-dark" alt="Practical exercises in data science - PEDS - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction to PEDS
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Coding</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroColab.html">
-   1.
-   <font color="darkorange">
-    Let’s start coding
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNotebooks.html">
-   2.
-   <font color="darkorange">
-    Colaboratory notebooks!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroPython.html">
-   3.
-   <font color="darkorange">
-    Short introduction to Python
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroNumpy.html">
-   4.
-   <font color="darkorange">
-    Introduction to Numpy
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroColab.html">1. <font color="darkorange">Let’s start coding</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 2 - Data Wrangling
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroDataFrames.html">
-   5.
-   <font color="darkorange">
-    Working with data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData1_DataFrames.html">
-   6.
-   <font color="darkorange">
-    Introduction to DataFrames
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData2_LoadingData.html">
-   7.
-   <font color="darkorange">
-    Using existing data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData3_MissingData.html">
-   8.
-   <font color="darkorange">
-    Missing Data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData4_groupby.html">
-   9.
-   <font color="darkorange">
-    Grouping data
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introData/IntroData5_CombineData.html">
-   10.
-   <font color="darkorange">
-    Combining data
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 3 - Exploritory Data Analysis
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroViz.html">
-   11.
-   <font color="darkorange">
-    Let’s start exploring
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="introViz1_histograms.html">
-   12.
-   <font color="darkorange">
-    Summary statistics and histograms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="introViz2_densityPlots.html">
-   13.
-   <font color="darkorange">
-    Density plots and normal distributions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="IntroViz3_scatterplots.html">
-   14.
-   <font color="darkorange">
-    Scatter plots
-   </font>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   15.
-   <font color="darkorange">
-    Clustering algorithms
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="IntroClustering2_highDimensions.html">
-   16.
-   <font color="darkorange">
-    Clustering in higher dimensions
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge1.html">
-   17.
-   <font color="darkorange">
-    Class Data Challenge 1
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">
-   18.
-   <font color="darkorange">
-    Project 1 - Exploratory Data Analysis
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 4 - Building models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroModeling.html">
-   19.
-   <font color="darkorange">
-    Let’s build some models!
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">
-   20.
-   <font color="darkorange">
-    Linear regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">
-   21.
-   <font color="darkorange">
-    Logistic regression
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">
-   22.
-   <font color="darkorange">
-    Decision trees
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introModeling/Intro_RandomForest.html">
-   23.
-   <font color="darkorange">
-    Random forests
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dataChallenges/DataChallenge2.html">
-   24.
-   <font color="darkorange">
-    Class Data Challenge II
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project2_MakingPredictions.html">
-   25.
-   <font color="darkorange">
-    Project 2 - Making Predictions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">20. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 5 - Interpreting and communicating models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../IntroComm.html">
-   26.
-   <font color="darkorange">
-    Let’s try to learn from our models
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/IntroCausalAnalysis.html">
-   27.
-   <font color="darkorange">
-    Explainability vs Causality
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introComm/A_B_Testing.html">
-   28.
-   <font color="darkorange">
-    A/B Testing
-   </font>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">
-   29.
-   <font color="darkorange">
-    Project 3 - Answering Questions
-   </font>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">28. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introViz/IntroClustering1_kmeans_HDBScan.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introViz/IntroClustering1_kmeans_HDBScan.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color='darkorange'>Clustering algorithms</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-simulating-data-font">
-   15.1.
-   <font color="darkorange">
-    Simulating data
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-k-means-font">
-   15.2.
-   <font color="darkorange">
-    K-Means
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-tuning-machine-learning-algorithms-font">
-   15.3.
-   <font color="darkorange">
-    Tuning machine learning algorithms
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-make-our-own-functions-font">
-   15.4.
-   <font color="darkorange">
-    Make our own functions
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-using-loops-font">
-   15.5.
-   <font color="darkorange">
-    Using loops
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-hdbscan-font">
-   15.6.
-   <font color="darkorange">
-    HDBscan
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   15.7.
-   <font color="darkorange">
-    Make our own functions
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-running-loops-font">
-   15.8.
-   <font color="darkorange">
-    Running loops
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-   15.9.
-   <font color="darkorange">
-    Bonus
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   15.10.
-   <font color="darkorange">
-    Further reading
-   </font>
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-data">15.1. <font color="darkorange">Simulating data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">15.2. <font color="darkorange">K-Means</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-machine-learning-algorithms">15.3. <font color="darkorange">Tuning machine learning algorithms</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-our-own-functions">15.4. <font color="darkorange">Make our own functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loops">15.5. <font color="darkorange">Using loops</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdbscan">15.6. <font color="darkorange">HDBscan</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.7. <font color="darkorange">Make our own functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-loops">15.8. <font color="darkorange">Running loops</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">15.9. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">15.10. <font color="darkorange">Further reading</font></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1><font color='darkorange'>Clustering algorithms</font></h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-simulating-data-font">
-   15.1.
-   <font color="darkorange">
-    Simulating data
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-k-means-font">
-   15.2.
-   <font color="darkorange">
-    K-Means
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-tuning-machine-learning-algorithms-font">
-   15.3.
-   <font color="darkorange">
-    Tuning machine learning algorithms
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-make-our-own-functions-font">
-   15.4.
-   <font color="darkorange">
-    Make our own functions
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-using-loops-font">
-   15.5.
-   <font color="darkorange">
-    Using loops
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-hdbscan-font">
-   15.6.
-   <font color="darkorange">
-    HDBscan
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   15.7.
-   <font color="darkorange">
-    Make our own functions
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-running-loops-font">
-   15.8.
-   <font color="darkorange">
-    Running loops
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-bonus-font">
-   15.9.
-   <font color="darkorange">
-    Bonus
-   </font>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-darkorange-further-reading-font">
-   15.10.
-   <font color="darkorange">
-    Further reading
-   </font>
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroClustering1_kmeans_HDBScan.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1eaZWfBLfmkzNndnA8pJvo6tO4Lm7Qz83' width=500><hr class="docutils" />
-<div class="section" id="font-color-darkorange-clustering-algorithms-font">
-<h1><span class="section-number">15. </span><font color='darkorange'>Clustering algorithms</font><a class="headerlink" href="#font-color-darkorange-clustering-algorithms-font" title="Permalink to this headline">¶</a></h1>
+<img src='../../_images/Clusters.png' width=500><hr class="docutils" />
+<section id="clustering-algorithms">
+<h1><span class="section-number">15. </span><font color='darkorange'>Clustering algorithms</font><a class="headerlink" href="#clustering-algorithms" title="Link to this heading">#</a></h1>
 <p>We will look at developing skills to detect clusters in your data. Identifying clusters can be very helpful when exploring your data, and is a form of unsupervised machine learning.</p>
 <blockquote>
 <div><p>To perform clustering we will make use of the <strong>sklearn</strong> library. This library is a very useful machine learning library in python. We’ll use this library a lot in this course!</p>
@@ -673,26 +454,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Load python libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">sk</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import seaborn as sns
+import sklearn as sk
 
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span>
+from sklearn import cluster
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="font-color-darkorange-simulating-data-font">
-<h2><span class="section-number">15.1. </span><font color='darkorange'>Simulating data</font><a class="headerlink" href="#font-color-darkorange-simulating-data-font" title="Permalink to this headline">¶</a></h2>
+<section id="simulating-data">
+<h2><span class="section-number">15.1. </span><font color='darkorange'>Simulating data</font><a class="headerlink" href="#simulating-data" title="Link to this heading">#</a></h2>
 <p>Simulating data is a great way to test out different machine learning algorithms. Here we’ll use the numpy library to create some random numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#simulate 100 values from a normal distribution with a mean of 1 and an sd of 4</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#simulate 100 values from a normal distribution with a mean of 1 and an sd of 4
+x = np.random.normal(1,4, size = 10)
 
-<span class="c1">#take a look</span>
-<span class="n">x</span>
+#take a look
+x
 </pre></div>
 </div>
 </div>
@@ -703,16 +484,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#simulate some random values</span>
-<span class="n">array_class1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#simulate some random values
+array_class1 = {&quot;x&quot;:np.random.normal(1,4, size=1000),
+                &quot;y&quot;:np.random.normal(1,4, size=1000),
+                &quot;class&quot;: 1}
 
-<span class="c1">#put them in a dataframe</span>
-<span class="n">df_class1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">array_class1</span><span class="p">)</span>
+#put them in a dataframe
+df_class1 = pd.DataFrame(data=array_class1)
 
-<span class="c1">#plot it</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+#plot it
+sns.scatterplot(data=df_class1, x=&quot;x&quot;,y=&quot;y&quot;)
 
 </pre></div>
 </div>
@@ -721,26 +502,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Create another set of 1000 points and assign them to class 2. Then we’ll add the two sets of points together by using <strong>concat</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate some random values</span>
-<span class="n">array_class2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#generate some random values
+array_class2 = {&quot;x&quot;:np.random.normal(8,5, size=1000),
+                &quot;y&quot;:np.random.normal(8,1, size=1000),
+                &quot;class&quot;: 2}
 
-<span class="c1">#put them in a dataframe</span>
-<span class="n">df_class2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">array_class2</span><span class="p">)</span>
+#put them in a dataframe
+df_class2 = pd.DataFrame(data=array_class2)
 
-<span class="c1">#bind the two dataframes together by rows</span>
-<span class="n">df_class</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_class1</span><span class="p">,</span><span class="n">df_class2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#axis=0 just says to bind by rows, axis=1 would be by columns </span>
+#bind the two dataframes together by rows
+df_class = pd.concat([df_class1,df_class2], axis = 0) #axis=0 just says to bind by rows, axis=1 would be by columns 
 
-<span class="c1">#plot it</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
+#plot it
+sns.scatterplot(data=df_class, x=&quot;x&quot;,y=&quot;y&quot;, hue=&#39;class&#39;)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-darkorange-k-means-font">
-<h2><span class="section-number">15.2. </span><font color='darkorange'>K-Means</font><a class="headerlink" href="#font-color-darkorange-k-means-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="k-means">
+<h2><span class="section-number">15.2. </span><font color='darkorange'>K-Means</font><a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
 <p>Let’s try out the first classification algorithm: k-means.</p>
 <blockquote>
 <div><p>Sklearn uses a standard approach to machine learning models. We’ll go through each step with k-means.</p>
@@ -748,8 +529,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>First</strong> let’s build the machine learning algorithm that we will use (i.e., k-means)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#initalize the kmeans algorithm</span>
-<span class="n">clus_kmeans</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#initalize the kmeans algorithm
+clus_kmeans = cluster.KMeans(n_clusters=2) 
 </pre></div>
 </div>
 </div>
@@ -757,8 +538,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Second</strong> let’s fit the model using data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#fit the model</span>
-<span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#fit the model
+clus_kmeans.fit(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 </pre></div>
 </div>
 </div>
@@ -766,11 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Third</strong>, now that the model is built and fit to data we can use it to make predictions!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#make some predictions</span>
-<span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#make some predictions
+df_class[&#39;pred_kmeans&#39;] = clus_kmeans.fit_predict(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 
-<span class="c1">#take a look</span>
-<span class="n">df_class</span>
+#take a look
+df_class
 </pre></div>
 </div>
 </div>
@@ -778,8 +559,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Finally</strong>, we can visualize the predictions it made by using seaborn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot it!</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;pred_kmeans&quot;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#plot it!
+sns.scatterplot(data=df_class,x=&quot;x&quot;,y=&quot;y&quot;,hue=&quot;pred_kmeans&quot;)
 </pre></div>
 </div>
 </div>
@@ -789,17 +570,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>You know in advance how many clusters there are</p></li>
 <li><p>Clusters are roughly oval shaped (normally distributed along each dimension)</p></li>
 </ul>
-<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Go back and try shifting the mean and standard deviation of the simulated clusters and see how well k-means does. Try changing the number of clusters k-means looks for. When does it break down?</p>
+<img src='../../_images/take_action.jpg' width="100"><p>Go back and try shifting the mean and standard deviation of the simulated clusters and see how well k-means does. Try changing the number of clusters k-means looks for. When does it break down?</p>
 <p>When this book is used within a class setting there are often good points to break up long sections of coding exercises. We’ll use this stop sign (below) to indicate when we will take a break from coding and discuss more theoretical issues.</p>
-<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
-<div class="section" id="font-color-darkorange-tuning-machine-learning-algorithms-font">
-<h2><span class="section-number">15.3. </span><font color='darkorange'>Tuning machine learning algorithms</font><a class="headerlink" href="#font-color-darkorange-tuning-machine-learning-algorithms-font" title="Permalink to this headline">¶</a></h2>
+<img src='../../_images/stopsign.jpg' width="100"></section>
+<section id="tuning-machine-learning-algorithms">
+<h2><span class="section-number">15.3. </span><font color='darkorange'>Tuning machine learning algorithms</font><a class="headerlink" href="#tuning-machine-learning-algorithms" title="Link to this heading">#</a></h2>
 <p>The elbow method can be used to help choose how many clusters are likely in the data. It also introduces us to how tune machine learning algorithms by running the model using different parameters and monitoring how well the algorithm performs.</p>
 <p>First let’s measure how successfull the clustering algorithm is. There are many ways to measure <em>success</em> in clustering, here we will use <em>mean silhouette distance</em> which describes how far apart the points within clusters are from each other.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Mean silhouette distance</span>
-<span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">df_class</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span><span class="n">labels</span><span class="o">=</span><span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">])</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Mean silhouette distance
+sk.metrics.silhouette_score(X=df_class.iloc[:,0:2],labels=df_class[&#39;pred_kmeans&#39;])
 </pre></div>
 </div>
 </div>
@@ -808,15 +589,15 @@ const thebe_selector_output = ".output, .cell_output"
 <blockquote>
 <div><p>e.g., is the true number of clusters the highest?</p>
 </div></blockquote>
-</div>
-<div class="section" id="font-color-darkorange-make-our-own-functions-font">
-<h2><span class="section-number">15.4. </span><font color='darkorange'>Make our own functions</font><a class="headerlink" href="#font-color-darkorange-make-our-own-functions-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="make-our-own-functions">
+<h2><span class="section-number">15.4. </span><font color='darkorange'>Make our own functions</font><a class="headerlink" href="#make-our-own-functions" title="Link to this heading">#</a></h2>
 <p>Note: here we are changing a parameter and re-running the code. In cases like these it can be sometimes useful to create our own functions. Let’s take a look at how to create a function in python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#here is a simple function</span>
-<span class="k">def</span> <span class="nf">run_k_means</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">numb</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#here is a simple function
+def run_k_means(numb):
+  return numb
 </pre></div>
 </div>
 </div>
@@ -824,7 +605,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now that we’ve created it let’s use it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_k_means</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>run_k_means(2)
 </pre></div>
 </div>
 </div>
@@ -833,21 +614,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s add each of the model steps above inside the function, with the goal of printing the average silhouette distance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_k_means</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def run_k_means(numb):
   
-  <span class="c1">#1. initalize the ml algorithm</span>
-  <span class="n">clus_kmeans</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">numb</span><span class="p">)</span>
+  #1. initalize the ml algorithm
+  clus_kmeans = cluster.KMeans(n_clusters=numb)
 
-  <span class="c1">#2. fit the ml algorithm</span>
-  <span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+  #2. fit the ml algorithm
+  clus_kmeans.fit(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 
-  <span class="c1">#3. make some predictions</span>
-  <span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+  #3. make some predictions
+  df_class[&#39;pred_kmeans&#39;] = clus_kmeans.fit_predict(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 
-  <span class="c1">#4. measure performance</span>
-  <span class="n">avg_sil</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">df_class</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span><span class="n">labels</span><span class="o">=</span><span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">])</span>
+  #4. measure performance
+  avg_sil = sk.metrics.silhouette_score(X=df_class.iloc[:,0:2],labels=df_class[&#39;pred_kmeans&#39;])
 
-  <span class="k">return</span> <span class="n">avg_sil</span>
+  return avg_sil
 </pre></div>
 </div>
 </div>
@@ -856,21 +637,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s use this new function and see how it works!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run_k_means</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>run_k_means(4)
 </pre></div>
 </div>
 </div>
 </div>
 <p>Is it much easier to figure out what number of clusters results in the highest average silhouette score?</p>
-</div>
-<div class="section" id="font-color-darkorange-using-loops-font">
-<h2><span class="section-number">15.5. </span><font color='darkorange'>Using loops</font><a class="headerlink" href="#font-color-darkorange-using-loops-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-loops">
+<h2><span class="section-number">15.5. </span><font color='darkorange'>Using loops</font><a class="headerlink" href="#using-loops" title="Link to this heading">#</a></h2>
 <p>One last coding trick we’ll learn today, is how to use a loop to make this even easier.</p>
 <p>Let’s first look at how loops work in python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i in range(2,10):
+  print(i)
 </pre></div>
 </div>
 </div>
@@ -878,8 +659,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now that we know the basic structure of a loop, and what it can do, let’s use it to help figure out what number of clusters is optimal!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">run_k_means</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i in range(2,10):
+  print(run_k_means(i))
 </pre></div>
 </div>
 </div>
@@ -887,9 +668,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s plot this out! To store the silhouette values as we run the loop, we’ll create an empty list (avg_sil) and each run in the loop we’ll add the average silhouette value to the list using <strong>append</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avg_sil</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-  <span class="n">avg_sil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_k_means</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>avg_sil = []
+for i in range(2,10):
+  avg_sil.append(run_k_means(i))
 </pre></div>
 </div>
 </div>
@@ -897,26 +678,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now that we have a list of average silhouette values, let’s place these values in a <strong>dataframe</strong> and plot them using <strong>seaborn</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#create a dictionary</span>
-<span class="n">dict_sil</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sil&#39;</span><span class="p">:</span><span class="n">avg_sil</span><span class="p">,</span> <span class="s1">&#39;clusters&#39;</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#create a dictionary
+dict_sil = {&#39;sil&#39;:avg_sil, &#39;clusters&#39;:list(range(2,10)) }
 
-<span class="c1">#convert the dictionary into a dataframe</span>
-<span class="n">df_sil</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_sil</span><span class="p">)</span>
+#convert the dictionary into a dataframe
+df_sil = pd.DataFrame(dict_sil)
 
-<span class="c1">#plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;clusters&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sil&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_sil</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+#plot
+sns.relplot(x=&#39;clusters&#39;, y=&#39;sil&#39;, data=df_sil, kind=&quot;line&quot;)
 </pre></div>
 </div>
 </div>
 </div>
-<img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100"></div>
-<div class="section" id="font-color-darkorange-hdbscan-font">
-<h2><span class="section-number">15.6. </span><font color='darkorange'>HDBscan</font><a class="headerlink" href="#font-color-darkorange-hdbscan-font" title="Permalink to this headline">¶</a></h2>
+<img src='../../_images/stopsign.jpg' width="100"></section>
+<section id="hdbscan">
+<h2><span class="section-number">15.6. </span><font color='darkorange'>HDBscan</font><a class="headerlink" href="#hdbscan" title="Link to this heading">#</a></h2>
 <p>Ok let’s see how another algorithm does: hdbscan. This method is newer than k-means and focuses on the finding high density regions surrounded by low density.</p>
 <p>To run this clustering algorithm we need to install another python library. Up until now we’ve been using the libraries on colab, but now we’d like to use one that is not already installed. To do this we install it manually using the !pip command. Then import it just like any other library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install hdbscan
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install hdbscan
 import hdbscan
 </pre></div>
 </div>
@@ -926,8 +707,8 @@ import hdbscan
 <p>First initalize the ml algorithm</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#initialize the kmeans algorithm (hyperparameter - choose minimum cluster size)</span>
-<span class="n">clus_hdbscan</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> 
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#initialize the kmeans algorithm (hyperparameter - choose minimum cluster size)
+clus_hdbscan = hdbscan.HDBSCAN(min_cluster_size = 30) 
 </pre></div>
 </div>
 </div>
@@ -935,8 +716,8 @@ import hdbscan
 <p>Second fit the ml algorithm to the data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#fit the model</span>
-<span class="n">clus_hdbscan</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#fit the model
+clus_hdbscan.fit(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 </pre></div>
 </div>
 </div>
@@ -944,8 +725,8 @@ import hdbscan
 <p>Third use the ml algorithm to make some predictions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#make some predictions</span>
-<span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_khdbscan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clus_hdbscan</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#make some predictions
+df_class[&#39;pred_khdbscan&#39;] = clus_hdbscan.fit_predict(df_class[[&#39;x&#39;,&#39;y&#39;]] )
 </pre></div>
 </div>
 </div>
@@ -953,8 +734,8 @@ import hdbscan
 <p>Finally, visualize the predictions of the ml algorithm</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot it!</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;pred_khdbscan&#39;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#plot it!
+sns.scatterplot(data=df_class, x=&quot;x&quot;,y=&quot;y&quot;, hue=&#39;pred_khdbscan&#39;)
 </pre></div>
 </div>
 </div>
@@ -963,35 +744,35 @@ import hdbscan
 <p>We can now measure the mean silhouette distance for HDBscan clustering.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#estimate silhouette score for k-means</span>
-<span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">df_class</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]],</span> <span class="n">labels</span><span class="o">=</span><span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_khdbscan&#39;</span><span class="p">])</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#estimate silhouette score for k-means
+sk.metrics.silhouette_score(X=df_class.loc[:,[&#39;x&#39;,&#39;y&#39;]], labels=df_class[&#39;pred_khdbscan&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get only those points that are given a cluster</span>
-<span class="n">df_class_sub</span> <span class="o">=</span> <span class="n">df_class</span><span class="p">[</span><span class="n">df_class</span><span class="o">.</span><span class="n">pred_khdbscan</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get only those points that are given a cluster
+df_class_sub = df_class[df_class.pred_khdbscan &gt; -1]
 
-<span class="c1">#estimate silhouette score for k-means</span>
-<span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">df_class_sub</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]],</span><span class="n">labels</span><span class="o">=</span><span class="n">df_class_sub</span><span class="p">[</span><span class="s1">&#39;pred_khdbscan&#39;</span><span class="p">])</span>
+#estimate silhouette score for k-means
+sk.metrics.silhouette_score(X=df_class_sub.loc[:,[&#39;x&#39;,&#39;y&#39;]],labels=df_class_sub[&#39;pred_khdbscan&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <p>How does it do compared to k-means? Does that compare with what you see visually?</p>
-</div>
-<div class="section" id="id1">
-<h2><span class="section-number">15.7. </span><font color='darkorange'>Make our own functions</font><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Let’s try to make another function just like the one we did for the k-means algorithm.</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">15.7. </span><font color='darkorange'>Make our own functions</font><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<img src='../../_images/take_action.jpg' width="100"> <p>Let’s try to make another function just like the one we did for the k-means algorithm.</p>
 <blockquote>
 <div><p>feel free to copy and paste the steps from above
 remember to think carefully about where the input <strong>minNumb</strong> will go in the code.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def run_HDBScan(minNumb):
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def run_HDBScan(minNumb):
   
   #1. initalize the ml algorithm
   clus_hdbscan = hdbscan.HDBSCAN(min_cluster_size = ?) 
@@ -1013,37 +794,37 @@ remember to think carefully about where the input <strong>minNumb</strong> will 
 <p>Try out you new function and see if it works!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#run your function with 500 as the minimum number of points</span>
-<span class="n">run_HDBScan</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#run your function with 500 as the minimum number of points
+run_HDBScan(40)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-darkorange-running-loops-font">
-<h2><span class="section-number">15.8. </span><font color='darkorange'>Running loops</font><a class="headerlink" href="#font-color-darkorange-running-loops-font" title="Permalink to this headline">¶</a></h2>
-<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100">  <p>Let’s try and use a loop to try out a bunch of different values for the minimum number of points parameter.</p>
+</section>
+<section id="running-loops">
+<h2><span class="section-number">15.8. </span><font color='darkorange'>Running loops</font><a class="headerlink" href="#running-loops" title="Link to this heading">#</a></h2>
+<img src='../../_images/take_action.jpg' width="100"><p>Let’s try and use a loop to try out a bunch of different values for the minimum number of points parameter.</p>
 <blockquote>
 <div><p>the <strong>range()</strong> function follows range(from,to,by) format. e.g., range(10,70,10) = 10, 20, 30, 40, 50, 60</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for ? in range(?,?,?):
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for ? in range(?,?,?):
   print(run_HDBScan(?))
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="font-color-darkorange-bonus-font">
-<h2><span class="section-number">15.9. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#font-color-darkorange-bonus-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bonus">
+<h2><span class="section-number">15.9. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
 <p>If all is going well, you might want to try to plot the results!</p>
 <blockquote>
 <div><p>You can follow along with how we ploted the results from the k-means.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>avg_sil_hd = []
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>avg_sil_hd = []
 for ? in range(?):
   avg_sil_hd.?
 </pre></div>
@@ -1052,7 +833,7 @@ for ? in range(?):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#create a dictionary
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#create a dictionary
 dict_sil = ?
 
 #convert the dictionary into a dataframe
@@ -1066,16 +847,16 @@ sns.relplot(?)
 </div>
 <p>Can you find an optimum value for min_cluster_size? If you go back and run the HDBScan algorithm with the optimal min_cluster_size do you see large differences in how it clusters the data?</p>
 <p>Finally, what happens if you run your function for large min_cluster sizes? How large can you go before your code fails, and why do you think it failed?</p>
-</div>
-<div class="section" id="font-color-darkorange-further-reading-font">
-<h2><span class="section-number">15.10. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#font-color-darkorange-further-reading-font" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">15.10. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>A more detailed look at <a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/how_hdbscan_works.html">HDBScan</a>.</p>
 <p>A comparison between a number of different <a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/comparing_clustering_algorithms.html">clustering algorithms</a>.</p>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroClustering1_kmeans_HDBScan.ipynb">full code</a> version.</p>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1089,7 +870,7 @@ sns.relplot(?)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./docs/introViz"
         },
         predefinedOutput: true
@@ -1097,44 +878,112 @@ sns.relplot(?)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="IntroViz3_scatterplots.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">14. </span><font color='darkorange'>Scatter plots</font></p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="IntroViz3_scatterplots.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14. </span><font color='darkorange'>Scatter plots</font></p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="IntroClustering2_highDimensions.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="IntroClustering2_highDimensions.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">16. </span><font color='darkorange'>Clustering in higher dimensions</font></p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Tyler R. Bonnell<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-data">15.1. <font color="darkorange">Simulating data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">15.2. <font color="darkorange">K-Means</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-machine-learning-algorithms">15.3. <font color="darkorange">Tuning machine learning algorithms</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-our-own-functions">15.4. <font color="darkorange">Make our own functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loops">15.5. <font color="darkorange">Using loops</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdbscan">15.6. <font color="darkorange">HDBscan</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.7. <font color="darkorange">Make our own functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-loops">15.8. <font color="darkorange">Running loops</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">15.9. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">15.10. <font color="darkorange">Further reading</font></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tyler R. Bonnell
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
