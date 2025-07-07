@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -435,7 +435,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModelling_LogisticReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='../../_images/breast_cancer_classification_dataset.jpg'><hr class="docutils" />
+<a class="reference internal image-reference" href="../../_images/breast_cancer_classification_dataset.jpg"><img alt="colab" class="align-center" src="../../_images/breast_cancer_classification_dataset.jpg" style="width: 400px;" />
+</a>
+<hr class="docutils" />
 <section id="logistic-regression">
 <h1><span class="section-number">21. </span><font color='darkorange'>Logistic regression</font><a class="headerlink" href="#logistic-regression" title="Link to this heading">#</a></h1>
 <blockquote>
@@ -637,7 +639,10 @@ We will follow a general approach when building models. We will divide the datas
 This lets us fit the model to one part of the data and then use the withheld data to test the predictions of the model. This helps us avoid <em>overfitting</em> our model!</p>
 </div></blockquote>
 <p><strong>Fit a model</strong></p>
-<img src='../../_images/take_action.jpg' width="100"><p>Below choose a variable to predict if the tissue sample is benign or not.</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Below choose a variable to predict if the tissue sample is benign or not.</p>
 <p>In general when using sklearn to fit a model we will follow these steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +688,10 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 </div>
 </div>
-<img src='../../_images/stopsign.jpg' width="100"><p>How good is the model at classifying?</p>
+<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>How good is the model at classifying?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#confusion table</span>
@@ -738,9 +746,15 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 </div>
 <p>Is all that variation noise? Or maybe there are other variables that might explain why the predictions are off.</p>
-<img src='../../_images/stopsign.jpg' width="100"><p><strong>Fit a more complex model</strong></p>
+<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p><strong>Fit a more complex model</strong></p>
 <p>This time we will try logistic regression with many predictors. How high can you get the accuracy?</p>
-<img src='../../_images/take_action.jpg' width="100"><div class="cell docutils container">
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#define model parameters</span>
 <span class="n">log_reg2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="s1">&#39;benign ~ ?&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>

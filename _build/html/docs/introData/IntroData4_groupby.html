@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -431,7 +431,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData4_groupby.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='../../_images/data_wrangler.png' width="300" align = 'center'> <hr class="docutils" />
+<a class="reference internal image-reference" href="../../_images/data_wrangler.png"><img alt="colab" class="align-center" src="../../_images/data_wrangler.png" style="width: 300px;" />
+</a>
+<hr class="docutils" />
 <section id="grouping-data">
 <h1><span class="section-number">9. </span><font color='darkorange'>Grouping data</font><a class="headerlink" href="#grouping-data" title="Link to this heading">#</a></h1>
 <p>In this exercise we will learn to use the function <strong>groupby</strong>. This is often an important step in data wrangling, and we will come back to it often when getting data ready for visualization or modeling.</p>
@@ -474,7 +476,10 @@ df_flights.groupby(&#39;carrier&#39;).dep_delay.sum()
 </div>
 </div>
 <p>Can you think of a potential problem with using the sum of departure delays?</p>
-<img src='../../_images/take_action.jpg' width="100"><p>Let’s try out your new found skills with groupby to see what airline carrier has the highest mean arrival delay? I.e., which airline is most likely to get you to your destination late!</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Let’s try out your new found skills with groupby to see what airline carrier has the highest mean arrival delay? I.e., which airline is most likely to get you to your destination late!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_flights.groupby(&#39;?&#39;).?.mean().?
@@ -483,7 +488,10 @@ df_flights.groupby(&#39;carrier&#39;).dep_delay.sum()
 </div>
 </div>
 <p>Feel free to post your answer to D2L!</p>
-<img src='../../_images/take_action.jpg' width="100"><p>Bonus question: Which airline shows the largest ability to make up lost time?</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Bonus question: Which airline shows the largest ability to make up lost time?</p>
 <blockquote>
 <div><p>I.e., what is the mean difference between departure delays and arrival delays for each carrier?</p>
 </div></blockquote>
