@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -438,7 +438,8 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/Intro_RandomForest.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='../../_images/LACL_2010_Evergreen_Forest_KentMiller.jpg' width=500>
+<a class="reference internal image-reference" href="../../_images/LACL_2010_Evergreen_Forest_KentMiller.jpg"><img alt="colab" class="align-center" src="../../_images/LACL_2010_Evergreen_Forest_KentMiller.jpg" style="width: 500px;" />
+</a>
 <hr class="docutils" />
 <section id="random-forests">
 <h1><span class="section-number">23. </span><font color='darkorange'>Random forests</font><a class="headerlink" href="#random-forests" title="Link to this heading">#</a></h1>
@@ -468,7 +469,10 @@ document.write(`
 </div>
 </div>
 </div>
-<img src='../../_images/take_action.jpg' width="100"><p>Q: what kinds of data are we dealing with?</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Q: what kinds of data are we dealing with?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">?</span>
@@ -504,7 +508,10 @@ document.write(`
 </div>
 </div>
 </div>
-<img src='../../_images/take_action.jpg' width="100"><p>Q: Choose one feature (column) and get the mean, min, and max.</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>Q: Choose one feature (column) and get the mean, min, and max.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">?</span>
@@ -626,7 +633,10 @@ document.write(`
 </div>
 </div>
 </div>
-<img src='../../_images/stopsign.jpg' width="100"></section>
+<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+</section>
 <section id="hyperparameter-tuning">
 <h2><span class="section-number">23.5. </span><font color='darkorange'>Hyperparameter tuning</font><a class="headerlink" href="#hyperparameter-tuning" title="Link to this heading">#</a></h2>
 <p>Above we used the default values for how much randomness to include while building our trees for the random forest. Let’s look at how we can use k-fold cross validation to help us choose how much randomness to use when building these trees!</p>
@@ -667,7 +677,10 @@ document.write(`
 </div>
 </div>
 </div>
-<img src='../../_images/take_action.jpg' width="100"><p>We can see that this quickly becomes time consuming to run. There are many algorithms out there to help tune your models. They generally break down into exhaustive grid searches, vs random searches. But this is an active field that is growing all the time.</p>
+<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+<p>We can see that this quickly becomes time consuming to run. There are many algorithms out there to help tune your models. They generally break down into exhaustive grid searches, vs random searches. But this is an active field that is growing all the time.</p>
 <p>Now that we’ve tuned our random forest model let’s see if we can beat the default model that we fit!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,7 +725,10 @@ document.write(`
 </div>
 </div>
 </div>
-<img src='../../_images/stopsign.jpg' width="100"></section>
+<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
+</a>
+<p><br><br><br></p>
+</section>
 <section id="model-interpretation">
 <h2><span class="section-number">23.7. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#model-interpretation" title="Link to this heading">#</a></h2>
 <p>Random forests are collections of many decision trees. This makes it a little more difficult to interpret how the predictions are being made, as there can be 1000s of individual trees.</p>
