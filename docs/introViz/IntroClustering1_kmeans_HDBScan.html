@@ -439,9 +439,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroClustering1_kmeans_HDBScan.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<a class="reference internal image-reference" href="../../_images/Clusters.png"><img alt="colab" class="align-center" src="../../_images/Clusters.png" style="width: 500px;" />
-</a>
-<hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/Clusters.png" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="clustering-algorithms">
 <h1><span class="section-number">15. </span><font color='darkorange'>Clustering algorithms</font><a class="headerlink" href="#clustering-algorithms" title="Link to this heading">#</a></h1>
 <p>We will look at developing skills to detect clusters in your data. Identifying clusters can be very helpful when exploring your data, and is a form of unsupervised machine learning.</p>
@@ -572,15 +572,13 @@ sns.scatterplot(data=df_class,x=&quot;x&quot;,y=&quot;y&quot;,hue=&quot;pred_kme
 <li><p>You know in advance how many clusters there are</p></li>
 <li><p>Clusters are roughly oval shaped (normally distributed along each dimension)</p></li>
 </ul>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Go back and try shifting the mean and standard deviation of the simulated clusters and see how well k-means does. Try changing the number of clusters k-means looks for. When does it break down?</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Go back and try shifting the mean and standard deviation of the simulated clusters and see how well k-means does. Try changing the number of clusters k-means looks for. When does it break down?</p>
 <p>When this book is used within a class setting there are often good points to break up long sections of coding exercises. We’ll use this stop sign (below) to indicate when we will take a break from coding and discuss more theoretical issues.</p>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="tuning-machine-learning-algorithms">
 <h2><span class="section-number">15.3. </span><font color='darkorange'>Tuning machine learning algorithms</font><a class="headerlink" href="#tuning-machine-learning-algorithms" title="Link to this heading">#</a></h2>
 <p>The elbow method can be used to help choose how many clusters are likely in the data. It also introduces us to how tune machine learning algorithms by running the model using different parameters and monitoring how well the algorithm performs.</p>
@@ -698,10 +696,9 @@ sns.relplot(x=&#39;clusters&#39;, y=&#39;sil&#39;, data=df_sil, kind=&quot;line&
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="hdbscan">
 <h2><span class="section-number">15.6. </span><font color='darkorange'>HDBscan</font><a class="headerlink" href="#hdbscan" title="Link to this heading">#</a></h2>
 <p>Ok let’s see how another algorithm does: hdbscan. This method is newer than k-means and focuses on the finding high density regions surrounded by low density.</p>
@@ -776,10 +773,9 @@ sk.metrics.silhouette_score(X=df_class_sub.loc[:,[&#39;x&#39;,&#39;y&#39;]],labe
 </section>
 <section id="id1">
 <h2><span class="section-number">15.7. </span><font color='darkorange'>Make our own functions</font><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Let’s try to make another function just like the one we did for the k-means algorithm.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Let’s try to make another function just like the one we did for the k-means algorithm.</p>
 <blockquote>
 <div><p>feel free to copy and paste the steps from above
 remember to think carefully about where the input <strong>minNumb</strong> will go in the code.</p>
@@ -817,10 +813,9 @@ run_HDBScan(40)
 </section>
 <section id="running-loops">
 <h2><span class="section-number">15.8. </span><font color='darkorange'>Running loops</font><a class="headerlink" href="#running-loops" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Let’s try and use a loop to try out a bunch of different values for the minimum number of points parameter.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Let’s try and use a loop to try out a bunch of different values for the minimum number of points parameter.</p>
 <blockquote>
 <div><p>the <strong>range()</strong> function follows range(from,to,by) format. e.g., range(10,70,10) = 10, 20, 30, 40, 50, 60</p>
 </div></blockquote>

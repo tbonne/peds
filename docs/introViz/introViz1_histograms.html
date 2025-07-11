@@ -432,8 +432,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introViz/introViz1_histograms.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img alt="colab" class="align-center" src="../../_images/Flight-delay.jpg" />
-<hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/Flight-delay.jpg" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="summary-statistics-and-histograms">
 <h1><span class="section-number">12. </span><font color='darkorange'>Summary statistics and histograms</font><a class="headerlink" href="#summary-statistics-and-histograms" title="Link to this heading">#</a></h1>
 <p>In this exercise we will look at how to describe a variable of interest using some statistical measures. We will also learn how to plot and interpret a histogram.</p>
@@ -452,10 +453,9 @@ import numpy as np
 </div>
 <p>We’ll explore different ways to summarize and visualize data using the flights data we used last class.</p>
 <p>Load that in and let’s get started!</p>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<div class="cell docutils container">
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  
 #load in the nyc data 
@@ -509,10 +509,9 @@ print(&quot;the standard deviation of arrival delays is: &quot;, delay_std)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Try that again but this time try playing with the bin size. How does the width of the bins we break the data into impact the histogram? Try going very big and very small. And feel free to share your results on Slack!</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Try that again but this time try playing with the bin size. How does the width of the bins we break the data into impact the histogram? Try going very big and very small. And feel free to share your results on Slack!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sns.displot(df_flights, x=&#39;arr_delay&#39;, binwidth=?) #E.g., 100
@@ -543,10 +542,9 @@ plt.axvline(delay_median, color=&quot;pink&quot;)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Try this again but this time look at departure time as the variable of interest.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Try this again but this time look at departure time as the variable of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get the mean
@@ -592,10 +590,9 @@ print(&quot;standard deviation of departure times = &quot;, dep_sd)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Similarly we can find the min and max of the variables</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Similarly we can find the min and max of the variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#get the min and max of delay times
