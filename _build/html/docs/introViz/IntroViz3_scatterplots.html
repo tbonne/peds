@@ -434,8 +434,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introViz/IntroViz3_scatterplots.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img alt="colab" class="align-center" src="../../_images/Flight-delay.jpg" />
-<hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/Flight-delay.jpg" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="scatter-plots">
 <h1><span class="section-number">14. </span><font color='darkorange'>Scatter plots</font><a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h1>
 <p>In this exercise we will learn how to plot data in scatter plots. Unlike the previous examples with histograms and density plots, scatter plots will let us look at two variables at once (i.e., bivariate relationships).</p>
@@ -493,10 +494,9 @@ df_flights.arr_delay.corr(df_flights.dep_delay)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Try and estimate correlations between a few other variables</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Try and estimate correlations between a few other variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#take a look at potential variables to compare (i.e., what columns/variables do we have)
@@ -536,10 +536,9 @@ sns.pairplot(df_flights_pairs)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Try and visualize the relationships between a few variables.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Try and visualize the relationships between a few variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Choose some varibles to look at 
@@ -593,8 +592,9 @@ sns.heatmap(corrmat, square=False)
 <section id="bonus-material">
 <h2><span class="section-number">14.5. </span><font color='darkorange'>Bonus material</font><a class="headerlink" href="#bonus-material" title="Link to this heading">#</a></h2>
 <p>Visualizing your data is a very important step in any data science workflow. Let’s take a look at the case below where four seperate datasets have the same mean and standard deviation, but differ wildly in how their data is ditributed.</p>
-<img alt="colab" class="align-left" src="../../_images/anscombeQuartet.jpeg" />
-<p>Let’s load in the data.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/anscombeQuartet.jpeg" alt="colab">
+</p><p>Let’s load in the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_anscombe = pd.read_json(&quot;/content/sample_data/anscombe.json&quot;)

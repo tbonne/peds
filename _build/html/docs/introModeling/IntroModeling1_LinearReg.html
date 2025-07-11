@@ -438,9 +438,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModeling1_LinearReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<a class="reference internal image-reference" href="../../_images/new-home-sales-2.jpg"><img alt="colab" class="align-center" src="../../_images/new-home-sales-2.jpg" style="width: 300px;" />
-</a>
-<hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/new-home-sales-2.jpg" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="linear-regression">
 <h1><span class="section-number">20. </span><font color='darkorange'>Linear regression</font><a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h1>
 <p>In previous classes we have used exploratory approaches to visualize and quantify relationships between variables. Now we will use linear regression to start to build models that can make predictions based on these relationships.</p>
@@ -471,10 +471,9 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Q: What kinds of data do you have?</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Q: What kinds of data do you have?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>?
@@ -493,10 +492,9 @@ import statsmodels.formula.api as smf
 </section>
 <section id="visualize-and-explore">
 <h2><span class="section-number">20.2. </span><font color='darkorange'>Visualize and Explore</font><a class="headerlink" href="#visualize-and-explore" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Plot the house prices on the y-axis, with some other variables on the x-axis.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Plot the house prices on the y-axis, with some other variables on the x-axis.</p>
 <blockquote>
 <div><p>Generally the value we are trying to predict is called the response variable, while the values we are using to make those predictions are the predictor variables.</p>
 </div></blockquote>
@@ -571,10 +569,9 @@ sns.scatterplot(data=df_boston,x=&#39;RM&#39;, y=&#39;price_pred&#39;)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="training-testing-split">
 <h2><span class="section-number">20.4. </span><font color='darkorange'>Training / Testing Split </font><a class="headerlink" href="#training-testing-split" title="Link to this heading">#</a></h2>
 </br>
@@ -611,10 +608,9 @@ df_test.shape
 </section>
 <section id="fit-a-model">
 <h2><span class="section-number">20.5. </span><font color='darkorange'>Fit a model </font><a class="headerlink" href="#fit-a-model" title="Link to this heading">#</a></h2>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>In general when using sklearn to fit a model we will follow these steps:</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>In general when using sklearn to fit a model we will follow these steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define model parameters
@@ -680,10 +676,9 @@ print(&quot; Mean squared error = &quot;, mse_test)
 </div>
 <p>Q: Which prediction error is higher?</p>
 <p>Q: Is all that error just noise? Or could there be other variables that might explain why the predictions are off?</p>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="fit-a-more-complex-model">
 <h2><span class="section-number">20.6. </span><font color='darkorange'>Fit a more complex model</font><a class="headerlink" href="#fit-a-more-complex-model" title="Link to this heading">#</a></h2>
 <p>This time we will try multiple linear regression</p>
@@ -745,10 +740,9 @@ print(&quot; Mean squared error = &quot;, mse_multi.round(2))
 </div>
 </div>
 <p>Q: how does that compare to our simple model?</p>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="try-adding-more-variables">
 <h2><span class="section-number">20.7. </span><font color='darkorange'>Try adding more variables!</font><a class="headerlink" href="#try-adding-more-variables" title="Link to this heading">#</a></h2>
 <p>Run a linear regression model to predict house prices. Try and beat the RMSE of the previous models! Feel free to post to slack your results and RMSE scores! Does RMSE always decrease as you add more variables?</p>
@@ -780,10 +774,9 @@ print(&quot; Mean squared error = &quot;, ?)
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-</section>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p></section>
 <section id="explaining-how-the-model-is-making-predictions">
 <h2><span class="section-number">20.8. </span><font color='darkorange'>Explaining how the model is making predictions</font><a class="headerlink" href="#explaining-how-the-model-is-making-predictions" title="Link to this heading">#</a></h2>
 <p>With linear regression we can look to see what features are important when making predictions. We can also see the direction and magnitude of the effect of these features.</p>

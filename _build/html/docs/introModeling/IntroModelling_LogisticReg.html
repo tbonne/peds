@@ -435,9 +435,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModelling_LogisticReg.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<a class="reference internal image-reference" href="../../_images/breast_cancer_classification_dataset.jpg"><img alt="colab" class="align-center" src="../../_images/breast_cancer_classification_dataset.jpg" style="width: 400px;" />
-</a>
-<hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/breast_cancer_classification_dataset.jpg" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="logistic-regression">
 <h1><span class="section-number">21. </span><font color='darkorange'>Logistic regression</font><a class="headerlink" href="#logistic-regression" title="Link to this heading">#</a></h1>
 <blockquote>
@@ -639,10 +639,9 @@ We will follow a general approach when building models. We will divide the datas
 This lets us fit the model to one part of the data and then use the withheld data to test the predictions of the model. This helps us avoid <em>overfitting</em> our model!</p>
 </div></blockquote>
 <p><strong>Fit a model</strong></p>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>Below choose a variable to predict if the tissue sample is benign or not.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Below choose a variable to predict if the tissue sample is benign or not.</p>
 <p>In general when using sklearn to fit a model we will follow these steps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -688,10 +687,9 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p>How good is the model at classifying?</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p><p>How good is the model at classifying?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#confusion table</span>
@@ -746,15 +744,13 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 </div>
 <p>Is all that variation noise? Or maybe there are other variables that might explain why the predictions are off.</p>
-<a class="reference internal image-reference" href="../../_images/stopsign.jpg"><img alt="colab" class="align-left" src="../../_images/stopsign.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<p><strong>Fit a more complex model</strong></p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
+</p><p><strong>Fit a more complex model</strong></p>
 <p>This time we will try logistic regression with many predictors. How high can you get the accuracy?</p>
-<a class="reference internal image-reference" href="../../_images/take_action.jpg"><img alt="colab" class="align-left" src="../../_images/take_action.jpg" style="width: 100px;" />
-</a>
-<p><br><br><br></p>
-<div class="cell docutils container">
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#define model parameters</span>
 <span class="n">log_reg2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="s1">&#39;benign ~ ?&#39;</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
