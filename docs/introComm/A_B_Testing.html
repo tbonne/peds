@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>28. A/B Testing &#8212; Practical exercises in data science - PEDS</title>
+    <title>31. A/B Testing &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introComm/A_B_Testing';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="29. Project 3 - Answering Questions" href="../Projects/Project3_AnsweringQuestions.html" />
-    <link rel="prev" title="27. Explainability vs Causality" href="IntroCausalAnalysis_admissions.html" />
+    <link rel="next" title="32. Project 3 - Answering Questions" href="../Projects/Project3_AnsweringQuestions.html" />
+    <link rel="prev" title="30. Explainability vs Causality" href="IntroCausalAnalysis_admissions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,43 +185,46 @@
 <li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython2.html">5. <font color="darkorange">Control Structures</font></a></li>
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">8. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">9. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">10. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">11. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">12. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">13. <font color="darkorange">Combining data</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">15. <font color="darkorange">Clustering algorithms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">14. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">15. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">16. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">17. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">20. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">21. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">20. <font color="darkorange">Linear regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">22. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">23. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">24. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">25. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">26. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">27. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">28. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">28. <font color="darkorange">A/B Testing</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">29. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroCausalAnalysis_admissions.html">30. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">31. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">32. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
@@ -417,12 +420,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-the-data">28.1. <font color="darkorange">Describe the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">28.2. <font color="darkorange">Visualize the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data">28.3. <font color="darkorange">Wrangle the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">28.4. <font color="darkorange">Build a model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">28.5. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">28.6. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-the-data">31.1. <font color="darkorange">Describe the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">31.2. <font color="darkorange">Visualize the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data">31.3. <font color="darkorange">Wrangle the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">31.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">31.5. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">31.6. <font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -439,7 +442,7 @@ document.write(`
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/best-mobile-games.jpg" width="500" alt="colab">
 </p><hr class="docutils" />
 <section id="a-b-testing">
-<h1><span class="section-number">28. </span><font color='darkorange'>A/B Testing</font><a class="headerlink" href="#a-b-testing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">31. </span><font color='darkorange'>A/B Testing</font><a class="headerlink" href="#a-b-testing" title="Link to this heading">#</a></h1>
 <p>Here we will look at how to collect and analyze data to determine the difference between two groups. The idea here is that if we randomly assign individuals to two groups we end up with comparable groups. If we then measure how these two groups respond to a treatment (e.g., being given game version A vs. game version B) we can better determine the effect of that treatment.</p>
 <p>We’ll take a look at data collected to test how effective different versions of a game are at retaining users.</p>
 <div class="cell docutils container">
@@ -537,7 +540,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="describe-the-data">
-<h2><span class="section-number">28.1. </span><font color='darkorange'>Describe the data</font><a class="headerlink" href="#describe-the-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.1. </span><font color='darkorange'>Describe the data</font><a class="headerlink" href="#describe-the-data" title="Link to this heading">#</a></h2>
 <p>How many in each group?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,7 +568,7 @@ document.write(`
 </div>
 </section>
 <section id="visualize-the-data">
-<h2><span class="section-number">28.2. </span><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.2. </span><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the differences between the versions</span>
@@ -576,7 +579,7 @@ document.write(`
 </div>
 </section>
 <section id="wrangle-the-data">
-<h2><span class="section-number">28.3. </span><font color='darkorange'>Wrangle the data</font><a class="headerlink" href="#wrangle-the-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.3. </span><font color='darkorange'>Wrangle the data</font><a class="headerlink" href="#wrangle-the-data" title="Link to this heading">#</a></h2>
 <p>Convert the binary traget and binary input variable to 0/1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -616,7 +619,7 @@ document.write(`
 </div>
 </section>
 <section id="build-a-model">
-<h2><span class="section-number">28.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
 <p>Can we predict which game version does better?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -711,7 +714,7 @@ document.write(`
 </div>
 </section>
 <section id="bonus">
-<h2><span class="section-number">28.5. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.5. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
 <p>What does the model think retetion will change when we vary versions and sum_gamerounds?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -772,7 +775,7 @@ document.write(`
 </div>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">28.6. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">31.6. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_A_B_Testing.ipynb">full code</a> version.</p>
 </div></blockquote>
@@ -815,7 +818,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27. </span><font color='darkorange'>Explainability vs Causality</font></p>
+        <p class="prev-next-title"><span class="section-number">30. </span><font color='darkorange'>Explainability vs Causality</font></p>
       </div>
     </a>
     <a class="right-next"
@@ -823,7 +826,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">29. </span><font color='darkorange'>Project 3 - Answering Questions</font></p>
+        <p class="prev-next-title"><span class="section-number">32. </span><font color='darkorange'>Project 3 - Answering Questions</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -843,12 +846,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-the-data">28.1. <font color="darkorange">Describe the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">28.2. <font color="darkorange">Visualize the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data">28.3. <font color="darkorange">Wrangle the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">28.4. <font color="darkorange">Build a model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">28.5. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">28.6. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-the-data">31.1. <font color="darkorange">Describe the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">31.2. <font color="darkorange">Visualize the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data">31.3. <font color="darkorange">Wrangle the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">31.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">31.5. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">31.6. <font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 

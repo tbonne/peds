@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Introduction to DataFrames &#8212; Practical exercises in data science - PEDS</title>
+    <title>9. Introduction to DataFrames &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introData/IntroData1_DataFrames';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7. Using existing data" href="IntroData2_LoadingData.html" />
-    <link rel="prev" title="5. Working with data" href="../IntroDataFrames.html" />
+    <link rel="next" title="10. Using existing data" href="IntroData2_LoadingData.html" />
+    <link rel="prev" title="8. Working with data" href="../IntroDataFrames.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,43 +185,46 @@
 <li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython2.html">5. <font color="darkorange">Control Structures</font></a></li>
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">8. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData2_LoadingData.html">10. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData3_MissingData.html">11. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData4_groupby.html">12. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData5_CombineData.html">13. <font color="darkorange">Combining data</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">15. <font color="darkorange">Clustering algorithms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">14. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">15. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">16. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">17. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">20. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">21. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">20. <font color="darkorange">Linear regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">22. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">23. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">24. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">25. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">26. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">27. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">28. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">28. <font color="darkorange">A/B Testing</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">29. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">30. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">31. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">32. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
@@ -417,13 +420,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">6.1. <font color="darkorange">Creating DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">6.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">6.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">6.4. <font color="darkorange">Creating new variables</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">6.5. <font color="darkorange">Filtering DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">6.6. <font color="darkorange">Dataframe functions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">6.7. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">9.1. <font color="darkorange">Creating DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">9.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">9.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">9.4. <font color="darkorange">Creating new variables</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">9.5. <font color="darkorange">Filtering DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">9.6. <font color="darkorange">Dataframe functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">9.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -440,7 +443,7 @@ document.write(`
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/pandas_logo2.jpeg" width="500" alt="colab">
 </p><hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-dataframes">
-<h1><span class="section-number">6. </span><font color='darkorange'>Introduction to DataFrames</font><a class="headerlink" href="#introduction-to-dataframes" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">9. </span><font color='darkorange'>Introduction to DataFrames</font><a class="headerlink" href="#introduction-to-dataframes" title="Link to this heading">#</a></h1>
 <p>In this exercise we will introduce <strong>dataframes</strong> which are objects in python that we will work a lot with in this class. These <strong>dataframes</strong> will be how we work with data, and get the data ready for visualizing and modeling.</p>
 <p>Outline:</p>
 <ul class="simple">
@@ -452,7 +455,7 @@ document.write(`
 </ul>
 <p>We’ll be using the <strong>Pandas</strong> library to do most of this work. Let’s take a look at how to create and modify dataframes using <strong>Pandas</strong>!</p>
 <section id="creating-dataframes">
-<h2><span class="section-number">6.1. </span><font color='darkorange'>Creating DataFrames</font><a class="headerlink" href="#creating-dataframes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span><font color='darkorange'>Creating DataFrames</font><a class="headerlink" href="#creating-dataframes" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#import python libraries that we will use
@@ -512,7 +515,7 @@ df_test.columns
 </div>
 </section>
 <section id="selecting-from-a-dataframe">
-<h2><span class="section-number">6.2. </span><font color='darkorange'>Selecting from a Dataframe</font><a class="headerlink" href="#selecting-from-a-dataframe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span><font color='darkorange'>Selecting from a Dataframe</font><a class="headerlink" href="#selecting-from-a-dataframe" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#take a look at the full dataframe
@@ -573,7 +576,7 @@ df_test.loc[?, ?]
 </div>
 </section>
 <section id="selecting-from-a-dataframe-using-positions">
-<h2><span class="section-number">6.3. </span><font color='darkorange'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#selecting-from-a-dataframe-using-positions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span><font color='darkorange'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#selecting-from-a-dataframe-using-positions" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#full dataframe
@@ -612,7 +615,7 @@ df_test.iloc[?, ?]
 </div>
 </section>
 <section id="creating-new-variables">
-<h2><span class="section-number">6.4. </span><font color='darkorange'>Creating new variables</font><a class="headerlink" href="#creating-new-variables" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span><font color='darkorange'>Creating new variables</font><a class="headerlink" href="#creating-new-variables" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
@@ -630,7 +633,7 @@ df_test
 </div>
 </section>
 <section id="filtering-dataframes">
-<h2><span class="section-number">6.5. </span><font color='darkorange'>Filtering DataFrames</font><a class="headerlink" href="#filtering-dataframes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span><font color='darkorange'>Filtering DataFrames</font><a class="headerlink" href="#filtering-dataframes" title="Link to this heading">#</a></h2>
 <p>Keep only the rows/columns that you’d like</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -666,7 +669,7 @@ df_test_100
 </div>
 </section>
 <section id="dataframe-functions">
-<h2><span class="section-number">6.6. </span><font color='darkorange'>Dataframe functions</font><a class="headerlink" href="#dataframe-functions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span><font color='darkorange'>Dataframe functions</font><a class="headerlink" href="#dataframe-functions" title="Link to this heading">#</a></h2>
 <p>When we create a dataframe we are creating an object, and this dataframe object has functions built in. Let’s take a look at a few now, and we will see more as we go along in this course.</p>
 <p>Try just typing df_test.</p>
 <p>After typing the “.” you should see the list of functions available to you once you’ve created a dataframe object.</p>
@@ -706,7 +709,7 @@ df_test.A.sum()
 </div>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">6.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>Pandas quick intro:
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html</a>
 </br>
@@ -754,7 +757,7 @@ Pandas longer intro:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span><font color="darkorange">Working with data</font></p>
+        <p class="prev-next-title"><span class="section-number">8. </span><font color="darkorange">Working with data</font></p>
       </div>
     </a>
     <a class="right-next"
@@ -762,7 +765,7 @@ Pandas longer intro:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span><font color='darkorange'>Using existing data</font></p>
+        <p class="prev-next-title"><span class="section-number">10. </span><font color='darkorange'>Using existing data</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -782,13 +785,13 @@ Pandas longer intro:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">6.1. <font color="darkorange">Creating DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">6.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">6.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">6.4. <font color="darkorange">Creating new variables</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">6.5. <font color="darkorange">Filtering DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">6.6. <font color="darkorange">Dataframe functions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">6.7. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">9.1. <font color="darkorange">Creating DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">9.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">9.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">9.4. <font color="darkorange">Creating new variables</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">9.5. <font color="darkorange">Filtering DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">9.6. <font color="darkorange">Dataframe functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">9.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 
