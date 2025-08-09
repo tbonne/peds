@@ -8,6 +8,7 @@ parts:
   - file: docs/IntroNotebooks.ipynb
   - file: docs/IntroPython.ipynb
   - file: docs/IntroNumpy.ipynb
+  - file: docs/IntroPython2.ipynb
 - caption: Part 2 - Data Wrangling
   numbered: true
   chapters:

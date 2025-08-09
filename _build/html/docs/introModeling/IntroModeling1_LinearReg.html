@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>20. Linear regression &#8212; Practical exercises in data science - PEDS</title>
+    <title>23. Linear regression &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introModeling/IntroModeling1_LinearReg';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="21. Logistic regression" href="IntroModelling_LogisticReg.html" />
-    <link rel="prev" title="19. Let’s build some models!" href="../IntroModeling.html" />
+    <link rel="next" title="24. Logistic regression" href="IntroModelling_LogisticReg.html" />
+    <link rel="prev" title="22. Let’s build some models!" href="../IntroModeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,43 +185,46 @@
 <li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython2.html">5. <font color="darkorange">Control Structures</font></a></li>
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">5. <font color="darkorange">Working with data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">6. <font color="darkorange">Introduction to DataFrames</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">7. <font color="darkorange">Using existing data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">8. <font color="darkorange">Missing Data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">9. <font color="darkorange">Grouping data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">10. <font color="darkorange">Combining data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">8. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData1_DataFrames.html">9. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData2_LoadingData.html">10. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData3_MissingData.html">11. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData4_groupby.html">12. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introData/IntroData5_CombineData.html">13. <font color="darkorange">Combining data</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">11. <font color="darkorange">Let’s start exploring</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">12. <font color="darkorange">Summary statistics and histograms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">13. <font color="darkorange">Density plots and normal distributions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">14. <font color="darkorange">Scatter plots</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">15. <font color="darkorange">Clustering algorithms</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">16. <font color="darkorange">Clustering in higher dimensions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">17. <font color="darkorange">Class Data Challenge 1</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">18. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">14. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">15. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">16. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">17. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">20. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">21. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">19. <font color="darkorange">Let’s build some models!</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. <font color="darkorange">Linear regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroModelling_LogisticReg.html">21. <font color="darkorange">Logistic regression</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroModeling3_decisionTrees.html">22. <font color="darkorange">Decision trees</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Intro_RandomForest.html">23. <font color="darkorange">Random forests</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">24. <font color="darkorange">Class Data Challenge II</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">25. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">22. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroModelling_LogisticReg.html">24. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroModeling3_decisionTrees.html">25. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_RandomForest.html">26. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">27. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">28. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">26. <font color="darkorange">Let’s try to learn from our models</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">27. <font color="darkorange">Explainability vs Causality</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">28. <font color="darkorange">A/B Testing</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">29. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">29. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">30. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">31. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">32. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
@@ -417,15 +420,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">20.1. <font color="darkorange">Load the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-and-explore">20.2. <font color="darkorange">Visualize and Explore</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-train-a-model">20.3. <font color="darkorange">Build and train a model </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">20.4. <font color="darkorange">Training / Testing Split </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-model">20.5. <font color="darkorange">Fit a model </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-more-complex-model">20.6. <font color="darkorange">Fit a more complex model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-adding-more-variables">20.7. <font color="darkorange">Try adding more variables!</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-how-the-model-is-making-predictions">20.8. <font color="darkorange">Explaining how the model is making predictions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.9. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">23.1. <font color="darkorange">Load the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-and-explore">23.2. <font color="darkorange">Visualize and Explore</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-train-a-model">23.3. <font color="darkorange">Build and train a model </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">23.4. <font color="darkorange">Training / Testing Split </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-model">23.5. <font color="darkorange">Fit a model </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-more-complex-model">23.6. <font color="darkorange">Fit a more complex model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-adding-more-variables">23.7. <font color="darkorange">Try adding more variables!</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-how-the-model-is-making-predictions">23.8. <font color="darkorange">Explaining how the model is making predictions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">23.9. <font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -442,7 +445,7 @@ document.write(`
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/new-home-sales-2.jpg" width="500" alt="colab">
 </p><hr class="docutils" />
 <section id="linear-regression">
-<h1><span class="section-number">20. </span><font color='darkorange'>Linear regression</font><a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">23. </span><font color='darkorange'>Linear regression</font><a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h1>
 <p>In previous classes we have used exploratory approaches to visualize and quantify relationships between variables. Now we will use linear regression to start to build models that can make predictions based on these relationships.</p>
 <p>Import the needed libraries</p>
 <div class="cell docutils container">
@@ -459,7 +462,7 @@ import statsmodels.formula.api as smf
 </div>
 </div>
 <section id="load-the-data">
-<h2><span class="section-number">20.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#load-the-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.1. </span><font color='darkorange'>Load the data</font><a class="headerlink" href="#load-the-data" title="Link to this heading">#</a></h2>
 <p>Download the ‘bostonHouses.csv’ from the class’s <a class="reference external" href="https://drive.google.com/drive/folders/1s2Civxvys_SR1sFF7D2ept1GSmFbICQb?usp=sharing">shared data folder</a> and load it into a dataframe.</p>
 <blockquote>
 <div><p>Note: one way to get the data in, is just to drag and drop the csv file into the files tab on the left. However, using this method means that when we leave our session the data will be removed (i.e., it isn’t on your gdrive).</p>
@@ -491,7 +494,7 @@ import statsmodels.formula.api as smf
 </div>
 </section>
 <section id="visualize-and-explore">
-<h2><span class="section-number">20.2. </span><font color='darkorange'>Visualize and Explore</font><a class="headerlink" href="#visualize-and-explore" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.2. </span><font color='darkorange'>Visualize and Explore</font><a class="headerlink" href="#visualize-and-explore" title="Link to this heading">#</a></h2>
 <p align="left">
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
 </p><p>Plot the house prices on the y-axis, with some other variables on the x-axis.</p>
@@ -516,7 +519,7 @@ sns.heatmap(data=?)
 </div>
 </section>
 <section id="build-and-train-a-model">
-<h2><span class="section-number">20.3. </span><font color='darkorange'>Build and train a model </font><a class="headerlink" href="#build-and-train-a-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.3. </span><font color='darkorange'>Build and train a model </font><a class="headerlink" href="#build-and-train-a-model" title="Link to this heading">#</a></h2>
 <p>Let’s look at building our first model – linear regression!</p>
 <blockquote>
 <div><p>How well can we predict the price of a house based on the proportion of large lots in the area (i.e., the ZN value)?</p>
@@ -573,7 +576,7 @@ sns.scatterplot(data=df_boston,x=&#39;RM&#39;, y=&#39;price_pred&#39;)
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
 </p></section>
 <section id="training-testing-split">
-<h2><span class="section-number">20.4. </span><font color='darkorange'>Training / Testing Split </font><a class="headerlink" href="#training-testing-split" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.4. </span><font color='darkorange'>Training / Testing Split </font><a class="headerlink" href="#training-testing-split" title="Link to this heading">#</a></h2>
 </br>
 </br>
 We will follow a general approach when building models. We will divide the dataset into *training* and *testing* datasets. 
@@ -607,7 +610,7 @@ df_test.shape
 </div>
 </section>
 <section id="fit-a-model">
-<h2><span class="section-number">20.5. </span><font color='darkorange'>Fit a model </font><a class="headerlink" href="#fit-a-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.5. </span><font color='darkorange'>Fit a model </font><a class="headerlink" href="#fit-a-model" title="Link to this heading">#</a></h2>
 <p align="left">
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
 </p><p>In general when using sklearn to fit a model we will follow these steps:</p>
@@ -680,7 +683,7 @@ print(&quot; Mean squared error = &quot;, mse_test)
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
 </p></section>
 <section id="fit-a-more-complex-model">
-<h2><span class="section-number">20.6. </span><font color='darkorange'>Fit a more complex model</font><a class="headerlink" href="#fit-a-more-complex-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.6. </span><font color='darkorange'>Fit a more complex model</font><a class="headerlink" href="#fit-a-more-complex-model" title="Link to this heading">#</a></h2>
 <p>This time we will try multiple linear regression</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,7 +747,7 @@ print(&quot; Mean squared error = &quot;, mse_multi.round(2))
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
 </p></section>
 <section id="try-adding-more-variables">
-<h2><span class="section-number">20.7. </span><font color='darkorange'>Try adding more variables!</font><a class="headerlink" href="#try-adding-more-variables" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.7. </span><font color='darkorange'>Try adding more variables!</font><a class="headerlink" href="#try-adding-more-variables" title="Link to this heading">#</a></h2>
 <p>Run a linear regression model to predict house prices. Try and beat the RMSE of the previous models! Feel free to post to slack your results and RMSE scores! Does RMSE always decrease as you add more variables?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,7 +781,7 @@ print(&quot; Mean squared error = &quot;, ?)
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/stopsign.jpg" width="100" alt="colab">
 </p></section>
 <section id="explaining-how-the-model-is-making-predictions">
-<h2><span class="section-number">20.8. </span><font color='darkorange'>Explaining how the model is making predictions</font><a class="headerlink" href="#explaining-how-the-model-is-making-predictions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.8. </span><font color='darkorange'>Explaining how the model is making predictions</font><a class="headerlink" href="#explaining-how-the-model-is-making-predictions" title="Link to this heading">#</a></h2>
 <p>With linear regression we can look to see what features are important when making predictions. We can also see the direction and magnitude of the effect of these features.</p>
 <blockquote>
 <div><p>E.g., more rooms in a house are positively associated with house price</p>
@@ -849,7 +852,7 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
 </div></blockquote>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">20.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>Read more about <a class="reference external" href="https://www.statsmodels.org/stable/gettingstarted.html">using statsmodel</a> to run regression models.</p>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroModeling1_LinearReg.ipynb">full code</a> version.</p>
@@ -893,7 +896,7 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span><font color="darkorange">Let’s build some models!</font></p>
+        <p class="prev-next-title"><span class="section-number">22. </span><font color="darkorange">Let’s build some models!</font></p>
       </div>
     </a>
     <a class="right-next"
@@ -901,7 +904,7 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">21. </span><font color='darkorange'>Logistic regression</font></p>
+        <p class="prev-next-title"><span class="section-number">24. </span><font color='darkorange'>Logistic regression</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -921,15 +924,15 @@ best_linear_reg_scaled = smf.ols(formula=&#39;price ~ RM&#39;, data=df_train_sca
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">20.1. <font color="darkorange">Load the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-and-explore">20.2. <font color="darkorange">Visualize and Explore</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-train-a-model">20.3. <font color="darkorange">Build and train a model </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">20.4. <font color="darkorange">Training / Testing Split </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-model">20.5. <font color="darkorange">Fit a model </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-more-complex-model">20.6. <font color="darkorange">Fit a more complex model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-adding-more-variables">20.7. <font color="darkorange">Try adding more variables!</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-how-the-model-is-making-predictions">20.8. <font color="darkorange">Explaining how the model is making predictions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.9. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">23.1. <font color="darkorange">Load the data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-and-explore">23.2. <font color="darkorange">Visualize and Explore</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-train-a-model">23.3. <font color="darkorange">Build and train a model </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">23.4. <font color="darkorange">Training / Testing Split </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-model">23.5. <font color="darkorange">Fit a model </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-a-more-complex-model">23.6. <font color="darkorange">Fit a more complex model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-adding-more-variables">23.7. <font color="darkorange">Try adding more variables!</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-how-the-model-is-making-predictions">23.8. <font color="darkorange">Explaining how the model is making predictions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">23.9. <font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 
