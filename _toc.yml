@@ -18,6 +18,7 @@ parts:
   - file: docs/introData/IntroData3_MissingData.ipynb
   - file: docs/introData/IntroData4_groupby.ipynb
   - file: docs/introData/IntroData5_CombineData.ipynb
+  - file: docs/introData/Intro_Git.ipynb
 - caption: Part 3 - Exploritory Data Analysis
   numbered: true
   chapters:
