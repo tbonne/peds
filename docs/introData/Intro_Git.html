@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Introduction to DataFrames &#8212; Practical exercises in data science - PEDS</title>
+    <title>12. Git &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introData/IntroData1_DataFrames';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introData/Intro_Git';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Using existing data" href="IntroData2_LoadingData.html" />
-    <link rel="prev" title="6. Working with data" href="../IntroDataFrames.html" />
+    <link rel="next" title="13. Let’s start exploring" href="../IntroViz.html" />
+    <link rel="prev" title="11. Combining data" href="IntroData5_CombineData.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,12 +190,12 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">6. <font color="darkorange">Working with data</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData1_DataFrames.html">7. <font color="darkorange">Introduction to DataFrames</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroData2_LoadingData.html">8. <font color="darkorange">Using existing data</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroData3_MissingData.html">9. <font color="darkorange">Missing Data</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroData4_groupby.html">10. <font color="darkorange">Grouping data</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroData5_CombineData.html">11. <font color="darkorange">Combining data</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Intro_Git.html">12. Git</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Git</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introData/IntroData1_DataFrames.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introData/Intro_Git.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
       
       
       
-      <li><a href="../../_sources/docs/introData/IntroData1_DataFrames.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/introData/Intro_Git.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><font color='darkorange'>Introduction to DataFrames</font></h1>
+    <h1>Git</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -419,13 +419,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">7.1. <font color="darkorange">Creating DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">7.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">7.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">7.4. <font color="darkorange">Creating new variables</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">7.5. <font color="darkorange">Filtering DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">7.6. <font color="darkorange">Dataframe functions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">7.7. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-the-ds-list-repository">12.1. 1) Fork the DS_list repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-github-recognizes-you-in-colab">12.2. 2) Make sure github recognizes you in colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-the-repository-to-colab">12.3. 2) Copy the repository to colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-data-science-list">12.4. 4) Edit a data science list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-commit-your-edits-locally">12.5. 5) Add and commit your edits locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-local-changes-to-your-forked-repository-online">12.6. 6) Push your local changes to your forked repository online</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-a-pull-request">12.7. Start a pull request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-more">12.8. Learning more!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">12.9. Notes:</a></li>
 </ul>
             </nav>
         </div>
@@ -437,285 +439,267 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData1_DataFrames.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData5_CombineData.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/pandas_logo2.jpeg" width="500" alt="colab">
-</p><hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-dataframes">
-<h1><span class="section-number">7. </span><font color='darkorange'>Introduction to DataFrames</font><a class="headerlink" href="#introduction-to-dataframes" title="Link to this heading">#</a></h1>
-<p>In this exercise we will introduce <strong>dataframes</strong> which are objects in python that we will work a lot with in this class. These <strong>dataframes</strong> will be how we work with data, and get the data ready for visualizing and modeling.</p>
-<p>Outline:</p>
-<ul class="simple">
-<li><p>Creating dataframes</p></li>
-<li><p>Selecting from DataFrames</p></li>
-<li><p>Creating new columns</p></li>
-<li><p>Filtering rows</p></li>
-<li><p>DataFrame functions</p></li>
-</ul>
-<p>We’ll be using the <strong>Pandas</strong> library to do most of this work. Let’s take a look at how to create and modify dataframes using <strong>Pandas</strong>!</p>
-<section id="creating-dataframes">
-<h2><span class="section-number">7.1. </span><font color='darkorange'>Creating DataFrames</font><a class="headerlink" href="#creating-dataframes" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#import python libraries that we will use
-import numpy as np
-import pandas as pd
-</pre></div>
-</div>
-</div>
-</div>
-<p>Create a dataframe from scratch</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
-## create a dictionary
-d = {&#39;A&#39;:[1,2,3,4], &#39;B&#39;:[5,6,7,8] }
-
-## convert the dictionary to a dataframe
-df_test = pd.DataFrame(data=d)
-
-#take a look at the dataframe
-df_test
-</pre></div>
-</div>
-</div>
-</div>
-<p>Add a column to the data frame</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#add list of names
-df_test[&#39;ID&#39;] = [&#39;Steve&#39;,&#39;Sarojini&#39;,&#39;Emil&#39;,&#39;Sarah&#39;]
-
-#add country
-df_test[&#39;country&#39;] = &#39;Canada&#39;
-
-#take a look (notice how it filled in the country!)
-df_test
-</pre></div>
-</div>
-</div>
-</div>
-<p>All dataframes also have an index, which keeps track of what data is in each row/column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#index of the rows
-df_test.index
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#index of the columns
-df_test.columns
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="selecting-from-a-dataframe">
-<h2><span class="section-number">7.2. </span><font color='darkorange'>Selecting from a Dataframe</font><a class="headerlink" href="#selecting-from-a-dataframe" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#take a look at the full dataframe
-df_test
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#grab the A column
-df_test[&#39;A&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#or similarly grab the A column
-df_test.A
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#grab the first three rows
-df_test[0:3]
-</pre></div>
-</div>
-</div>
-</div>
-<p>It is also possible to select by slicing similar to the numpy array!</p>
-<blockquote>
-<div><p>Here we use the method <strong>loc</strong> with square brackets to select rows and columns
-[rows , columns] with the similar slicing [start:stop:steps]. The <strong>loc</strong> method uses the index and the column names of the dataframe.</p>
-</div></blockquote>
-<p>Below we take the first three rows and only the A and B columns:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#first three rows and the A and B columns
-df_test.loc[ 0:2 , [&quot;A&quot;,&quot;B&quot;] ]
-</pre></div>
-</div>
-</div>
-</div>
-<p align="left">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
-</p>
-<p>Let’s try out what you’ve learnt. Try and select the ID and Country columns and only the third row:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ID and country columns, and the third row
-df_test.loc[?, ?]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="selecting-from-a-dataframe-using-positions">
-<h2><span class="section-number">7.3. </span><font color='darkorange'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#selecting-from-a-dataframe-using-positions" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#full dataframe
-df_test
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#first three rows and the second and thrid columns - using :
-df_test.iloc[0:3,1:3]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#second, and fourth rows, and second and fourth columns - using lists
-df_test.iloc[ [1,3] , [1,3] ]
-</pre></div>
-</div>
-</div>
-</div>
-<p align="left">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
-</p>
-<p>Try and select the ID and Country columns and only the third row using iloc:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ID and country columns, and the third row
-df_test.iloc[?, ?]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="creating-new-variables">
-<h2><span class="section-number">7.4. </span><font color='darkorange'>Creating new variables</font><a class="headerlink" href="#creating-new-variables" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
-#multiply the B column by 4 to create a new variable C
-df_test[&#39;C&#39;] = df_test[&#39;B&#39;] * 4
-
-#multiply the C column by A to create a new variable D
-df_test[&#39;D&#39;] = df_test[&#39;C&#39;] * df_test[&#39;A&#39;]
-
-#take a look
-df_test
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="filtering-dataframes">
-<h2><span class="section-number">7.5. </span><font color='darkorange'>Filtering DataFrames</font><a class="headerlink" href="#filtering-dataframes" title="Link to this heading">#</a></h2>
-<p>Keep only the rows/columns that you’d like</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#keep only the rows where A is less than 3
-df_test_sub = df_test[df_test.A&lt;3]
-
-#keep only the columns A and ID
-df_test_sub = df_test_sub[[&#39;A&#39;,&#39;B&#39;]]
-
-#take a look
-df_test_sub
-</pre></div>
-</div>
-</div>
-</div>
-<p align="left">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
-</p>
-<p>Add the C and D columns together and select only the rows with values greater than 100:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Add the columns C and D together
-df_test[&#39;D&#39;] = ? + ?
-
-#keep only the rows where D is greater than 100
-df_test_100 = ?
-
-#take a look
-df_test_100
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="dataframe-functions">
-<h2><span class="section-number">7.6. </span><font color='darkorange'>Dataframe functions</font><a class="headerlink" href="#dataframe-functions" title="Link to this heading">#</a></h2>
-<p>When we create a dataframe we are creating an object, and this dataframe object has functions built in. Let’s take a look at a few now, and we will see more as we go along in this course.</p>
-<p>Try just typing df_test.</p>
-<p>After typing the “.” you should see the list of functions available to you once you’ve created a dataframe object.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_test.
-</pre></div>
-</div>
-</div>
-</div>
-<p>One useful function is the <em>dtypes</em> function. It will tell us what data type is in each column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#What data type is stored in each column
-df_test.dtypes
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <em>sum</em> function is very useful for quickly summing up the values in a column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#What is the sum of the A column
-df_test.A.sum()
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <em>?</em> is a very useful function in general, and can provide us with useful information about most objects.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#find help on functions, objects, ... etc
-?df_test
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="further-reading">
-<h2><span class="section-number">7.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p>Pandas quick intro:
-<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html</a>
+  <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" width="500" alt="colab">
+</p><section class="tex2jax_ignore mathjax_ignore" id="git">
+<h1><span class="section-number">12. </span>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h1>
+<p>Let’s learn how to use git to collaboratively code. We saw in the lectures what the main commands are and how they are used. But let’s see if we can solidify these concepts by applying them to a list project! This project just lists different data science resources out there, and will be a way for us to try and collaboratively edit some shared documents using git.</p>
 </br>
-Pandas longer intro:
-<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html</a></p>
+<p>Hopefully some of the lists might even be useful!</p>
+</br>
+<p>You can see the project we will edit here: <a class="github reference external" href="https://github.com/tbonne/DS_lists">tbonne/DS_lists</a></p>
+<p>To edit this project we will follow the following steps:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Create a copy of the repository on your GitHub</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Make sure github recognizes you!</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Create a branch for you to work on</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>Edit/add one thing to a file (use a random number to choose the file!)</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="5">
+<li><p>Push your edits to the branch</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="6">
+<li><p>Submit a pull request</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="7">
+<li><p>Instructor/TA approoves the pull request</p></li>
+</ol>
+</li>
+</ul>
+<p>Let’s go through each step in more detail!</p>
+<section id="fork-the-ds-list-repository">
+<h2><span class="section-number">12.1. </span>1) Fork the DS_list repository<a class="headerlink" href="#fork-the-ds-list-repository" title="Link to this heading">#</a></h2>
+<p>Because the DS_list repository is public, you can see all the lists, and download it. But to edit it, without being an explicit colaborator, you’ll need to create your own copy.</p>
+<p>To do this go to github and fork a copy of the DS_list project. The fork button is on the top right.</p>
+</section>
+<section id="make-sure-github-recognizes-you-in-colab">
+<h2><span class="section-number">12.2. </span>2) Make sure github recognizes you in colab<a class="headerlink" href="#make-sure-github-recognizes-you-in-colab" title="Link to this heading">#</a></h2>
+<p>We have to let GitHub know who is working on this colab session. That way when we make changes and push them to the repository it knows who did it.</p>
+<p>So first we have to get an Access Token from your github account. To do so:</p>
+<ul class="simple">
+<li><p>login to you github account at <a class="reference external" href="http://github.com">github.com</a></p></li>
+<li><p>Click on your profile picture (top right), then on ‘settings’, then ‘developer settings’ (bottom left).</p></li>
+<li><p>Click on ‘personal access tokens’, then on ‘tokens classic’, then on ‘generate new token.’</p></li>
+<li><p>Give it a name (e.g., colab_project), experiation days 7.</p></li>
+<li><p>For select scope, we can just click ‘repo’ that should be enough for this project.</p></li>
+</ul>
+<p>Now that we have the token, copy it and use it after running the code below to authenticate yourself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">getpass</span>
+
+<span class="c1">#Enter your github user name here</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GITHUB_USER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tbonne&#39;</span>
+
+<span class="c1"># Optional: enter once per runtime</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GITHUB_TOKEN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Token: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then set our name and email. This will be useful when seeing who did what in the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Git identity (for commits)</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Last&quot;</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;student@example.com&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok now we are ready to start editing the project!</p>
+</section>
+<section id="copy-the-repository-to-colab">
+<h2><span class="section-number">12.3. </span>2) Copy the repository to colab<a class="headerlink" href="#copy-the-repository-to-colab" title="Link to this heading">#</a></h2>
+<p>Let’s first clone the project to colab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tbonne</span><span class="o">/</span><span class="n">DS_lists</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should now see the repository in the files folder on the top left.</p>
+<p>For the next few commands lets make sure we are in the right directory, so let’s change directories (cd) into the DS_lists directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">DS_lists</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s create a branch for you to work on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">switch</span> <span class="o">-</span><span class="n">c</span> <span class="n">docs</span><span class="o">/</span><span class="n">updatelist</span><span class="o">-</span><span class="n">LASTNAME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ve created the branch locally, now let’s push the branch online.</p>
+<p>First we have to setup where to send the new branch: i.e., the origin</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#set the origin to the DS_lists repro</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">remote</span> <span class="nb">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="s2">&quot;https://$</span><span class="si">{GITHUB_TOKEN}</span><span class="s2">@github.com/$</span><span class="si">{GITHUB_USER}</span><span class="s2">/DS_lists.git&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the origin is setup we then need to push the new branch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">docs</span><span class="o">/</span><span class="n">updatelist</span><span class="o">-</span><span class="n">LASTNAME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, we are now ready to make edits!</p>
+</section>
+<section id="edit-a-data-science-list">
+<h2><span class="section-number">12.4. </span>4) Edit a data science list<a class="headerlink" href="#edit-a-data-science-list" title="Link to this heading">#</a></h2>
+<p>Now that you have cloned the repository, and created a branch, open up your chosen list and make an addition or edit.</p>
+<p>Use the random number to choose the file you will edit! In the lists folder of the repository you will see the files are numbered.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: to open a list, goto the files folder on the left, and open up the DS_lists/lists folder. You should see your list in there. Click on it and edit it. Then save the file.</p>
+</section>
+<section id="add-and-commit-your-edits-locally">
+<h2><span class="section-number">12.5. </span>5) Add and commit your edits locally<a class="headerlink" href="#add-and-commit-your-edits-locally" title="Link to this heading">#</a></h2>
+<p>Ok, now that you’ve edited your group list, let’s save these changes.</p>
+<p>Let’s learn how to use <strong>add</strong> to register what you changed and <strong>commit</strong> to update your local copy of the reprository with these changes.</p>
+<p>Before we use these commands let’s look at what git is doing at the momment.</p>
+<p>Let’s use git status to get a summary of where git is at the moment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nothing should be added, but git should show that you are on the branch you just created.</p>
+<p>We can even look at the current logs to see what’s been done. Not much yet!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above you should see a line for each action git has taken. Right now there’s not much, but you should see where you created your branch.</p>
+<p>Ok, now that we checked the status of git, lets <strong>add</strong> and <strong>commit</strong> your changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Add all changes</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="nb">all</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could use:</p>
+<ul class="simple">
+<li><p>git add filename.txt to say add a specific file</p></li>
+<li><p>git add -all to add anything that has updated in this folder and any sub-folders</p></li>
+</ul>
+<p>Once we’ve added all the changes let’s commit them to our local repository here on colab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Commit the changes</span>
+<span class="err">!</span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Some short description of what you did...&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each time you <strong>add</strong> and <strong>commit</strong> the version is save locally.</p>
+<p>Let’s see how the logs have changed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">oneline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see an extra line showing your recent commmit with your message. The alphanumeric strings at the start of the lines are your commits. You can always go back in time to a new commit if something goes wrong.</p>
+</section>
+<section id="push-your-local-changes-to-your-forked-repository-online">
+<h2><span class="section-number">12.6. </span>6) Push your local changes to your forked repository online<a class="headerlink" href="#push-your-local-changes-to-your-forked-repository-online" title="Link to this heading">#</a></h2>
+<p>Now that you’ve edited a list, let’s upload that to github. To do that we’ll firt do a <strong>push</strong> to send these changes to your forked repository.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">docs</span><span class="o">/</span><span class="n">updatelist</span><span class="o">-</span><span class="n">LASTNAME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this stage, if you are collaborating with others, sometimes you’ll find some conflicts here! For example, someone might have altered the same list as you. In these cases you’ll have to do some work to merge the two changes. Sometimes git will be able to automatically merge the differences, but sometimes it will simply mark where the conflicts are and get you to choose what to keep.</p>
+</section>
+<section id="start-a-pull-request">
+<h2><span class="section-number">12.7. </span>Start a pull request<a class="headerlink" href="#start-a-pull-request" title="Link to this heading">#</a></h2>
+<p>Now that you’ve edited a list, and updated your forked copy of the repository, it’s time to send these updates back to the original repository.</p>
+<p>To do this we’ll have to start a pull request.</p>
+<p>This can be done on GitHub. If you go to your GitHub page and open your forked repository, you should see yellow banner at the top asking if you want to “compare and pull request”.</p>
+<p>When you click on that you just want to make sure:</p>
+<ul class="simple">
+<li><p>the ‘base fork’ points to the original repository (e.g., tbonne/DS_list)</p></li>
+<li><p>the ‘base’ points to the master branch</p></li>
+<li><p>the ‘head fork’ points to your forked copy of the repository</p></li>
+<li><p>the ‘compare branch’ points to your branch</p></li>
+</ul>
+<p>For the most part these values will be set correctly automatically.</p>
+<p>You can add a little note about what you’re updating.</p>
+<p>Then you can click “create pull request”.</p>
+<p>An instructor or TA will now be able to check your pull request and decide if the addition is something that should be added!</p>
+</section>
+<section id="learning-more">
+<h2><span class="section-number">12.8. </span>Learning more!<a class="headerlink" href="#learning-more" title="Link to this heading">#</a></h2>
+<p>If you would like to go deeper into git here is a great series of videos that will expand on what we covered here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://yuja.ucalgary.ca/V/PlayList?node=6694269&amp;amp;a=1248179342">https://yuja.ucalgary.ca/V/PlayList?node=6694269&amp;a=1248179342</a></p></li>
+</ul>
+<p>A good step that can take you a little further would be to try and setup git on your computer and use VSCode.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/intro-to-git">https://code.visualstudio.com/docs/sourcecontrol/intro-to-git</a></p></li>
+</ul>
+</section>
+<section id="notes">
+<h2><span class="section-number">12.9. </span>Notes:<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>!: This prefix in Colab allows you to execute shell commands directly.</p></li>
+<li></li>
+</ul>
+<p>Some other useful git commands:</p>
 <blockquote>
-<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroData1_DataFrames.ipynb">full code</a> version.</p>
+<div><p>View logs (what’s been done):
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p>List all branches:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-a</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p>Delete a branch:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span> <span class="pre">theBranchToRemove</span></code></p>
 </div></blockquote>
 </section>
 </section>
@@ -751,20 +735,20 @@ Pandas longer intro:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../IntroDataFrames.html"
+       href="IntroData5_CombineData.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span><font color="darkorange">Working with data</font></p>
+        <p class="prev-next-title"><span class="section-number">11. </span><font color='darkorange'>Combining data</font></p>
       </div>
     </a>
     <a class="right-next"
-       href="IntroData2_LoadingData.html"
+       href="../IntroViz.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span><font color='darkorange'>Using existing data</font></p>
+        <p class="prev-next-title"><span class="section-number">13. </span><font color="darkorange">Let’s start exploring</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -784,13 +768,15 @@ Pandas longer intro:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">7.1. <font color="darkorange">Creating DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">7.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">7.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">7.4. <font color="darkorange">Creating new variables</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">7.5. <font color="darkorange">Filtering DataFrames</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">7.6. <font color="darkorange">Dataframe functions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">7.7. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-the-ds-list-repository">12.1. 1) Fork the DS_list repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-github-recognizes-you-in-colab">12.2. 2) Make sure github recognizes you in colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-the-repository-to-colab">12.3. 2) Copy the repository to colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-data-science-list">12.4. 4) Edit a data science list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-and-commit-your-edits-locally">12.5. 5) Add and commit your edits locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-local-changes-to-your-forked-repository-online">12.6. 6) Push your local changes to your forked repository online</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-a-pull-request">12.7. Start a pull request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-more">12.8. Learning more!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">12.9. Notes:</a></li>
 </ul>
   </nav></div>
 
