@@ -841,23 +841,12 @@ This lets us fit the model to one part of the data and then use the withheld dat
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build the figure</span>
-<span class="n">viz_one_pred</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="p">(</span><span class="n">classifier_res</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
-                <span class="n">target_name</span><span class="o">=</span><span class="s2">&quot;plant&quot;</span><span class="p">,</span>
-                <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
-                <span class="n">class_names</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;plantA&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;plantB&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;plantC&#39;</span><span class="p">},</span>
-                <span class="n">scale</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
-                <span class="n">X</span><span class="o">=</span><span class="n">X_values_for_pred</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">viz_obj</span> <span class="o">=</span> <span class="n">viz_test</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X_values_for_pred</span><span class="p">,</span>
+    <span class="n">fontname</span><span class="o">=</span><span class="s2">&quot;DejaVu Sans&quot;</span>
+<span class="p">)</span>
 
-<span class="c1">#take a look</span>
-<span class="n">viz_one_pred</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">viz_obj</span>
 </pre></div>
 </div>
 </div>
