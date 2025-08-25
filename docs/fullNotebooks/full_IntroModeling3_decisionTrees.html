@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -423,14 +423,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics"><font color="darkorange">Descriptive statistics</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-data"><font color="darkorange">Visualizing the data</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling"><font color="darkorange">Data wrangling</font></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-categorical-input-variables">Preprocessing (categorical input variables)\</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-categorical-target-variable">Preprocessing (categorical target variable)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">Training testing split</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-numeric-variables">Preprocessing (numeric variables)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building"><font color="darkorange">Model building</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions">Predictions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><font color="darkorange">Bonus</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-interpretation"><font color="darkorange">Model interpretation</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-2"><font color="darkorange">Bonus 2</font></a></li>
@@ -446,7 +442,9 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introModeling/IntroModeling3_decisionTrees.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<img src='http://drive.google.com/uc?export=view&id=1WZbnKvEzIK70qhQXyPIS36ahLWoEsqaA' width=500><hr class="docutils" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/tree_decision.jpg" width="500" alt="colab">
+</p><hr class="docutils" />
 <section id="decision-trees">
 <h1><font color='darkorange'>Decision trees</font><a class="headerlink" href="#decision-trees" title="Link to this heading">#</a></h1>
 <p>Let’s take a look at decision tree as classifiers. Here we will use this algorithm to classify which grape plant was used to create a wine.</p>
@@ -480,7 +478,7 @@ document.write(`
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Q: what kinds of data are we dealing with?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_wine</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -540,10 +538,14 @@ document.write(`
 </section>
 <section id="data-wrangling">
 <h2><font color='darkorange'>Data wrangling</font><a class="headerlink" href="#data-wrangling" title="Link to this heading">#</a></h2>
-<section id="preprocessing-categorical-input-variables">
-<h3>Preprocessing (categorical input variables)\<a class="headerlink" href="#preprocessing-categorical-input-variables" title="Link to this heading">#</a></h3>
+<p>Before building our models we have to do some preprocessing steps with our data. We’ll cover some common steps here, but we’ll see more along the way.</p>
+<p>Let’s first consider categorical predictor variables.</p>
+<p><strong>Preprocessing (categorical input variables)</strong></p>
 <blockquote>
-<div><p>Convert the categorical ‘lab’ variable using onehot encoding (i.e., create dummy columns).</p>
+<div><p>Convert the categorical ‘lab’ variable using onehot encoding (i.e., create many dummy columns to replace the one categorical column).</p>
+</div></blockquote>
+<blockquote>
+<div><p>Note: we could also convert the categories to numbers (Ordinal) but this assumes that there is an order to the categories which isn’t always a good assumption.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,25 +567,20 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="preprocessing-categorical-target-variable">
-<h3>Preprocessing (categorical target variable)<a class="headerlink" href="#preprocessing-categorical-target-variable" title="Link to this heading">#</a></h3>
+<p>Next let’s look at how we might convert a categorical outcome variable.</p>
+<p><strong>Preprocessing (categorical outcome variable)</strong></p>
 <blockquote>
-<div><p>As the target variable is categorical we will convert each category into a number, and unlike the onehot encoding we will keep these numbers within the same column.</p>
+<div><p>As the outcome variable is categorical we will convert each category into a number, and unlike the onehot encoding we will keep these numbers within the same column.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Feature Scaling (after spliting the data!)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinalEncoder</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
 
-<span class="c1">#numeric variables</span>
-<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;plant&#39;</span><span class="p">]</span>
+<span class="c1">#create the encoder</span>
+<span class="n">le_plants</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 
-<span class="c1">#create the standard scaler object</span>
-<span class="n">ordinal_encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
-
-<span class="c1">#use this object to fit (i.e., to calculate the mean and sd of each variable in the training data) and then to transform the training data</span>
-<span class="n">df_wine</span><span class="p">[</span><span class="n">target_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">ordinal_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_wine</span><span class="p">[</span><span class="n">target_names</span><span class="p">])</span>
+<span class="c1">#create outcome variable</span>
+<span class="n">df_wine</span><span class="p">[</span><span class="s1">&#39;plant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le_plants</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_wine</span><span class="p">[</span><span class="s1">&#39;plant&#39;</span><span class="p">])</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_wine</span>
@@ -591,10 +588,19 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
+<p>We can then always get back what plant category corresponds to which numeric label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">le_plants</span><span class="o">.</span><span class="n">classes_</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="training-testing-split">
 <h3>Training testing split<a class="headerlink" href="#training-testing-split" title="Link to this heading">#</a></h3>
-<p>Here we change a little how we do the data splitting. Instead of spliting the dataframe into training and testing, we’ll first split the dataframe into inputs and target variables. I.e., we’d like to use X to predict y. Then we split each into training and testing sets. This makes it easier to work with sklearn algorithms.</p>
+<p>We will follow a general approach when building models. We will divide the dataset into <em>training</em> and <em>testing</em> datasets.
+This lets us fit the model to one part of the data and then use the withheld data to test the predictions of the model. This helps us detect and avoid <em>overfitting</em> our model!</p>
+<p>To do this we’ll first split the dataframe into inputs and target variables. I.e., we’d like to use X to predict y. Then we split each into training and testing sets. This makes it easier to work with sklearn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -608,9 +614,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="preprocessing-numeric-variables">
-<h3>Preprocessing (numeric variables)<a class="headerlink" href="#preprocessing-numeric-variables" title="Link to this heading">#</a></h3>
+<p>Now that we’ve split our data, we can do some more processing. Here let’s scale our numeric variables. Importantly, we’ll build our scaling function from the training data and apply it to the testing. That way we are only using information from the training data and not contaminating our model with testing data information as well. I.e., no data leakage between training and testing datasets.</p>
+<p><strong>Preprocessing (numeric variables)</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Feature Scaling (after spliting the data!)</span>
@@ -652,9 +657,7 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="predictions">
-<h2>Predictions<a class="headerlink" href="#predictions" title="Link to this heading">#</a></h2>
+<p><strong>Predictions</strong></p>
 <p>Make some predictions on the testing data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -686,9 +689,9 @@ document.write(`
 <p>More detailed metrics?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recal: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy: </span><span class="si">{</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Precision: </span><span class="si">{</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Recal: </span><span class="si">{</span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">,</span><span class="w"> </span><span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -774,50 +777,54 @@ document.write(`
 <img src='http://drive.google.com/uc?export=view&id=1qWrKY9TgpgQaBCzZfz1xLTV6iCeSwfmG' width="100" align = 'left'></section>
 <section id="model-interpretation">
 <h2><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#model-interpretation" title="Link to this heading">#</a></h2>
-<p>Decision trees can offer some nice visuals that can help interpret and communicate your results, lets take a look at a few</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">dtreeviz</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dtreeviz.trees</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtreeviz</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">dtreeviz</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Decision trees can offer some nice visuals that can help interpret and communicate your results, lets take a look at a few.</p>
+<p>First let’s see how what splits the model found in the training data, and how many data points fell within each leaf.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build the figure</span>
-<span class="n">viz</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="p">(</span><span class="n">classifier_res</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+<span class="n">viz</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">classifier_res</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
                 <span class="n">target_name</span><span class="o">=</span><span class="s2">&quot;plant&quot;</span><span class="p">,</span>
                 <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
-                <span class="n">class_names</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;plantA&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;plantB&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;plantC&#39;</span><span class="p">},</span>
-                <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">class_names</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;plantA&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;plantB&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;plantC&#39;</span><span class="p">}</span>
+                <span class="p">)</span>
 
 <span class="c1">#take a look</span>
-<span class="n">viz</span>
+<span class="n">viz</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">fontname</span><span class="o">=</span><span class="s2">&quot;DejaVu Sans&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s look at how the tree does with the test data</p>
+<p>Now let’s look at how the tree does with the test data.</p>
+<p>In this case, we can see how the test samples fall into the fixed structure of the tree. Do you see any big differences in leaf sizes and mixtures?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build the figure</span>
-<span class="n">viz_test</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="p">(</span><span class="n">classifier_res</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+<span class="n">viz_test</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">classifier_res</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
                 <span class="n">target_name</span><span class="o">=</span><span class="s2">&quot;plant&quot;</span><span class="p">,</span>
                 <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
-                <span class="n">class_names</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;plantA&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;plantB&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;plantC&#39;</span><span class="p">},</span>
-                <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">class_names</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;plantA&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;plantB&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;plantC&#39;</span><span class="p">}</span>
+                <span class="p">)</span>
 
 <span class="c1">#take a look</span>
-<span class="n">viz_test</span>
+<span class="n">viz_test</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">fontname</span><span class="o">=</span><span class="s2">&quot;DejaVu Sans&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Finally, let’s see how one data point in the test data gets place within the tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vizualize one prediction </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vizualize one prediction</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
 <span class="c1"># pick random X test point</span>
 <span class="n">X_values_for_pred</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="c1">#you can choose any other row!</span>
 
@@ -853,6 +860,11 @@ document.write(`
 <section id="bonus-2">
 <h2><font color='darkorange'>Bonus 2</font><a class="headerlink" href="#bonus-2" title="Link to this heading">#</a></h2>
 <p>Now that you know how to use decision tree models, try going back to one of the datasets we’ve already worked on and see if you can get better predictions? Can you still explain what features are helping you to make those predictions?</p>
+<p>Note: decision trees work well for both categorical outcome variables (as shown above) and continuous/integer outcome variables. The difference is in how the splits are made:</p>
+<ul class="simple">
+<li><p>categorical models split based on class impurity e.g., gini impurity or entropy.</p></li>
+<li><p>regressor models split based on variation e.g., mean squared error.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load a dataset</span>
@@ -913,14 +925,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics"><font color="darkorange">Descriptive statistics</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-data"><font color="darkorange">Visualizing the data</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wrangling"><font color="darkorange">Data wrangling</font></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-categorical-input-variables">Preprocessing (categorical input variables)\</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-categorical-target-variable">Preprocessing (categorical target variable)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing-split">Training testing split</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-numeric-variables">Preprocessing (numeric variables)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building"><font color="darkorange">Model building</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions">Predictions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><font color="darkorange">Bonus</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-interpretation"><font color="darkorange">Model interpretation</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-2"><font color="darkorange">Bonus 2</font></a></li>
