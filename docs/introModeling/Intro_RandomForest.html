@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -729,9 +729,34 @@ document.write(`
 <section id="model-interpretation">
 <h2><span class="section-number">25.7. </span><font color='darkorange'>Model interpretation</font><a class="headerlink" href="#model-interpretation" title="Link to this heading">#</a></h2>
 <p>Random forests are collections of many decision trees. This makes it a little more difficult to interpret how the predictions are being made, as there can be 1000s of individual trees.</p>
-<blockquote>
-<div><p>Let’s look at how to use feature importance to evaluate what is being used by the model to make predictions.</p>
-</div></blockquote>
+<p>Let’s first take a look at one of the trees in your forest!</p>
+<p><strong>Visualize one tree</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">dtreeviz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dtreeviz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">forest_classifier_opt</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">viz</span> <span class="o">=</span> <span class="n">dtreeviz</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span>
+    <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+    <span class="n">target_name</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;no&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;yes&#39;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">viz</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">fontname</span><span class="o">=</span><span class="s2">&quot;DejaVu Sans&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Visualize the overall impact of each variable</strong></p>
+<p>Next, let’s take a different approach and look at how to use feature importance to evaluate what is being used by the model overall to make predictions.</p>
+<p>Remember, permutation importance will randomize the values of one feature and measure how much worse the model gets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
@@ -743,7 +768,7 @@ document.write(`
 <span class="n">forest_importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;variable&#39;</span><span class="p">:</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="s1">&#39;impo&#39;</span><span class="p">:</span><span class="n">perm_result</span><span class="o">.</span><span class="n">importances_mean</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="s2">&quot;sd&quot;</span><span class="p">:</span><span class="n">perm_result</span><span class="o">.</span><span class="n">importances_std</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)})</span>
 
 <span class="c1">#sort the dataframe</span>
-<span class="n">forest_importances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;impo&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">forest_importances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;impo&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -765,7 +790,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>Asking your model questions?</strong></p>
+<p><strong>Visualize how changing one variable impacts the outcome</strong></p>
 <p>Sometimes it can be very helpful to create a dataset that represents a question you have, and then use your model to make predictions to answer that question. For instance, what if someone had mean values for all measures?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -777,7 +802,7 @@ document.write(`
                             <span class="s1">&#39;Insulin&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="o">.</span><span class="n">Insulin</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
                             <span class="s1">&#39;BMI&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="o">.</span><span class="n">BMI</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
                             <span class="s1">&#39;DiabetesPedigreeFunction&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="o">.</span><span class="n">DiabetesPedigreeFunction</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-                            <span class="s1">&#39;Age&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="o">.</span><span class="n">Age</span><span class="o">.</span><span class="n">mean</span><span class="p">()},</span>
+                                <span class="s1">&#39;Age&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="o">.</span><span class="n">Age</span><span class="o">.</span><span class="n">mean</span><span class="p">()},</span>
                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
                             
 
@@ -791,6 +816,7 @@ document.write(`
 </div>
 </div>
 <p>Now we can make our question a little more interesting by allowing one variable to vary. Let’s see how the predictions change as we vary glucose of the average person.</p>
+<p>These are called partial dependence plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Create a dataframe</span>
@@ -828,7 +854,7 @@ document.write(`
 </section>
 <section id="model-application">
 <h2><span class="section-number">25.8. </span><font color='darkorange'>Model Application</font><a class="headerlink" href="#model-application" title="Link to this heading">#</a></h2>
-<p>Let’s apply what we learnt about random forests to other datasets.</p>
+<p>Let’s apply what we learnt about random forests to another dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load dataset!</span>
