@@ -420,14 +420,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gender-and-university-admissions">29.1. <font color="darkorange">Gender and university admissions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">29.2. <font color="darkorange">Visualize the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">29.3. <font color="darkorange">Preprocessing</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">29.2. <font color="darkorange">Preprocessing</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.3. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-model-again-this-time-with-a-reduced-model">29.4. <font color="darkorange">Fit the model again, this time with a reduced model</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-confounds">29.5. <font color="darkorange">Statistical confounds</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-what-feature-importance-suggests">29.6. <font color="darkorange">Let’s see what feature importance suggests</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-what-feature-selection-suggests">29.7. <font color="darkorange">Let’s see what feature selection suggests</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">29.8. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">29.9. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-by-performance">29.6. <font color="darkorange">Feature selection by performance</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">29.6.1. <font color="darkorange">Bonus</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">29.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -439,14 +440,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introComm/IntroCausalAnalysis_admissions.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introComm/IntroCausalAnalysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/COLLEGE-ACCEPTANCE.jpg" width="500" alt="colab">
-</p><hr class="docutils" />
+</p>
+<hr class="docutils" />
 <section id="explainability-vs-causality">
 <h1><span class="section-number">29. </span><font color='darkorange'>Explainability vs Causality</font><a class="headerlink" href="#explainability-vs-causality" title="Link to this heading">#</a></h1>
 <p>Here we will look at the difference between understanding how the ML model is making predictions (explainability) and what is causing the outcome (causality)</p>
-<p>To do so we will look at a university admission example. You have been tasked with deciding whether there is a gender bias in admission, and if there is reason for legal action against the university.</p>
+<p>To do so we will look at a university admission example. You have been hired and asked to decided whether there is a gender bias in admission, and if there is reason for legal action against the university.</p>
 <section id="gender-and-university-admissions">
 <h2><span class="section-number">29.1. </span><font color='darkorange'>Gender and university admissions</font><a class="headerlink" href="#gender-and-university-admissions" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -464,7 +466,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load data</span>
-<span class="n">df_admit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/UCBadmit_01.csv&quot;</span><span class="p">)</span>
+<span class="n">df_admit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/UCB_admission.csv&quot;</span><span class="p">)</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_admit</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -475,19 +477,17 @@ document.write(`
 <p>Check for missing data, and the types of data we are dealing with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_admit</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">?</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="visualize-the-data">
-<h2><span class="section-number">29.2. </span><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
-<p>Let’s do some exploritory data analysis before build a model.</p>
+<p>Visualize the data</p>
+<p>Let’s do some exploratory data analysis before build a model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot admissions by reported gender</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="err">?</span>
 </pre></div>
 </div>
 </div>
@@ -495,26 +495,28 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot admissions by department</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="err">?</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>What patterns do you see?</p>
+<p>Do these visualizations help you answer if there is systematic bias in acceptance rates by gender?</p>
 </section>
 <section id="preprocessing">
-<h2><span class="section-number">29.3. </span><font color='darkorange'>Preprocessing</font><a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h2>
-<p>We have some categorical variables so let’s do some preprocessing!</p>
+<h2><span class="section-number">29.2. </span><font color='darkorange'>Preprocessing</font><a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h2>
+<p>We have some categorical predictor variables so let’s do some preprocessing!</p>
 <p>Let’s one-hot-encode ‘dept’</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#convert the categorical variable into dummy variables</span>
-<span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;dept&#39;</span><span class="p">])</span>
 
 <span class="c1">#concat the dummy variables back onto the dataframe</span>
-<span class="n">df_admit</span> <span class="o">=</span> <span class="err">?</span><span class="p">([</span><span class="n">df_admit</span><span class="p">,</span> <span class="n">df_cat</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df_admit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_admit</span><span class="p">,</span> <span class="n">df_cat</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#drop the original categorical variable</span>
-<span class="n">df_admit</span> <span class="o">=</span> <span class="err">?</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;dept&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_admit</span> <span class="o">=</span> <span class="n">df_admit</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;dept&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_admit</span>
@@ -522,27 +524,20 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Let’s encode the binary gender column as 0/1</p>
+<p>Let’s encode the binary predictor variable gender as 0/1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
 
 <span class="c1">#build the encoder</span>
-<span class="n">my_gen</span> <span class="o">=</span> <span class="err">?</span><span class="p">()</span>
+<span class="n">my_gen</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 
 <span class="c1">#fit and transform the gender column</span>
-<span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_gen</span><span class="o">.</span><span class="err">?</span><span class="p">(</span><span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;?&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;applicant.gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_gen</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;applicant.gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_admit</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look at the categories</span>
-<span class="n">my_gen</span><span class="o">.</span><span class="n">categories_</span>
+
 </pre></div>
 </div>
 </div>
@@ -550,125 +545,192 @@ document.write(`
 <p>Finally, let’s do a training testing split on the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#split these data into training and testing datasets</span>
-<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_admit</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#split data into predictors (X) and target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_admit</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;admitted&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;admitted&#39;</span><span class="p">]</span>
+
+<span class="c1">#split these data into training and testing datasets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">234</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="build-a-model">
-<h2><span class="section-number">29.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
-<p>Can we predict admision based on reported gender?</p>
-<p align="left">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
-</p><p>Build a linear regression predicting admission using gender.</p>
+<h2><span class="section-number">29.3. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
+<p>Can we predict admission based on reported gender?</p>
+<p>Build a random forest for predicting admission using gender.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span> <span class="c1">#for running regression!</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 
 <span class="c1">#1. Build the model</span>
-<span class="n">m1</span> <span class="o">=</span> <span class="err">?</span><span class="p">(</span><span class="s2">&quot;admitted ~ gender&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="err">?</span><span class="p">)</span>
+<span class="n">forest_classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">243</span><span class="p">)</span>
 
-<span class="c1">#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
-<span class="n">m1_results</span> <span class="o">=</span> <span class="err">?</span><span class="p">()</span>
-
-<span class="c1">#Look summary</span>
-<span class="nb">print</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="c1">#2. Fit the model to the data</span>
+<span class="n">forest_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Gender is very useful in predicting if someone will be admitted!</p>
-<p>Let’s fit the model again, this time add the department</p>
+<p>Let’s see what variables the model learnt were important for predicting if someone will be admitted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Build the model</span>
-<span class="n">m2</span> <span class="o">=</span> <span class="err">?</span><span class="p">(</span><span class="s2">&quot;admitted ~ gender + B + C + D + E + F&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="err">?</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
 
-<span class="c1">#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
-<span class="n">m2_results</span> <span class="o">=</span> <span class="err">?</span><span class="p">()</span>
-
-<span class="c1">#Look summary</span>
-<span class="nb">print</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can see when we account for department in the model the slope for gender get’s close to zero. What is going on here?</p>
-</section>
-<section id="statistical-confounds">
-<h2><span class="section-number">29.5. </span><font color='darkorange'>Statistical confounds</font><a class="headerlink" href="#statistical-confounds" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>Statistical confounds make it hard to determine the causal nature of the patterns we find in ML model results. We need to be careful about how we explain how a model makes predictions and the causal nature of those patterns.</p>
-</div></blockquote>
-<blockquote>
-<div><p>In the case of the admissions and gender, there is a process where genders are not applying to departments in equal measure.</p>
-</div></blockquote>
-<p>That is, the causal relationships that generated this data might look something like:</p>
-<p>Gender –&gt; Department –&gt; Admission</p>
-</section>
-<section id="let-s-see-what-feature-importance-suggests">
-<h2><span class="section-number">29.6. </span><font color='darkorange'>Let’s see what feature importance suggests</font><a class="headerlink" href="#let-s-see-what-feature-importance-suggests" title="Link to this heading">#</a></h2>
-<p align="left">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
-</p><p>Let’s use linear regression from sklearn!</p>
-<p>As it is sklearn let’s define the inputs and outputs explicitly.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
-
-<span class="c1">#split data into predictors (X) and target (y)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df_admit</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;admitted&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df_admit</span><span class="p">[</span><span class="s1">&#39;admitted&#39;</span><span class="p">]</span>
-
-<span class="c1">#split these data into training and testing datasets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Then we can use sklean format to build and fit the model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build the linear regression</span>
-<span class="n">LR1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-
-<span class="c1">#fit the linear regression</span>
-<span class="n">LR1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally let’s use feature importance to see what variables are most useful in making predictions.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#model interpretation</span>
-<span class="n">rel_impo</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">LR1</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span><span class="n">n_repeats</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#model interpretation</span>
+<span class="n">rel_impo</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">forest_classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span><span class="n">n_repeats</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">243</span><span class="p">)</span>
 
 <span class="c1">#build a dataframe to store the results</span>
 <span class="n">df_rel_impo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;feature&quot;</span><span class="p">:</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="s2">&quot;importance&quot;</span><span class="p">:</span><span class="n">rel_impo</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">,</span> <span class="s2">&quot;sd&quot;</span><span class="p">:</span><span class="n">rel_impo</span><span class="o">.</span><span class="n">importances_std</span><span class="p">})</span>
 
 <span class="c1">#take a look</span>
+<span class="n">df_rel_impo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">df_rel_impo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s also plot the permutation feature importance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_rel_impo</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s ask our model to do some counterfactual. These are “what-if” questions that we can use to see what would have happened if an applicant would be admitted base on if they reported a different gender.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create a dataframe for the conterfactual you want to test</span>
+<span class="n">df_question</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;applicant.gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;school_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="c1"># 2. Use the model to get probabilities</span>
+<span class="n">question_pred_proba</span> <span class="o">=</span> <span class="n">forest_classifier</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df_question</span><span class="p">)</span>
+
+<span class="c1"># 3. Wrap into a DataFrame for readability</span>
+<span class="n">proba_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">question_pred_proba</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">forest_classifier</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">proba_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the model telling us when it comes to the impact that gender has on if someone will be admitted to UC Berkeley?</p>
+</section>
+<section id="fit-the-model-again-this-time-with-a-reduced-model">
+<h2><span class="section-number">29.4. </span><font color='darkorange'>Fit the model again, this time with a reduced model</font><a class="headerlink" href="#fit-the-model-again-this-time-with-a-reduced-model" title="Link to this heading">#</a></h2>
+<p>To highlight how our model changes interpretation base on what variables we include, let’s fit the model again… this time without accounting for department.</p>
+<p>Let’s remove department.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#fit a smaller model - remove departments</span>
+<span class="n">X_train_small</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X_test_small</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s fit a new random forest model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Build the model</span>
+<span class="n">forest_classifier_small</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">243</span><span class="p">)</span>
+
+<span class="c1">#2. Fit the model to the data</span>
+<span class="n">forest_classifier_small</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_small</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s calculate permutation feature importance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#model interpretation</span>
+<span class="n">rel_impo_small</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">forest_classifier_small</span><span class="p">,</span> <span class="n">X_test_small</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span><span class="n">n_repeats</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">243</span><span class="p">)</span>
+
+<span class="c1">#build a dataframe to store the results</span>
+<span class="n">df_rel_impo_small</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;feature&quot;</span><span class="p">:</span><span class="n">X_test_small</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="s2">&quot;importance&quot;</span><span class="p">:</span><span class="n">rel_impo_small</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">,</span> <span class="s2">&quot;sd&quot;</span><span class="p">:</span><span class="n">rel_impo_small</span><span class="o">.</span><span class="n">importances_std</span><span class="p">})</span>
+
+<span class="c1">#take a look</span>
+<span class="n">df_rel_impo_small</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df_rel_impo_small</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_rel_impo</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_rel_impo_small</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Then let’s ask the model a counterfactual question about how gender might impact admissions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. dataframe for the scenarios you want to test</span>
+<span class="n">df_question</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;applicant.gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;school_score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># 2. get probabilities</span>
+<span class="n">question_pred_proba</span> <span class="o">=</span> <span class="n">forest_classifier_small</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df_question</span><span class="p">)</span>
+
+<span class="c1"># 3. take a look</span>
+<span class="n">proba_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">question_pred_proba</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">forest_classifier</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">proba_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see that now the model predicts quite a bit of difference. Which one is right?</p>
+<p>The answer is both!</p>
+<p>It’s just that each model is telling us something different. By containing different predictor variables, the models are addressing a different question.</p>
 </section>
-<section id="let-s-see-what-feature-selection-suggests">
-<h2><span class="section-number">29.7. </span><font color='darkorange'>Let’s see what feature selection suggests</font><a class="headerlink" href="#let-s-see-what-feature-selection-suggests" title="Link to this heading">#</a></h2>
-<p>Let’s take some time to introduce how to do feature selection. This is very useful when you are looking to include only the most useful variables to help you make predictions.</p>
-<p>Caution: as we’ve seen above, we need to think about how the data was generated if we want to talk about the results in a causal way. Feature selection is great for creating models for prediction.</p>
+<section id="statistical-confounds">
+<h2><span class="section-number">29.5. </span><font color='darkorange'>Statistical confounds</font><a class="headerlink" href="#statistical-confounds" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Statistical confounds make it hard to determine the causal nature of the patterns we find in ML model results. This is the case with traditional statistical models as well! We need to be careful about how we explain how a model makes predictions and the causal nature of those patterns.</p>
+</div></blockquote>
+<blockquote>
+<div><p>In the case of the admissions and gender, there is a process where genders are not applying to departments in equal measure.</p>
+</div></blockquote>
+<p>That is, the causal relationships that generated this data might look something like:</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/DAG_admission.png" width="600" alt="colab">
+</p><p>The model with all the predictors in, is estimating the bottom line going from Gender to Admission. That is called the “direct effect” of Gender.</p>
+<p>While the model without Department is estimating the lines going from Gender to Department then to Admission, and the line going from Gender to admission. This is called the “total effect” of Gender.</p>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p><p>Try going back and changing/removing the fixed random state, do you get the same answer each time.</p>
+<p>Also, school score is just a random number! I added it in as a way for you to double check if your model is overfitting. See if you can build random forest models that correctly give zero weight to school score, and yet still pull out the impacts of gender and department.</p>
+</section>
+<section id="feature-selection-by-performance">
+<h2><span class="section-number">29.6. </span><font color='darkorange'>Feature selection by performance</font><a class="headerlink" href="#feature-selection-by-performance" title="Link to this heading">#</a></h2>
+<p>What happens if we use recursive feature extraction to automatically choose parameters for us?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">RFECV</span>
@@ -677,67 +739,75 @@ document.write(`
 <span class="n">min_features_to_select</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1">#build the feature selection algorithm</span>
-<span class="n">rfecv</span> <span class="o">=</span> <span class="n">RFECV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">LR1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="n">min_features_to_select</span><span class="p">)</span>
+<span class="n">rfecv</span> <span class="o">=</span> <span class="n">RFECV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">forest_classifier</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="n">min_features_to_select</span><span class="p">)</span>
 
 <span class="c1">#fit the algorithm to the data</span>
 <span class="n">rfecv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>How many features did the feature selection find useful?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimal number of features : </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">n_features_</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s plot out what the feature selection found!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot number of features VS. cross-validation scores</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of features selected&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cross validation score (mean square error?)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">min_features_to_select</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rfecv</span><span class="o">.</span><span class="n">grid_scores_</span><span class="p">)</span> <span class="o">+</span> <span class="n">min_features_to_select</span><span class="p">),</span>
-         <span class="n">rfecv</span><span class="o">.</span><span class="n">grid_scores_</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rfecv</span><span class="o">.</span><span class="n">support_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_reduced</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">rfecv</span><span class="o">.</span><span class="n">support_</span><span class="p">]</span>
 
-<span class="n">X_train_reduced</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimal number of features : </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">n_features_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s take a look at a plot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the slopes!</span>
-<span class="n">rfecv</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Number of features tested</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span>
+    <span class="n">rfecv</span><span class="o">.</span><span class="n">min_features_to_select</span><span class="p">,</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">rfecv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">min_features_to_select</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot the scores</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">rfecv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of features selected&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CV score (mean across folds)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Recursive Feature Elimination with Cross-Validation (RFECV)&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>selected_features = X_train.columns[rfecv.support_]
+print(“Selected features:”, list(selected_features))</p>
+<p>What did the feature selector suggest is the “best” features to include?</p>
+<ul class="simple">
+<li><p>Does this model help you answer the question about if one gender is more likely to be admitted to UC Berkeley?</p></li>
+</ul>
+<section id="bonus">
+<h3><span class="section-number">29.6.1. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p>
+<p>Redo the exercise above this time using decision trees, or linear regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># build </span>
+<span class="n">LR1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># fit</span>
+<span class="n">LR1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="bonus">
-<h2><span class="section-number">29.8. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
-<p>Redo the exercise above this time using a more black box approach, e.g., Random Forest!</p>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">29.9. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">29.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<p>If you would like to know more about causal inference you might like:</p>
+<blockquote>
+<div><p>The book of why (<a class="reference external" href="http://repo.darmajaya.ac.id/4847/1/The%20book%20of%20why_%20the%20new%20science%20of%20cause%20and%20effect%20%28%20PDFDrive%20%29.pdf">link</a>)</p>
+</div></blockquote>
+<blockquote>
+<div><p>Causal Inference and Discovery in Python (<a class="reference external" href="https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python">link</a>)</p>
+</div></blockquote>
 <blockquote>
 <div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroCausalAnalysis_admissions.ipynb">full code</a> version.</p>
 </div></blockquote>
@@ -809,14 +879,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gender-and-university-admissions">29.1. <font color="darkorange">Gender and university admissions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">29.2. <font color="darkorange">Visualize the data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">29.3. <font color="darkorange">Preprocessing</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">29.2. <font color="darkorange">Preprocessing</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.3. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-model-again-this-time-with-a-reduced-model">29.4. <font color="darkorange">Fit the model again, this time with a reduced model</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-confounds">29.5. <font color="darkorange">Statistical confounds</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-what-feature-importance-suggests">29.6. <font color="darkorange">Let’s see what feature importance suggests</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-what-feature-selection-suggests">29.7. <font color="darkorange">Let’s see what feature selection suggests</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">29.8. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">29.9. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-by-performance">29.6. <font color="darkorange">Feature selection by performance</font></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">29.6.1. <font color="darkorange">Bonus</font></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">29.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 
