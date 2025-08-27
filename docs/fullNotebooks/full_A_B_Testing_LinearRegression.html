@@ -57,7 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introComm/A_B_Testing_LinearRegression';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/fullNotebooks/full_A_B_Testing_LinearRegression';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -221,8 +221,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">28. <font color="darkorange">Let’s try to learn from our models</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroCausalAnalysis_admissions.html">29. <font color="darkorange">Explainability vs Causality</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="A_B_Testing.html">30. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">29. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">30. <font color="darkorange">A/B Testing</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">31. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introComm/A_B_Testing_LinearRegression.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/fullNotebooks/full_A_B_Testing_LinearRegression.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
       
       
       
-      <li><a href="../../_sources/docs/introComm/A_B_Testing_LinearRegression.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/fullNotebooks/full_A_B_Testing_LinearRegression.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +424,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data"><font color="darkorange">Wrangle the data</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model"><font color="darkorange">Build a model</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading"><font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -437,9 +436,8 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introComm/A_B_Testing.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/best-mobile-games.jpg" width="500" alt="colab">
-</p><hr class="docutils" />
+<img src='http://drive.google.com/uc?export=view&id=1JqHLLc4CGhWdmUAb0xCn1anYe6Qkl_U_' width=500>
+<hr class="docutils" />
 <section id="a-b-testing">
 <h1><font color='darkorange'>A/B Testing</font><a class="headerlink" href="#a-b-testing" title="Link to this heading">#</a></h1>
 <p>Here we will look at how to collect and analyze data to determine the difference between two groups. The idea here is that if we randomly assign individuals to two groups we end up with comparable groups. If we then measure how these two groups respond to a treatment (e.g., being given game version A vs. game version B) we can better determine the effect of that treatment.</p>
@@ -543,7 +541,7 @@ document.write(`
 <p>How many in each group?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">?</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cats</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +550,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#gate placed at level 30</span>
-<span class="n">df_cats</span><span class="p">[</span><span class="err">?</span><span class="o">==</span><span class="s1">&#39;gate_30&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">retention_7</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_cats</span><span class="p">[</span><span class="n">df_cats</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;gate_30&#39;</span><span class="p">])</span>
+<span class="n">df_cats</span><span class="p">[</span><span class="n">df_cats</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;gate_30&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">retention_7</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_cats</span><span class="p">[</span><span class="n">df_cats</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;gate_30&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -560,7 +558,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#gate placed at level 40</span>
-<span class="err">?</span>
+<span class="n">df_cats</span><span class="p">[</span><span class="n">df_cats</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;gate_40&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">retention_7</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_cats</span><span class="p">[</span><span class="n">df_cats</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;gate_40&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -570,8 +568,9 @@ document.write(`
 <h2><font color='darkorange'>Visualize the data</font><a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the differences between the versions</span>
-<span class="err">?</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot difference between the versions</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_cats</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;version&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;retention_7&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -587,11 +586,17 @@ document.write(`
 <span class="c1">#get the columns names of features you&#39;d like to turn into 0/1</span>
 <span class="n">bin_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;retention_7&#39;</span><span class="p">,</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
 
-<span class="c1">#create the OrdinalEncoder</span>
-<span class="n">my_ordinal</span> <span class="o">=</span> <span class="err">?</span><span class="p">()</span>
+<span class="c1">#create a dataframe of those features</span>
+<span class="n">bin_features</span> <span class="o">=</span> <span class="n">df_cats</span><span class="p">[</span><span class="n">bin_names</span><span class="p">]</span>
 
-<span class="c1">#fit and transform the data</span>
-<span class="n">df_cats</span><span class="p">[</span><span class="n">bin_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_ordinal</span><span class="o">.</span><span class="err">?</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="c1">#fit the scaler to those data</span>
+<span class="n">bin_scaler</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">bin_features</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1">#use the scaler to transform your data</span>
+<span class="n">bin_features</span> <span class="o">=</span> <span class="n">bin_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">bin_features</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1">#put these scaled features back into your transformed features dataframe</span>
+<span class="n">df_cats</span><span class="p">[</span><span class="n">bin_names</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_features</span>
 
 <span class="c1">#take a look</span>
 <span class="n">df_cats</span>
@@ -602,7 +607,7 @@ document.write(`
 <p>Check which version is assigned to which value</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_ordinal</span><span class="o">.</span><span class="n">categories_</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bin_scaler</span><span class="o">.</span><span class="n">categories_</span>
 </pre></div>
 </div>
 </div>
@@ -626,13 +631,13 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 
 <span class="c1">#1. Build the model</span>
-<span class="n">linear_reg_model</span> <span class="o">=</span> <span class="err">?</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;retention_7 ~ version &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="err">?</span><span class="p">)</span>
+<span class="n">linear_reg_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;retention_7 ~ version  &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
 
 <span class="c1">#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
-<span class="n">linear_reg_results</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="err">?</span>
+<span class="n">linear_reg_results</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1">#3. take a look at the summary</span>
-<span class="err">?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linear_reg_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -653,13 +658,13 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 
 <span class="c1">#1. Build the model</span>
-<span class="n">linear_reg_model</span> <span class="o">=</span> <span class="err">?</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;retention_7 ~ version + sum_gamerounds  &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="err">?</span><span class="p">)</span>
+<span class="n">linear_reg_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;retention_7 ~ version + sum_gamerounds  &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">)</span>
 
 <span class="c1">#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
-<span class="n">linear_reg_results</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="err">?</span><span class="p">()</span>
+<span class="n">linear_reg_results</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1">#3. take a look at the summary</span>
-<span class="err">?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linear_reg_results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -679,13 +684,13 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span>
 
 <span class="c1">#predict on testing data</span>
-<span class="n">y_pred_prob</span> <span class="o">=</span> <span class="err">?</span>
+<span class="n">y_pred_prob</span> <span class="o">=</span> <span class="n">linear_reg_results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
 
 <span class="c1">#convert probs to 0/1</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred_prob</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="c1">#create a confusion matrix</span>
-<span class="n">cm_logit</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span> <span class="err">?</span><span class="p">)</span>
+<span class="n">cm_logit</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 
 <span class="c1">#visualize the confusion matrix</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_logit</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -700,13 +705,21 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
 
-<span class="n">model_acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span> <span class="err">?</span><span class="p">)</span>
-<span class="n">model_prec</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
-<span class="n">model_rec</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy &#39;</span><span class="p">,</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision &#39;</span><span class="p">,</span><span class="n">precision_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall &#39;</span><span class="p">,</span><span class="n">recall_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-2d9ef43a93a7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">retention_7</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;accuracy: </span><span class="si">{</span><span class="n">model_acc</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;?: </span><span class="si">{</span><span class="n">model_prec</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;?: </span><span class="si">{</span><span class="err">?</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+<span class="ne">NameError</span>: name &#39;df_test&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -718,17 +731,17 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Create a dataframe</span>
-<span class="n">df_question</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;version&#39;</span><span class="p">:[</span><span class="err">?</span><span class="p">,</span><span class="err">?</span><span class="p">],</span>
-                            <span class="s1">&#39;sum_gamerounds&#39;</span><span class="p">:</span><span class="err">?</span><span class="p">})</span>
+<span class="n">df_question</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;version&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                            <span class="s1">&#39;sum_gamerounds&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">})</span>
                             
 <span class="c1">#2. Use the model to make predictions</span>
-<span class="n">question_pred</span> <span class="o">=</span>  <span class="err">?</span><span class="p">(</span><span class="n">df_question</span><span class="p">)</span>
+<span class="n">question_pred</span> <span class="o">=</span>  <span class="n">linear_reg_results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_question</span><span class="p">)</span>
 
 <span class="c1">#3. add a column to the df_question</span>
 <span class="n">df_question</span><span class="p">[</span><span class="s1">&#39;predicted_retention&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">question_pred</span>
 
 <span class="c1">#4. plot the predictions</span>
-<span class="err">?</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_question</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;version&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;predicted_retention&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -748,10 +761,10 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#what was the intercept and slope of the line your model estimated? </span>
-<span class="n">intercept</span> <span class="o">=</span> <span class="err">?</span>
-<span class="n">b_version</span> <span class="o">=</span> <span class="err">?</span>
-<span class="n">b_sumGame</span> <span class="o">=</span> <span class="err">?</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#what was the intercept and slope of the line your model estimated?</span>
+<span class="n">intercept</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.4523</span>
+<span class="n">b_version</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0802</span>
+<span class="n">b_sumGame</span> <span class="o">=</span> <span class="mf">0.0209</span>
 </pre></div>
 </div>
 </div>
@@ -773,12 +786,6 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="further-reading">
-<h2><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_A_B_Testing.ipynb">full code</a> version.</p>
-</div></blockquote>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -794,7 +801,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./docs/introComm"
+            path: "./docs/fullNotebooks"
         },
         predefinedOutput: true
     }
@@ -832,7 +839,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrangle-the-data"><font color="darkorange">Wrangle the data</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model"><font color="darkorange">Build a model</font></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading"><font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 
