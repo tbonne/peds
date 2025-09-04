@@ -9,6 +9,7 @@ parts:
   - file: docs/IntroPython.ipynb
   - file: docs/IntroNumpy.ipynb
   - file: docs/IntroPython2.ipynb
+  - file: docs/introData/Intro_Git.ipynb
 - caption: Part 2 - Data Wrangling
   numbered: true
   chapters:
@@ -18,7 +19,6 @@ parts:
   - file: docs/introData/IntroData3_MissingData.ipynb
   - file: docs/introData/IntroData4_groupby.ipynb
   - file: docs/introData/IntroData5_CombineData.ipynb
-  - file: docs/introData/Intro_Git.ipynb
 - caption: Part 3 - Exploritory Data Analysis
   numbered: true
   chapters:
@@ -26,6 +26,7 @@ parts:
   - file: docs/introViz/introViz1_histograms.ipynb
   - file: docs/introViz/introViz2_densityPlots.ipynb
   - file: docs/introViz/IntroViz3_scatterplots.ipynb
+  - file: docs/introViz/IntroViz5_geoViz.ipynb
   - file: docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb
   - file: docs/introViz/IntroClustering2_highDimensions.ipynb
   - file: docs/dataChallenges/DataChallenge1.ipynb
