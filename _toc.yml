@@ -26,7 +26,7 @@ parts:
   - file: docs/introViz/introViz1_histograms.ipynb
   - file: docs/introViz/introViz2_densityPlots.ipynb
   - file: docs/introViz/IntroViz3_scatterplots.ipynb
-  - file: docs/introViz/IntroViz5_geoViz.ipynb
+  - file: docs/introViz/IntroViz4_geoViz.ipynb
   - file: docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb
   - file: docs/introViz/IntroClustering2_highDimensions.ipynb
   - file: docs/dataChallenges/DataChallenge1.ipynb

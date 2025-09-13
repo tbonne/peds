@@ -9,10 +9,10 @@ conda activate bookdown
 
 Double check that the notebook as edited in VScode works well in colab (formatting issues sometimes)
 
-2. build book (from one dir above peds)
+2. build book (from inside peds)
 
-jupyter-book clean peds/
-jupyter-book build peds/
+jupyter-book clean .
+jupyter-book build .
 
 3. Git
 stage and commit within the peds folder
