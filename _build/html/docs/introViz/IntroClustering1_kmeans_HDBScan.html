@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -705,11 +705,10 @@ sns.relplot(x=&#39;clusters&#39;, y=&#39;sil&#39;, data=df_sil, kind=&quot;line&
 <section id="hdbscan">
 <h2><span class="section-number">18.6. </span><font color='darkorange'>HDBscan</font><a class="headerlink" href="#hdbscan" title="Link to this heading">#</a></h2>
 <p>Ok let’s see how another algorithm does: hdbscan. This method is newer than k-means and focuses on the finding high density regions surrounded by low density.</p>
-<p>To run this clustering algorithm we need to install another python library. Up until now we’ve been using the libraries on colab, but now we’d like to use one that is not already installed. To do this we install it manually using the !pip command. Then import it just like any other library.</p>
+<p>To run this clustering algorithm we’ll need to import it just like any other library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!pip install hdbscan
-import hdbscan
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import hdbscan
 </pre></div>
 </div>
 </div>
