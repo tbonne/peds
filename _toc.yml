@@ -29,6 +29,7 @@ parts:
   - file: docs/introViz/IntroViz4_geoViz.ipynb
   - file: docs/introViz/IntroClustering1_kmeans_HDBScan.ipynb
   - file: docs/introViz/IntroClustering2_highDimensions.ipynb
+  - file: docs/introViz/IntroClustering3_application.ipynb
   - file: docs/dataChallenges/DataChallenge1.ipynb
   - file: docs/Projects/Project1_ExploritoryDataAnalysis.ipynb
 - caption: Part 4 - Building models

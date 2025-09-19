@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. Clustering in higher dimensions &#8212; Practical exercises in data science - PEDS</title>
+    <title>20. Credit card usage &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introViz/IntroClustering2_highDimensions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introViz/IntroClustering3_application';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Credit card usage" href="IntroClustering3_application.html" />
-    <link rel="prev" title="18. Clustering algorithms" href="IntroClustering1_kmeans_HDBScan.html" />
+    <link rel="next" title="21. Class Data Challenge 1" href="../dataChallenges/DataChallenge1.html" />
+    <link rel="prev" title="19. Clustering in higher dimensions" href="IntroClustering2_highDimensions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,8 +205,8 @@
 <li class="toctree-l1"><a class="reference internal" href="IntroViz3_scatterplots.html">16. <font color="darkorange">Scatter plots</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroViz4_geoViz.html">17. <font color="darkorange">Geo-Visualization</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="IntroClustering3_application.html">20. <font color="lightblue">Credit card usage</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. <font color="lightblue">Credit card usage</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">21. <font color="darkorange">Class Data Challenge 1</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">22. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
@@ -297,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introViz/IntroClustering2_highDimensions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introViz/IntroClustering3_application.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +327,7 @@
       
       
       
-      <li><a href="../../_sources/docs/introViz/IntroClustering2_highDimensions.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/introViz/IntroClustering3_application.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><font color='darkorange'>Clustering in higher dimensions</font></h1>
+    <h1><font color='lightblue'>Credit card usage</font></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,11 +421,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-data">19.1. <font color="darkorange">Simulating data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">19.2. <font color="darkorange">Visualizing in 3D</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-with-many-dimensions">19.3. <font color="darkorange">Clustering with many dimensions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">19.4. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">19.5. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="lightblue">Load data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="lightblue">Visualizing in 3D</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="lightblue">PCA Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="lightblue">Cluster on reduced dimentions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="lightblue">PaCMAP Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="lightblue">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="lightblue">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -437,14 +439,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroClustering2_highDimensions.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/Clusters.png" width="500" alt="colab">
-</p>
-<hr class="docutils" />
-<section id="clustering-in-higher-dimensions">
-<h1><span class="section-number">19. </span><font color='darkorange'>Clustering in higher dimensions</font><a class="headerlink" href="#clustering-in-higher-dimensions" title="Link to this heading">#</a></h1>
-<p>In this exercise we will look at adding an extra dimension to our points. We’ll look at how changing the problem from 2D to 3D can cause challenges.</p>
+  <img src='http://drive.google.com/uc?export=view&id=1vIqiOO8nF8qtVvwkcLA_bx3vRmkzXZSO' width=500>
+<section class="tex2jax_ignore mathjax_ignore" id="credit-card-usage">
+<h1><span class="section-number">20. </span><font color='lightblue'>Credit card usage</font><a class="headerlink" href="#credit-card-usage" title="Link to this heading">#</a></h1>
+<p>In this exercise we will look at how to use our new found clustering skills with real data. We’ll look for clusters of credic card users and see if we can identify different classes of users.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -452,197 +450,250 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">cluster</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="simulating-data">
-<h2><span class="section-number">19.1. </span><font color='darkorange'>Simulating data</font><a class="headerlink" href="#simulating-data" title="Link to this heading">#</a></h2>
+<section id="load-data">
+<h2><span class="section-number">20.1. </span><font color='lightblue'>Load data</font><a class="headerlink" href="#load-data" title="Link to this heading">#</a></h2>
 <p>Let’s simulate some data where we know how many clusters there are. This time we’ll add an extra dimension.</p>
 <blockquote>
 <div><p>i.e., let’s create 1000 points and set them to class 1. Each point will get a random x, y, and z coordinate.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#simulate some random values</span>
-<span class="n">array_class1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;z&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/CC GENERAL.csv&quot;</span><span class="p">)</span>
 
-<span class="c1">#put them in a dataframe</span>
-<span class="n">df_class1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">array_class1</span><span class="p">)</span>
-
-<span class="c1">#plot it</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">df_cc</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Because the cluster is more than 2 dimensions it is hard to visualize with a scatterplot. Let’s look at the cluster from the x and z dimension.</p>
+<p>Check for and handle missing values. Also remove the CUST_ID column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">??</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Create another set of 1000 points and assign them to class 2. Then we’ll add the two sets of points together by using <strong>concat</strong>:</p>
+<p>Descibe the data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate some random values</span>
-<span class="n">array_class2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;z&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
-                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-
-<span class="c1">#put them in a dataframe</span>
-<span class="n">df_class2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">array_class2</span><span class="p">)</span>
-
-<span class="c1">#bind the two dataframes together by rows</span>
-<span class="n">df_class</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_class1</span><span class="p">,</span><span class="n">df_class2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#axis=0 just says to bind by rows, axis=1 would be by columns </span>
-
-<span class="c1">#plot it</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">??</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="visualizing-in-3d">
-<h2><span class="section-number">19.2. </span><font color='darkorange'>Visualizing in 3D</font><a class="headerlink" href="#visualizing-in-3d" title="Link to this heading">#</a></h2>
-<p>Let’s learn how to visualize data in 3D! We’ll use <strong>plotly</strong> as it is easy to use and gives us a great interactive plot to use!</p>
+<h2><span class="section-number">20.2. </span><font color='lightblue'>Visualizing in 3D</font><a class="headerlink" href="#visualizing-in-3d" title="Link to this heading">#</a></h2>
+<p>Plot the credit card data in a few different ways. What can you learn about the data?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#import plotly</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
 
-<span class="c1">#build a figure with three axis</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
+<span class="c1">#build a figure </span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="err">?</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Try a heat map? Any strong correlations?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">??</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="clustering-with-many-dimensions">
-<h2><span class="section-number">19.3. </span><font color='darkorange'>Clustering with many dimensions</font><a class="headerlink" href="#clustering-with-many-dimensions" title="Link to this heading">#</a></h2>
-<p>Let’s try out the clustering in higher dimensions using k-means.</p>
+<section id="pca-dimension-reduction">
+<h2><span class="section-number">20.3. </span><font color='lightblue'>PCA Dimension reduction</font><a class="headerlink" href="#pca-dimension-reduction" title="Link to this heading">#</a></h2>
+<p>Sometimes we want to work with a reduced dimension dataset. In these cases we can use different methods, let’s lean how to use principal component analysis (PCA).</p>
 <blockquote>
-<div><p>The approach we use will work the same for HDBScan and many of the other clustering algorithm.</p>
+<div><p>This approach will create orthogonal axis that capture the maximum variance in the data.</p>
 </div></blockquote>
-<p><strong>First</strong> let’s build the machine learning algorithm that we will use (i.e., k-means)</p>
+<p>First when doing a PCA or dimensional reduction it’s generally a good idea to scale all numeric values so that distance is the same/similar across features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#initialize the kmeans algorithm</span>
-<span class="n">clus_kmeans</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#how many clusters are there?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Second</strong> let’s fit the model using data</p>
-<blockquote>
-<div><p>This is the only difference: we need to make sure we pass all the dimensions when fitting the algorithm</p>
-</div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#fit the model</span>
-<span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]]</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Third</strong>, now that the model is built and fit to data we can use it to make predictions!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#make some predictions</span>
-<span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clus_kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]]</span> <span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
-<span class="c1">#take a look</span>
-<span class="n">df_class</span>
+<span class="c1"># build the scaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Fit and use the scaler to transform our data</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_cc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Similarly, when measuring the performance of the algorithm we need to include all dimension when making predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sk</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">df_class</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]],</span><span class="n">labels</span><span class="o">=</span><span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in the PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="c1"># Create the PCA algorithm</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Fit the PCA algorithm and use it to transform our data</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">X_pca</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s plot those predictions in 3D</p>
+<p>Let’s see how much of the variance in the data can be explained by the first two principal components.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build a figure with three axis</span>
-<span class="n">fig_pred</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pred_kmeans&#39;</span><span class="p">)</span>
-<span class="n">fig_pred</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># explained variance of each component</span>
+<span class="n">explained_var</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Explained variance ratio:&quot;</span><span class="p">,</span> <span class="n">explained_var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s take a look at what the PCA did.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert it to a dataframe</span>
+<span class="n">pca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
+
+<span class="c1"># Plot it</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span> <span class="n">data</span><span class="o">=</span><span class="n">pca_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Credit Card Data Projected onto First 2 Principal Components&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PC1 (</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% var)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PC2 (</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% var)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cluster-on-reduced-dimentions">
+<h2><span class="section-number">20.4. </span><font color='lightblue'>Cluster on reduced dimentions</font><a class="headerlink" href="#cluster-on-reduced-dimentions" title="Link to this heading">#</a></h2>
+<p>Next let’s cluster on this reduced space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="c1"># Create the algorithm</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Fit the algorithm to the data</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+
+<span class="c1"># Plot the clusters</span>
+<span class="n">pca_df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pca_df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;K-Means Clusters in PCA Space&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What do these clusters look like on the original data? Let’s do some summary statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># merge the cluster data back to the original data</span>
+<span class="n">df_cc_k</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_cc</span><span class="p">,</span> <span class="n">pca_df</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s look at the means within each cluster</span>
+<span class="n">df_cc_k</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pacmap-dimension-reduction">
+<h2><span class="section-number">20.5. </span><font color='lightblue'>PaCMAP Dimension reduction</font><a class="headerlink" href="#pacmap-dimension-reduction" title="Link to this heading">#</a></h2>
+<p>Let’s do the steps above again, this time with PaCMAP.</p>
+<blockquote>
+<div><p>n_neighbors (size of local neighborhood)</p>
+</div></blockquote>
+<blockquote>
+<div><p>n_components (how many dimensions to keep)</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the library</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pacmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pacmap</span>
+
+<span class="c1"># Create the PaCMAP algorithm</span>
+<span class="n">embedding</span> <span class="o">=</span> <span class="n">pacmap</span><span class="o">.</span><span class="n">PaCMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">192</span><span class="p">)</span>
+
+<span class="c1"># Fit the PaCMAP algorithm to the data and use it to transform the data</span>
+<span class="n">X_pacmap</span> <span class="o">=</span> <span class="n">embedding</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the data in it’s reduced dimensions. What do you find?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pacmap</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pacmap</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PaCMAP Embedding&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PaCMAP1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PaCMAP2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve reduced the dimensions and we can visualize the data in 2d, let’s see how it clusters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the clustering algorithm</span>
+<span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># fit the clustering algorithm to the reduced data</span>
+<span class="n">labels_km</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_pacmap</span><span class="p">)</span>
+
+<span class="c1">#create a scaterplot with points labeled by cluster</span>
+<span class="n">emb_km</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_pacmap</span><span class="p">)</span>
+<span class="n">emb_km</span><span class="p">[</span><span class="s2">&quot;Cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels_km</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">emb_km</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">emb_km</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">emb_km</span><span class="p">[</span><span class="s2">&quot;Cluster&quot;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;k-means Clusters on UMAP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP1&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;UMAP2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve identified clusters let’s summarize their properties back on the original scale.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cc_umap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_cc</span><span class="p">,</span> <span class="n">emb_km</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_cc_umap</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  
+<p>Try to again cluster the above dataset, this time using the HDBScan algorithm.</p>
 </section>
 <section id="bonus">
-<h2><span class="section-number">19.4. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
-<p>Try to again cluster the above dataset, this time using the HDBScan algorithm.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">hdbscan</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#initalize the kmeans algorithm (hyperparameter - choose minimum cluster size)</span>
-<span class="n">clus_hdbscan</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span> <span class="o">=</span> <span class="err">?</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<p>Second fit the ml algorithm to the data</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#fit the model</span>
-<span class="n">clus_hdbscan</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_class</span><span class="p">[[</span><span class="s1">&#39;?&#39;</span><span class="p">,</span><span class="s1">&#39;?&#39;</span><span class="p">,</span><span class="s1">&#39;?&#39;</span><span class="p">]]</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Third use the ml algorithm to make some predictions</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#make some predictions</span>
-<span class="n">df_class</span><span class="p">[</span><span class="s1">&#39;pred_khdbscan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clus_hdbscan</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="err">?</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#build a figure with three axis</span>
-<span class="n">fig_Hpred</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span><span class="n">df_class</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">)</span>
-<span class="n">fig_Hpred</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>How well does the HDBScan algorithm do, and does this change with your choice of min cluster size? How do the results differ from KMeans?</p>
+<h2><span class="section-number">20.6. </span><font color='lightblue'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
+<img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Try to cluster again but this time don’t reduce the dimensions when clustering and see how our results differ!</p>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">19.5. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://plotly.com/python/plotly-fundamentals/">Plotly tutorials</a></p>
-<blockquote>
-<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroClustering2_highDimensions.ipynb">full code</a> version.</p>
-</div></blockquote>
+<h2><span class="section-number">20.7. </span><font color='lightblue'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/YingfanWang/PaCMAP">PaCMAP documentation</a></p>
 </section>
 </section>
 
@@ -677,20 +728,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="IntroClustering1_kmeans_HDBScan.html"
+       href="IntroClustering2_highDimensions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span><font color='darkorange'>Clustering algorithms</font></p>
+        <p class="prev-next-title"><span class="section-number">19. </span><font color='darkorange'>Clustering in higher dimensions</font></p>
       </div>
     </a>
     <a class="right-next"
-       href="IntroClustering3_application.html"
+       href="../dataChallenges/DataChallenge1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">20. </span><font color='lightblue'>Credit card usage</font></p>
+        <p class="prev-next-title"><span class="section-number">21. </span><font color='darkorange'>Class Data Challenge 1</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -710,11 +761,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-data">19.1. <font color="darkorange">Simulating data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">19.2. <font color="darkorange">Visualizing in 3D</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-with-many-dimensions">19.3. <font color="darkorange">Clustering with many dimensions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">19.4. <font color="darkorange">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">19.5. <font color="darkorange">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="lightblue">Load data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="lightblue">Visualizing in 3D</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="lightblue">PCA Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="lightblue">Cluster on reduced dimentions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="lightblue">PaCMAP Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="lightblue">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="lightblue">Further reading</font></a></li>
 </ul>
   </nav></div>
 
