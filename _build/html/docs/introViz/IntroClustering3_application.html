@@ -206,7 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="IntroViz4_geoViz.html">17. <font color="darkorange">Geo-Visualization</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. <font color="lightblue">Credit card usage</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. <font color="darkorange">Credit card usage</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">21. <font color="darkorange">Class Data Challenge 1</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">22. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
 </ul>
@@ -411,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><font color='lightblue'>Credit card usage</font></h1>
+    <h1><font color='darkorange'>Credit card usage</font></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,13 +421,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="lightblue">Load data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="lightblue">Visualizing in 3D</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="lightblue">PCA Dimension reduction</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="lightblue">Cluster on reduced dimentions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="lightblue">PaCMAP Dimension reduction</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="lightblue">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="lightblue">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="darkorange">Load data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="darkorange">Visualizing in 3D</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="darkorange">PCA Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="darkorange">Cluster on reduced dimentions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="darkorange">PaCMAP Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
             </nav>
         </div>
@@ -439,9 +439,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <img src='http://drive.google.com/uc?export=view&id=1vIqiOO8nF8qtVvwkcLA_bx3vRmkzXZSO' width=500>
-<section class="tex2jax_ignore mathjax_ignore" id="credit-card-usage">
-<h1><span class="section-number">20. </span><font color='lightblue'>Credit card usage</font><a class="headerlink" href="#credit-card-usage" title="Link to this heading">#</a></h1>
+  <p><a href="https://colab.research.google.com/github/tbonne/IntroDataScience/blob/main/InClassNotebooks/IntroClustering3_application.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/credit_card.png" width="300" alt="colab">
+</p><section class="tex2jax_ignore mathjax_ignore" id="credit-card-usage">
+<h1><span class="section-number">20. </span><font color='darkorange'>Credit card usage</font><a class="headerlink" href="#credit-card-usage" title="Link to this heading">#</a></h1>
 <p>In this exercise we will look at how to use our new found clustering skills with real data. We’ll look for clusters of credic card users and see if we can identify different classes of users.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -456,7 +458,7 @@ document.write(`
 </div>
 </div>
 <section id="load-data">
-<h2><span class="section-number">20.1. </span><font color='lightblue'>Load data</font><a class="headerlink" href="#load-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span><font color='darkorange'>Load data</font><a class="headerlink" href="#load-data" title="Link to this heading">#</a></h2>
 <p>Let’s simulate some data where we know how many clusters there are. This time we’ll add an extra dimension.</p>
 <blockquote>
 <div><p>i.e., let’s create 1000 points and set them to class 1. Each point will get a random x, y, and z coordinate.</p>
@@ -488,7 +490,7 @@ document.write(`
 </div>
 </section>
 <section id="visualizing-in-3d">
-<h2><span class="section-number">20.2. </span><font color='lightblue'>Visualizing in 3D</font><a class="headerlink" href="#visualizing-in-3d" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span><font color='darkorange'>Visualizing in 3D</font><a class="headerlink" href="#visualizing-in-3d" title="Link to this heading">#</a></h2>
 <p>Plot the credit card data in a few different ways. What can you learn about the data?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,7 +514,7 @@ document.write(`
 </div>
 </section>
 <section id="pca-dimension-reduction">
-<h2><span class="section-number">20.3. </span><font color='lightblue'>PCA Dimension reduction</font><a class="headerlink" href="#pca-dimension-reduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span><font color='darkorange'>PCA Dimension reduction</font><a class="headerlink" href="#pca-dimension-reduction" title="Link to this heading">#</a></h2>
 <p>Sometimes we want to work with a reduced dimension dataset. In these cases we can use different methods, let’s lean how to use principal component analysis (PCA).</p>
 <blockquote>
 <div><p>This approach will create orthogonal axis that capture the maximum variance in the data.</p>
@@ -576,7 +578,7 @@ document.write(`
 </div>
 </section>
 <section id="cluster-on-reduced-dimentions">
-<h2><span class="section-number">20.4. </span><font color='lightblue'>Cluster on reduced dimentions</font><a class="headerlink" href="#cluster-on-reduced-dimentions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span><font color='darkorange'>Cluster on reduced dimentions</font><a class="headerlink" href="#cluster-on-reduced-dimentions" title="Link to this heading">#</a></h2>
 <p>Next let’s cluster on this reduced space.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -611,7 +613,7 @@ document.write(`
 </div>
 </section>
 <section id="pacmap-dimension-reduction">
-<h2><span class="section-number">20.5. </span><font color='lightblue'>PaCMAP Dimension reduction</font><a class="headerlink" href="#pacmap-dimension-reduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span><font color='darkorange'>PaCMAP Dimension reduction</font><a class="headerlink" href="#pacmap-dimension-reduction" title="Link to this heading">#</a></h2>
 <p>Let’s do the steps above again, this time with PaCMAP.</p>
 <blockquote>
 <div><p>n_neighbors (size of local neighborhood)</p>
@@ -688,11 +690,11 @@ document.write(`
 <p>Try to again cluster the above dataset, this time using the HDBScan algorithm.</p>
 </section>
 <section id="bonus">
-<h2><span class="section-number">20.6. </span><font color='lightblue'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span><font color='darkorange'>Bonus</font><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h2>
 <img src='http://drive.google.com/uc?export=view&id=1WC4tXGCEF-1_2LQ74gIxJAZ-GLXCwBdK' width="100" align = 'left'>  <p>Try to cluster again but this time don’t reduce the dimensions when clustering and see how our results differ!</p>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">20.7. </span><font color='lightblue'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://github.com/YingfanWang/PaCMAP">PaCMAP documentation</a></p>
 </section>
 </section>
@@ -761,13 +763,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="lightblue">Load data</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="lightblue">Visualizing in 3D</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="lightblue">PCA Dimension reduction</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="lightblue">Cluster on reduced dimentions</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="lightblue">PaCMAP Dimension reduction</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="lightblue">Bonus</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="lightblue">Further reading</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">20.1. <font color="darkorange">Load data</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-in-3d">20.2. <font color="darkorange">Visualizing in 3D</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-dimension-reduction">20.3. <font color="darkorange">PCA Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-on-reduced-dimentions">20.4. <font color="darkorange">Cluster on reduced dimentions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pacmap-dimension-reduction">20.5. <font color="darkorange">PaCMAP Dimension reduction</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus">20.6. <font color="darkorange">Bonus</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">20.7. <font color="darkorange">Further reading</font></a></li>
 </ul>
   </nav></div>
 
