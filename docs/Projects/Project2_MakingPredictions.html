@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>29. Project 2 - Making Predictions &#8212; Practical exercises in data science - PEDS</title>
+    <title>30. Project 2 - Making Predictions &#8212; Practical exercises in data science - PEDS</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/Projects/Project2_MakingPredictions';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="30. Let’s try to learn from our models" href="../IntroComm.html" />
-    <link rel="prev" title="28. Class Data Challenge II" href="../dataChallenges/DataChallenge2.html" />
+    <link rel="next" title="31. Let’s try to learn from our models" href="../IntroComm.html" />
+    <link rel="prev" title="29. Class Data Challenge IIb" href="../dataChallenges/DataChallenge2_b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,14 +218,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">26. <font color="darkorange">Decision trees</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">27. <font color="darkorange">Random forests</font></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">28. <font color="darkorange">Class Data Challenge II</font></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">29. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2_b.html">29. <font color="darkorange">Class Data Challenge IIb</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">30. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">30. <font color="darkorange">Let’s try to learn from our models</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">31. <font color="darkorange">Explainability vs Causality</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">32. <font color="darkorange">A/B Testing</font></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Project3_AnsweringQuestions.html">33. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">31. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">32. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">33. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project3_AnsweringQuestions.html">34. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
 </ul>
 
     </div>
@@ -421,12 +422,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">29.1. <font color="darkorange">Data Understanding </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">29.2. <font color="darkorange">Data Exploration and Visualization </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">29.3. <font color="darkorange">Data preprocessing </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.4. <font color="darkorange">Build a model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-performance">29.5. <font color="darkorange">Measure performance</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-and-interpretation">29.6. <font color="darkorange">Discussion and interpretation</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">30.1. <font color="darkorange">Data Understanding </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">30.2. <font color="darkorange">Data Exploration and Visualization </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">30.3. <font color="darkorange">Data preprocessing </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">30.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-performance">30.5. <font color="darkorange">Measure performance</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-and-interpretation">30.6. <font color="darkorange">Discussion and interpretation</font></a></li>
 </ul>
             </nav>
         </div>
@@ -442,7 +443,7 @@ document.write(`
 <p align="center">
   <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/target_arrow.png" width="500" alt="colab">
 </p><section id="project-2-making-predictions">
-<h1><span class="section-number">29. </span><font color='darkorange'>Project 2 - Making Predictions</font><a class="headerlink" href="#project-2-making-predictions" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">30. </span><font color='darkorange'>Project 2 - Making Predictions</font><a class="headerlink" href="#project-2-making-predictions" title="Link to this heading">#</a></h1>
 <p>In this project you will build a model to make predictions. This project will build on your exploratory data analytic (EDA) skills. You may choose to use the datasets you used with project 1 or move to another dataset.</p>
 <p>In this project you will:</p>
 <ol class="arabic simple">
@@ -455,32 +456,32 @@ document.write(`
 </ol>
 <p><strong>Action:</strong> Import python libraries</p>
 <section id="data-understanding">
-<h2><span class="section-number">29.1. </span><font color='darkorange'>Data Understanding </font><a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.1. </span><font color='darkorange'>Data Understanding </font><a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h2>
 <p><strong>Action:</strong> Import your data into colaboratory.</p>
 <p><strong>Action:</strong> Determine the types of data are you dealing with &amp; handle missing data (if there is any!). <em>Marks (0.5)</em></p>
 <p><strong>Action:</strong> Estimate the summary statistics of some of the key variables. <em>Marks (0.5)</em></p>
 </section>
 <section id="data-exploration-and-visualization">
-<h2><span class="section-number">29.2. </span><font color='darkorange'>Data Exploration and Visualization </font><a class="headerlink" href="#data-exploration-and-visualization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.2. </span><font color='darkorange'>Data Exploration and Visualization </font><a class="headerlink" href="#data-exploration-and-visualization" title="Link to this heading">#</a></h2>
 <p><strong>Action:</strong> Visualize 1- the distribution of values for some key variables, and 2- the relationships between key variables. Remember to add text that walks a reader through what you found. <em>Marks: 2</em></p>
 <p><strong>Action:</strong> Use correlation to estimate the relationship between some of the key variables. Remember to add text that helps a reader interpret the correlations. <em>Marks: 1</em></p>
 </section>
 <section id="data-preprocessing">
-<h2><span class="section-number">29.3. </span><font color='darkorange'>Data preprocessing </font><a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.3. </span><font color='darkorange'>Data preprocessing </font><a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h2>
 <p><strong>Action:</strong> Do you need to apply any preprocessing steps? E.g., convert a binary variable to 1/0, or use one-hot encoding to convert categorical variables? Apply at least one preprocessing step, and explain why you used it. <em>Marks: 2</em></p>
 <p><strong>Action:</strong> Split your data into training and testing datasets <em>Marks: 1</em></p>
 <p><strong>Action: (optional)</strong> Scale any numeric variables. If you have no binary or categorical variables that need transforming, scaling will count towards your marks for your preprocessing step.</p>
 </section>
 <section id="build-a-model">
-<h2><span class="section-number">29.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.4. </span><font color='darkorange'>Build a model</font><a class="headerlink" href="#build-a-model" title="Link to this heading">#</a></h2>
 <p><strong>Action:</strong> Use your training dataset to build a model with the goal of predicting a target variable. <em>Marks: 2</em></p>
 </section>
 <section id="measure-performance">
-<h2><span class="section-number">29.5. </span><font color='darkorange'>Measure performance</font><a class="headerlink" href="#measure-performance" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.5. </span><font color='darkorange'>Measure performance</font><a class="headerlink" href="#measure-performance" title="Link to this heading">#</a></h2>
 <p><strong>Action:</strong> Use your testing dataset to estimate the performance of your model. Add text describing what kind of measure you used. <em>Marks: 2</em></p>
 </section>
 <section id="discussion-and-interpretation">
-<h2><span class="section-number">29.6. </span><font color='darkorange'>Discussion and interpretation</font><a class="headerlink" href="#discussion-and-interpretation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">30.6. </span><font color='darkorange'>Discussion and interpretation</font><a class="headerlink" href="#discussion-and-interpretation" title="Link to this heading">#</a></h2>
 <p><strong>Q1:</strong></p>
 <blockquote>
 <div><p>What have you learnt about the ability to model and predict your variable of interest? <em>Marks: 1</em></p>
@@ -525,12 +526,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../dataChallenges/DataChallenge2.html"
+       href="../dataChallenges/DataChallenge2_b.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">28. </span><font color="darkorange">Class Data Challenge II</font></p>
+        <p class="prev-next-title"><span class="section-number">29. </span><font color="darkorange">Class Data Challenge IIb</font></p>
       </div>
     </a>
     <a class="right-next"
@@ -538,7 +539,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">30. </span><font color="darkorange">Let’s try to learn from our models</font></p>
+        <p class="prev-next-title"><span class="section-number">31. </span><font color="darkorange">Let’s try to learn from our models</font></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,12 +559,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">29.1. <font color="darkorange">Data Understanding </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">29.2. <font color="darkorange">Data Exploration and Visualization </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">29.3. <font color="darkorange">Data preprocessing </font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">29.4. <font color="darkorange">Build a model</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-performance">29.5. <font color="darkorange">Measure performance</font></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-and-interpretation">29.6. <font color="darkorange">Discussion and interpretation</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">30.1. <font color="darkorange">Data Understanding </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-exploration-and-visualization">30.2. <font color="darkorange">Data Exploration and Visualization </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">30.3. <font color="darkorange">Data preprocessing </font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-a-model">30.4. <font color="darkorange">Build a model</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measure-performance">30.5. <font color="darkorange">Measure performance</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-and-interpretation">30.6. <font color="darkorange">Discussion and interpretation</font></a></li>
 </ul>
   </nav></div>
 
