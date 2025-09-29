@@ -41,6 +41,7 @@ parts:
   - file: docs/introModeling/IntroModeling3_decisionTrees.ipynb
   - file: docs/introModeling/Intro_RandomForest.ipynb
   - file: docs/dataChallenges/DataChallenge2.ipynb
+  - file: docs/dataChallenges/DataChallenge2_b.ipynb
   - file: docs/Projects/Project2_MakingPredictions.ipynb
 - caption: Part 5 - Interpreting and communicating models
   numbered: true

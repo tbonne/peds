@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8. Introduction to DataFrames &#8212; Practical exercises in data science - PEDS</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introData/IntroData1_DataFrames';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. Using existing data" href="IntroData2_LoadingData.html" />
+    <link rel="prev" title="7. Working with data" href="../IntroDataFrames.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/runners_logo.png" class="logo__image only-light" alt="Practical exercises in data science - PEDS - Home"/>
+    <script>document.write(`<img src="../../_static/runners_logo.png" class="logo__image only-dark" alt="Practical exercises in data science - PEDS - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction to PEDS
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1 - Coding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IntroColab.html">1. <font color="darkorange">Let’s start coding</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNotebooks.html">2. <font color="darkorange">Colaboratory notebooks!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython.html">3. <font color="darkorange">Short introduction to Python</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroNumpy.html">4. <font color="darkorange">Introduction to Numpy</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroPython2.html">5. <font color="darkorange">Control Structures</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro_Git.html">6. <font color="darkorange">Introduction to Git</font></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2 - Data Wrangling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IntroDataFrames.html">7. <font color="darkorange">Working with data</font></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. <font color="darkorange">Introduction to DataFrames</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData2_LoadingData.html">9. <font color="darkorange">Using existing data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData3_MissingData.html">10. <font color="darkorange">Missing Data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData4_groupby.html">11. <font color="darkorange">Grouping data</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntroData5_CombineData.html">12. <font color="darkorange">Combining data</font></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 3 - Exploritory Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IntroViz.html">13. <font color="darkorange">Let’s start exploring</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz1_histograms.html">14. <font color="darkorange">Summary statistics and histograms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/introViz2_densityPlots.html">15. <font color="darkorange">Density plots and normal distributions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz3_scatterplots.html">16. <font color="darkorange">Scatter plots</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroViz4_geoViz.html">17. <font color="darkorange">Geo-Visualization</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering1_kmeans_HDBScan.html">18. <font color="darkorange">Clustering algorithms</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering2_highDimensions.html">19. <font color="darkorange">Clustering in higher dimensions</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introViz/IntroClustering3_application.html">20. <font color="darkorange">Applied clustering</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge1.html">21. <font color="darkorange">Class Data Challenge 1</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project1_ExploritoryDataAnalysis.html">22. <font color="darkorange">Project 1 - Exploratory Data Analysis</font></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 4 - Building models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IntroModeling.html">23. <font color="darkorange">Let’s build some models!</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling1_LinearReg.html">24. <font color="darkorange">Linear regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModelling_LogisticReg.html">25. <font color="darkorange">Logistic regression</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/IntroModeling3_decisionTrees.html">26. <font color="darkorange">Decision trees</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introModeling/Intro_RandomForest.html">27. <font color="darkorange">Random forests</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2.html">28. <font color="darkorange">Class Data Challenge II</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataChallenges/DataChallenge2_b.html">29. <font color="darkorange">Class Data Challenge IIb</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project2_MakingPredictions.html">30. <font color="darkorange">Project 2 - Making Predictions</font></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 5 - Interpreting and communicating models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IntroComm.html">31. <font color="darkorange">Let’s try to learn from our models</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/IntroCausalAnalysis_admissions.html">32. <font color="darkorange">Explainability vs Causality</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introComm/A_B_Testing.html">33. <font color="darkorange">A/B Testing</font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projects/Project3_AnsweringQuestions.html">34. <font color="darkorange">Project 3 - Answering Questions</font></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/introData/IntroData1_DataFrames.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/introData/IntroData1_DataFrames.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><font color='darkorange'>Introduction to DataFrames</font></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">8.1. <font color="darkorange">Creating DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">8.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">8.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">8.4. <font color="darkorange">Creating new variables</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">8.5. <font color="darkorange">Filtering DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">8.6. <font color="darkorange">Dataframe functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">8.7. <font color="darkorange">Further reading</font></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/introData/IntroData1_DataFrames.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/pandas_logo2.jpeg" width="500" alt="colab">
+</p><hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-dataframes">
+<h1><span class="section-number">8. </span><font color='darkorange'>Introduction to DataFrames</font><a class="headerlink" href="#introduction-to-dataframes" title="Link to this heading">#</a></h1>
+<p>In this exercise we will introduce <strong>dataframes</strong> which are objects in python that we will work a lot with in this class. These <strong>dataframes</strong> will be how we work with data, and get the data ready for visualizing and modeling.</p>
+<p>Outline:</p>
+<ul class="simple">
+<li><p>Creating dataframes</p></li>
+<li><p>Selecting from DataFrames</p></li>
+<li><p>Creating new columns</p></li>
+<li><p>Filtering rows</p></li>
+<li><p>DataFrame functions</p></li>
+</ul>
+<p>We’ll be using the <strong>Pandas</strong> library to do most of this work. Let’s take a look at how to create and modify dataframes using <strong>Pandas</strong>!</p>
+<section id="creating-dataframes">
+<h2><span class="section-number">8.1. </span><font color='darkorange'>Creating DataFrames</font><a class="headerlink" href="#creating-dataframes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#import python libraries that we will use
+import numpy as np
+import pandas as pd
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a dataframe from scratch</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+## create a dictionary
+d = {&#39;A&#39;:[1,2,3,4], &#39;B&#39;:[5,6,7,8] }
+
+## convert the dictionary to a dataframe
+df_test = pd.DataFrame(data=d)
+
+#take a look at the dataframe
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add a column to the data frame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#add list of names
+df_test[&#39;ID&#39;] = [&#39;Steve&#39;,&#39;Sarojini&#39;,&#39;Emil&#39;,&#39;Sarah&#39;]
+
+#add country
+df_test[&#39;country&#39;] = &#39;Canada&#39;
+
+#take a look (notice how it filled in the country!)
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+<p>All dataframes also have an index, which keeps track of what data is in each row/column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#index of the rows
+df_test.index
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#index of the columns
+df_test.columns
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-from-a-dataframe">
+<h2><span class="section-number">8.2. </span><font color='darkorange'>Selecting from a Dataframe</font><a class="headerlink" href="#selecting-from-a-dataframe" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#take a look at the full dataframe
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#grab the A column
+df_test[&#39;A&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#or similarly grab the A column
+df_test.A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#grab the first three rows
+df_test[0:3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also possible to select by slicing similar to the numpy array!</p>
+<blockquote>
+<div><p>Here we use the method <strong>loc</strong> with square brackets to select rows and columns
+[rows , columns] with the similar slicing [start:stop:steps]. The <strong>loc</strong> method uses the index and the column names of the dataframe.</p>
+</div></blockquote>
+<p>Below we take the first three rows and only the A and B columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#first three rows and the A and B columns
+df_test.loc[ 0:2 , [&quot;A&quot;,&quot;B&quot;] ]
+</pre></div>
+</div>
+</div>
+</div>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p>
+<p>Let’s try out what you’ve learnt. Try and select the ID and Country columns and only the third row:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ID and country columns, and the third row
+df_test.loc[?, ?]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-from-a-dataframe-using-positions">
+<h2><span class="section-number">8.3. </span><font color='darkorange'>Selecting from a Dataframe: using positions</font><a class="headerlink" href="#selecting-from-a-dataframe-using-positions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#full dataframe
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#first three rows and the second and thrid columns - using :
+df_test.iloc[0:3,1:3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#second, and fourth rows, and second and fourth columns - using lists
+df_test.iloc[ [1,3] , [1,3] ]
+</pre></div>
+</div>
+</div>
+</div>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p>
+<p>Try and select the ID and Country columns and only the third row using iloc:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ID and country columns, and the third row
+df_test.iloc[?, ?]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-new-variables">
+<h2><span class="section-number">8.4. </span><font color='darkorange'>Creating new variables</font><a class="headerlink" href="#creating-new-variables" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+#multiply the B column by 4 to create a new variable C
+df_test[&#39;C&#39;] = df_test[&#39;B&#39;] * 4
+
+#multiply the C column by A to create a new variable D
+df_test[&#39;D&#39;] = df_test[&#39;C&#39;] * df_test[&#39;A&#39;]
+
+#take a look
+df_test
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-dataframes">
+<h2><span class="section-number">8.5. </span><font color='darkorange'>Filtering DataFrames</font><a class="headerlink" href="#filtering-dataframes" title="Link to this heading">#</a></h2>
+<p>Keep only the rows/columns that you’d like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#keep only the rows where A is less than 3
+df_test_sub = df_test[df_test.A&lt;3]
+
+#keep only the columns A and ID
+df_test_sub = df_test_sub[[&#39;A&#39;,&#39;B&#39;]]
+
+#take a look
+df_test_sub
+</pre></div>
+</div>
+</div>
+</div>
+<p align="left">
+  <img src="https://raw.githubusercontent.com/tbonne/peds/main/images/take_action.jpg" width="100" alt="colab">
+</p>
+<p>Add the C and D columns together and select only the rows with values greater than 100:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Add the columns C and D together
+df_test[&#39;D&#39;] = ? + ?
+
+#keep only the rows where D is greater than 100
+df_test_100 = ?
+
+#take a look
+df_test_100
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe-functions">
+<h2><span class="section-number">8.6. </span><font color='darkorange'>Dataframe functions</font><a class="headerlink" href="#dataframe-functions" title="Link to this heading">#</a></h2>
+<p>When we create a dataframe we are creating an object, and this dataframe object has functions built in. Let’s take a look at a few now, and we will see more as we go along in this course.</p>
+<p>Try just typing df_test.</p>
+<p>After typing the “.” you should see the list of functions available to you once you’ve created a dataframe object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_test.
+</pre></div>
+</div>
+</div>
+</div>
+<p>One useful function is the <em>dtypes</em> function. It will tell us what data type is in each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#What data type is stored in each column
+df_test.dtypes
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>sum</em> function is very useful for quickly summing up the values in a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#What is the sum of the A column
+df_test.A.sum()
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>?</em> is a very useful function in general, and can provide us with useful information about most objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#find help on functions, objects, ... etc
+?df_test
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">8.7. </span><font color='darkorange'>Further reading</font><a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<p>Pandas quick intro:
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html</a>
+</br>
+Pandas longer intro:
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html</a></p>
+<blockquote>
+<div><p>If you would like the notebook without missing code check out the <a class="reference external" href="https://colab.research.google.com/github/tbonne/peds/blob/main/docs/fullNotebooks/full_IntroData1_DataFrames.ipynb">full code</a> version.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/introData"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../IntroDataFrames.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span><font color="darkorange">Working with data</font></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="IntroData2_LoadingData.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span><font color='darkorange'>Using existing data</font></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">8.1. <font color="darkorange">Creating DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe">8.2. <font color="darkorange">Selecting from a Dataframe</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-from-a-dataframe-using-positions">8.3. <font color="darkorange">Selecting from a Dataframe: using positions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-variables">8.4. <font color="darkorange">Creating new variables</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-dataframes">8.5. <font color="darkorange">Filtering DataFrames</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-functions">8.6. <font color="darkorange">Dataframe functions</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">8.7. <font color="darkorange">Further reading</font></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tyler R. Bonnell
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
