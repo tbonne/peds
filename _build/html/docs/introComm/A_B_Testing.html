@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -701,10 +701,10 @@ document.write(`
 <span class="n">linear_reg_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;retention_7 ~ version &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_cats_train</span><span class="p">)</span>
 
 <span class="c1">#2. Use the data to fit the model (i.e., find the best intercept and slope parameters)</span>
-<span class="n">linear_reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">linear_reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
 <span class="c1">#3. take a look at the summary</span>
-<span class="n">linear_reg_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
